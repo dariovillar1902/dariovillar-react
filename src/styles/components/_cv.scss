@@ -1,0 +1,92 @@
+.divcv {
+  padding: 0;
+}
+
+.cvphoto {
+  width: 70%;
+  max-height: 70%;
+}
+
+.filaarriba {
+  display: flex;
+  vertical-align: middle;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 10px;
+  padding-left: 20px;
+}
+
+.infocontacto {
+  margin: 10px 0;
+}
+
+.linkscontacto {
+  margin: 10px 20px 10px 0;
+  float: right;
+  text-align: right;
+}
+
+.divfoto {
+  margin: auto;
+  text-align: center;
+  background: rgb(151, 151, 185);
+  background: radial-gradient(
+    circle,
+    rgb(151, 171, 185) 0%,
+    rgb(143, 193, 200) 100%
+  );
+  padding-top: 50px;
+}
+
+.infoadicional {
+  text-align: center;
+  background: rgb(151, 151, 185);
+  background: radial-gradient(
+    circle,
+    rgb(151, 171, 185) 0%,
+    rgb(143, 193, 200) 100%
+  );
+  color: #fbfbff;
+}
+
+h2 {
+  margin: 20px auto;
+}
+
+h5 {
+  margin: 10px auto;
+}
+
+.tituloadicional {
+  margin: 80px 0 20px 0;
+  color: #fbfbff !important;
+}
+
+.filaabajo {
+  margin-bottom: 50px;
+  padding-left: 20px;
+  padding-bottom: 68px;
+}
+
+.cvtext {
+  font-family: "Public Sans", sans-serif;
+}
+
+.titulo {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  color: #197278;
+}
+
+.textoCurso {
+  margin: 10px 0 !important;
+}
+
+.cvrow {
+  margin: 0;
+  padding: 0;
+}
+
+hr {
+  margin: 26.5px 0;
+}

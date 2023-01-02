@@ -1,0 +1,37 @@
+.darkBody {
+  background-color: #0d0106;
+  color: #fbfbff;
+}
+
+.lightBody {
+  background-color: #fbfbff;
+  color: #0d0106;
+}
+
+.darkSpan {
+  color: #0d0106;
+}
+
+.lightSpan {
+  color: rgb(251, 251, 255);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  padding: 30px 0;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+h1 {
+  background: linear-gradient(90deg, #388697, #5948d5);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  width: 6em;
+  margin-bottom: 20px;
+}

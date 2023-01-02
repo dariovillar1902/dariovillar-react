@@ -1,0 +1,158 @@
+.divfoto {
+  margin: auto;
+  text-align: center;
+  background-color: #188b5d;
+  padding-top: 50px;
+}
+
+.infoadicional {
+  text-align: center;
+  background-color: #188b5d;
+  color: #fbfbff;
+}
+
+h5 {
+  margin: 10px auto;
+}
+
+.tituloadicional {
+  margin: 80px 0 20px 0;
+}
+
+.filaabajo {
+  margin-bottom: 50px;
+}
+
+.verMas {
+  background-color: #ff331f;
+  color: white !important;
+  font-weight: bold;
+  font-family: "Helvetica Neue", sans-serif;
+  border-radius: 15px;
+  padding: 10px 20px;
+  margin: 0 20px;
+}
+
+.progress {
+  background: rgba(255, 255, 255, 0.1);
+  justify-content: flex-start;
+  border-radius: 100px;
+  align-items: center;
+  position: relative;
+  padding: 0 5px;
+  display: flex;
+  height: 40px;
+  width: 300px;
+  margin: 40px auto;
+  font-size: 30px;
+}
+
+.darkProgress {
+  border: 2px solid #fbfbff;
+}
+
+.lightProgress {
+  border: 2px solid #0d0106;
+}
+
+.progress-value {
+  border-radius: 100px;
+  height: 30px;
+  width: 0;
+}
+
+.darkProgressValue {
+  box-shadow: 0 10px 40px -10px #fff;
+  background: #fff;
+}
+
+.lightProgressValue {
+  box-shadow: 0 10px 40px -10px #0d0106;
+  background: #0d0106;
+}
+
+.lightTooltip {
+  background: #fff;
+  color: #0d0106;
+}
+
+#progress1 {
+  animation: load1 10s normal forwards;
+}
+
+#progress2 {
+  animation: load2 10s normal forwards;
+}
+
+#progress3 {
+  animation: load3 10s normal forwards;
+}
+
+@keyframes load1 {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 79.17%;
+  }
+}
+
+@keyframes load2 {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 49.86%;
+  }
+}
+
+@keyframes load3 {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 60.87%;
+  }
+}
+
+.fotoSobreMi {
+  width: 80% !important;
+  margin: auto;
+}
+
+.divFoto {
+  text-align: center;
+  align-items: center;
+  vertical-align: middle;
+  display: flex;
+}
+
+.divProgreso {
+  text-align: center;
+  align-items: center;
+}
+
+.linksUtiles {
+  color: #fbfbff;
+}
+
+.linksUtiles:hover {
+  color: #ff331f !important;
+}
+
+.verMasLink {
+  color: #fbfbff !important;
+  text-decoration: none;
+}
+
+h3 {
+  color: #ff331f;
+}
+
+.lineaHorizontal {
+  width: 100%;
+  border: 0;
+  border-top: 3px solid #fbfbff;
+  color: #fbfbff;
+  opacity: 1;
+}

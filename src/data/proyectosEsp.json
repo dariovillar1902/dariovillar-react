@@ -1,0 +1,137 @@
+[
+  {
+    "id": 1,
+    "imagenes": "NextPlan",
+    "titulo": "ExxonMobil Apps",
+    "fechaRealizacion": "Marzo 2022 - Diciembre 2022",
+    "duracion": "1 año",
+    "descripcion": "Desarrollo y soporte de las aplicaciones de uso interno en mi pasantía en ExxonMobil, en el equipo de Modern Application Development. Las aplicaciones incluyen NextPlan (utilizada por responsables de planeamiento estratégico), DVT (utilizada por analistas de datos para encontrar errores en bases de datos masivas), SACS (utilizada por responsables de seguridad en pozos de exploración no convencional, para crear y gestionar alertas), entre otras. Creación y ampliación de endpoints en APIs, integración con Microsoft Azure y GitHub, testeos periódicos del código de las distintas aplicaciones.",
+    "mejoras": "Se determinan en cada incremento los objetivos del equipo, a través de la metodología Agile/SCRUM se dividen las tareas a realizar en los distintos sprints que componen al incremento, llevando el registro y control de lo completado en cada período.",
+    "tecnologiasUtilizadas": [
+      "React",
+      "TypeScript",
+      ".NET",
+      "#C",
+      "Bootstrap",
+      "GitHub"
+    ]
+  },
+  {
+    "id": 2,
+    "imagenes": "Facultad",
+    "titulo": "Páginas para Ingeniería Civil",
+    "fechaRealizacion": "Marzo 2022 - Diciembre 2022",
+    "duracion": "9 meses",
+    "descripcion": "Distintas páginas para la carrera de Ingeniería Civil en la UTN FRBA, con el objetivo de incorporar conceptos de materias como Geotecnia (a través de la utilización de una página web para la clasificación de suelos por sistemas SUCS y AASHTO, cálculo de límite líquido y límite plástico de un suelo) y Tecnología del Hormigón (mediante módulos de Verdadero o Falso y cálculo de dosificación de hormigones). Las páginas fueron desarrolladas utilizando elementos básicos de React y Bootstrap, sin prestar mucha atención al diseño ya que son utilizadas solo por un grupo de estudiantes y no lanzadas al público en general.",
+    "mejoras": "Crear más páginas para automatizar procesos de Ingeniería, incorporar nuevas funcionalidades y hacer el código más simple y accesible para poder reutilizarlo en distintas tareas.",
+    "tecnologiasUtilizadas": ["React", "JavaScript", "Bootstrap", "Next.js"],
+    "pageLink": "https://geotecniautnfrba.vercel.app/",
+    "gitHubLink": "https://github.com/dariovillar1902/geotecniautnfrba"
+  },
+  {
+    "id": 3,
+    "imagenes": "Helplab",
+    "titulo": "Helplab Tienda",
+    "fechaRealizacion": "Abril 2022",
+    "duracion": "1 semana",
+    "descripcion": "Se realizó el sitio web e-commerce para la tienda de Helplab, con páginas que muestran los distintos productos que se venden, incluyendo auriculares, relojes inteligentes, parlantes, teclados, mouse, cargadores y otros productos. La tienda tiene distintos productos con fotos, descripción, división en categorías, etiquetas, etc. También se incluye el contacto, la posibilidad de buscar, ordenar o filtrar productos, configurar medios de pago y más.",
+    "tecnologiasUtilizadas": ["WordPress", "JavaScript", "Bootstrap"],
+    "pageLink": "https://helplabtienda.com/"
+  },
+  {
+    "id": 4,
+    "imagenes": "Wordle",
+    "titulo": "Wordle - Español",
+    "fechaRealizacion": "Marzo 2022",
+    "duracion": "3 días",
+    "descripcion": "Adaptación del popular juego Wordle en español, permitiendo el input del usuario de forma manual o a través del teclado. La mecánica es la misma que la del juego original, con las letras introduciéndose a medida que el usuario tipea, y luego actualizando sus colores a amarillo o verde según si la letra está o no en la palabra y su posición. Las letras no utilizadas se ocultan en el teclado, al igual que en el juego. Se pueden compartir los resultados copiándolos al portapapeles.",
+    "mejoras": "Actualizar el juego para incorporar palabras de más letras, palabras con tildes, etc. Mejorar el sistema que permite ocultar las letras en el teclado. Incorporar modo claro y opción para jugar una sola vez por día.",
+    "tecnologiasUtilizadas": ["React", "JavaScript", "HTML", "CSS"],
+    "pageLink": "https://wordlees.vercel.app/",
+    "gitHubLink": "https://github.com/dariovillar1902/wordlees"
+  },
+  {
+    "id": 5,
+    "imagenes": "DarioVillar",
+    "titulo": "Página Personal - Darío Villar",
+    "fechaRealizacion": "Noviembre 2021 - Diciembre 2022",
+    "duracion": "5 días",
+    "descripcion": "Esta misma página fue creada desde cero debido a la necesidad de tener un lugar donde mostrar mis proyectos de desarrollo web. Hice uso de múltiples recursos visuales y herramientas de diseño para hacer una página agradable, con un maquetado simple que permita ver mi información personal de forma clara, ordenada y divertida. Aprendí a usar componentes de muchas fuentes distintas, tales como tsParticles, elementos para barras de progreso, gradientes de texto con CSS, contadores automáticos con JS y varios componentes de Bootstrap como Modals, Carruseles y Tooltips. Además, esta página es 100% responsive, por lo que puede ser visualizada desde dispositivos de cualquier tamaño sin ningún problema. La página tiene 4 secciones: un Inicio atractivo visualmente que invita a quien entre a la página a continuar navegando, una sección Sobre Mi con información personal y estadísticas sobre mi desempeño, una sección de Portfolio en donde muestro mis proyectos y una sección de Contacto en donde se puede descargar mi CV y carta de presentación, así como enviarme comentarios o sugerencias. ",
+    "mejoras": "Implementar modo claro, páginas en español e inglés, seguir mejorando la página para que sea más atractiva visualmente y ampliar mi portfolio.",
+    "tecnologiasUtilizadas": [
+      "React",
+      "HTML5",
+      "CSS3",
+      "Bootstrap",
+      "JavaScript",
+      "jQuery"
+    ],
+    "pageLink": "https://dariovillar.vercel.app/",
+    "gitHubLink": "https://github.com/dariovillar1902/dariovillar"
+  },
+  {
+    "id": 6,
+    "imagenes": "Viajes",
+    "titulo": "Viajes99.NET",
+    "fechaRealizacion": "Diciembre 2021",
+    "duracion": "2 semanas",
+    "descripcion": "Esta página fue creada para el proyecto integrador del curso de Desarrollador .NET de Becas NEORIS en conjunto con UTN FRBA. Se presentó esta página a los Ingenieros Roxana Leituz y Pablo Mendez, profesores de Ingeniería en Sistemas, quienes la aprobaron debido al buen trabajo realizado en el frontend y el backend. En mi grupo de trabajo de 2 personas, mi compañero se encargó de la vista del sistema de viajes, mientras que yo me encargué de la funcionalidad del sistema. Se pueden cargar clientes, paquetes y facturas en el sistema, que luego se pueden editar, borrar o ver más en detalle. Hay funciones para listar clientes que cumplan cierta condición (por ejemplo, clientes con al menos dos paquetes vendidos), o para ver la cantidad y el monto totales de los viajes de un cliente en particular. Todos estos datos se guardan en una base de datos a través de SQL.",
+    "tecnologiasUtilizadas": ["ASP.NET", "Razor", "MVC", "C#", "SQL", "jQuery"],
+    "gitHubLink": "https://github.com/dariovillar1902/Viajes99.NET"
+  },
+  {
+    "id": 7,
+    "imagenes": "Arg",
+    "titulo": "100 Argentinos Dicen",
+    "fechaRealizacion": "Septiembre 2021",
+    "duracion": "1 semana",
+    "descripcion": "Recreación de la pantalla digital del popular programa 100 Argentinos Dicen/Family Feud. Se realiza una pregunta y se muestran hasta 8 respuestas principales, en orden de más popular a menos popular. Dos equipos compiten por ver quién puede acumular la mayor cantidad de puntos producto de adivinar la mayor cantidad de opciones posibles. Tienen hasta 3 intentos (cruces) para conseguir todas las opciones. Controles: Barra espaciadora (sonido del pulsador), Enter (revela la pregunta), 1 a 8 (revela la opción con el número correspondiente), Flecha derecha (pasa a la siguiente pregunta), Cualquier otra tecla (agrega una cruz). Al final del programa, dos de los participantes del equipo ganador se someten al dinero rápido. En esta ronda, se hacen 5 preguntas de las cuales se deben adivinar las opciones más populares. Uno de los jugadores responde primero, debe responder en 20 segundos. Luego, responde el otro jugador en 25 segundos, pero no puede repetir ninguna de las opciones que ya dijo el jugador anterior. Si en esta ronda se consiguen 200 puntos, se gana el juego.",
+    "mejoras": "Configurar preguntas con sus opciones que se puedan subir y editar fácilmente, y agregar los nombres de los dos equipos que juegan con la puntuación parcial de cada equipo.",
+    "tecnologiasUtilizadas": ["HTML5", "CSS3", "JavaScript", "jQuery", "SMTP"],
+    "pageLink": "https://100argentinosdicen.vercel.app",
+    "gitHubLink": "https://github.com/dariovillar1902/100argentinosdicen"
+  },
+  {
+    "id": 8,
+    "imagenes": "CAH",
+    "titulo": "Hasta Donde Puedas online",
+    "fechaRealizacion": "Agosto 2021",
+    "duracion": "1 mes",
+    "descripcion": "Recreación del popular juego Hasta Donde Puedas/Cards Against Humanity en versión online. Se elige una carta negra al azar y luego se reparten 10 cartas blancas a cada jugador. Por turnos, los jugadores deben elegir la carta blanca que crean que mejor completa a la carta negra. Luego, todos los jugadores votan por la carta que les parece más graciosa, y le otorgan un punto. El primer jugador que llega a 5 puntos gana el juego. Controles: Drag and drop sobre las cartas con el mouse, luego en la votación hacer click sobre la carta elegida, Números del 1 al 0 para elegir la carta en la posición correspondiente durante el juego, luego números del 1 a la cantidad de jugadores para elegir la carta en la votación. Posibilidad de activar modo automático (juega y vota automáticamente en cada ronda), mezclar todas las cartas hasta 3 veces en una partida, activar modo claro u oscuro, cambiar opciones de juego.",
+    "mejoras": "Agregar salas, mejorar el estilo general del juego, permitir la inclusión de los distintos packs y extensiones que trae el juego real.",
+    "tecnologiasUtilizadas": [
+      "Node.js",
+      "Phaser 3",
+      "Socket.IO",
+      "HTML5",
+      "Express",
+      "Heroku"
+    ],
+    "pageLink": "https://hdpjuego.herokuapp.com/",
+    "gitHubLink": "https://github.com/dariovillar1902/cah"
+  },
+  {
+    "id": 9,
+    "imagenes": "QWQ",
+    "titulo": "QWQ Latino América LLC",
+    "fechaRealizacion": "2018 - 2019",
+    "duracion": "1 mes",
+    "descripcion": "Esta página fue creada para la empresa de Oftalmología QWQ Latino América LLC. Es una página básica con información sobre los productos de oftalmología HD Analyzer y Tear Film Analyzer, sus folletos y características correspondientes. También tiene una sección de contacto con un formulario que envía un mensaje directamente a los responsables de atención al cliente de la compañía. La página es 100% responsive, puede verse desde dispositivos móviles sin problemas. Lamentablemente, el hosting de esta página fue descontinuado, por lo que no es posible visitarla. Lo que se ve en las fotos es toda la información que fue posible rescatar. Sin embargo, fue el primer proyecto en el que tuve contacto con clientes, y me aseguré de escuchar e interpretar sus pedidos para obtener una página atractiva e informativa.",
+    "tecnologiasUtilizadas": ["HTML5", "CSS3", "Bootstrap", "JavaScript", "PHP"]
+  },
+  {
+    "id": 10,
+    "imagenes": "Syzygy",
+    "titulo": "Syzygy Consulting Group",
+    "fechaRealizacion": "Octubre 2017",
+    "duracion": "1 mes",
+    "descripcion": "Esta página fue creada para un trabajo práctico de la materia Comercialización, en 4° año de mi colegio secundario. Es una página bastante básica debido a que en ese momento sólo sabía HTML, CSS y JavaScript básico. La página era 100% responsive a través de Bootstrap, por lo que podía ser vista desde cualquier dispositivo. En mi grupo de trabajo de 2 personas, mi compañero se encargó de la confección del logo en distintas variantes (visible en la página de inicio) y yo realicé enteramente el desarrollo de esta página. Tomamos en cuenta todas las correcciones del profesor, aplicándolas como si fuera un cliente y preguntando todo lo que fuera necesario para mejorar nuestra página. Lamentablemente, el hosting de esta página fue descontinuado, por lo que no es posible visitarla. Lo que se ve en las fotos es toda la información que fue posible rescatar. Sin embargo, fue mi primer proyecto y aprendí mucho.",
+    "tecnologiasUtilizadas": [
+      "HTML5",
+      "CSS3",
+      "Bootstrap",
+      "JavaScript",
+      "jQuery"
+    ]
+  }
+]

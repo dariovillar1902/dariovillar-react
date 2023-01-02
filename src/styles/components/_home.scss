@@ -1,0 +1,111 @@
+#elementosSuperpuestos {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+.otroTexto {
+  background: linear-gradient(90deg, #388697, #5948d5);
+  color: white;
+  font-family: "Helvetica Neue", sans-serif;
+  z-index: 2;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px 0;
+  width: 15em;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  border-radius: 10px;
+}
+
+canvas {
+  display: block;
+  position: relative !important;
+  z-index: -1 !important;
+}
+
+.foto {
+  top: 40%;
+}
+
+.gradienteTexto {
+  top: 60%;
+}
+
+.linksContacto {
+  top: 70%;
+}
+
+.otroTexto {
+  top: 80%;
+}
+
+#tsparticles {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+}
+
+.gradienteTexto {
+  background: linear-gradient(90deg, #388697, #5948d5);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 60px;
+  z-index: 2;
+  font-weight: bolder;
+  text-align: center;
+  width: 6em;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+}
+
+.foto {
+  z-index: 2;
+  width: 12em;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  border-radius: 50%;
+}
+
+.linksContacto {
+  background: linear-gradient(90deg, #388697, #5948d5);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 40px;
+  z-index: 2;
+  font-weight: bolder;
+  text-align: center;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 992px) {
+  #linkedin {
+    left: 43%;
+  }
+
+  #github {
+    left: 57%;
+  }
+}
+
+@media (min-width: 992px) {
+  #linkedin {
+    left: 47%;
+  }
+
+  #github {
+    left: 53%;
+  }
+}

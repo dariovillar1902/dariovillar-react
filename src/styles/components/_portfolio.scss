@@ -1,0 +1,110 @@
+.vistaPrevia {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.modal-title {
+  background: linear-gradient(90deg, #388697, #5948d5);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: bold;
+}
+
+.modal-body {
+  color: #0d0106;
+}
+
+.modal-dialog {
+  max-width: 90% !important;
+}
+
+.screenshotModal {
+  width: 100%;
+}
+
+.carousel,
+h4 {
+  margin-bottom: 20px;
+}
+
+h4 {
+  text-align: center;
+  font-weight: bold;
+}
+
+.portfolioIcon {
+  color: #ff331f;
+  margin: 0 10px;
+}
+
+.tituloProyecto {
+  background: linear-gradient(90deg, #388697, #5948d5);
+  color: white;
+  font-family: "Helvetica Neue", sans-serif;
+  z-index: 10;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px 5px;
+  max-width: 15em;
+  border-radius: 10px;
+  margin: auto !important;
+  transform: translateY(-400%);
+  visibility: hidden;
+}
+
+.verMasModal {
+  background-color: #ff331f;
+  color: white;
+  font-weight: bold;
+  z-index: 10;
+  font-family: "Helvetica Neue", sans-serif;
+  border-radius: 15px;
+  padding: 10px 20px;
+  margin: auto !important;
+  transform: translateY(-300%);
+  visibility: hidden;
+}
+
+.containerImagen {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.filterClassName {
+  filter: brightness(0.5) !important;
+}
+
+.visibleInfo {
+  visibility: visible !important;
+}
+
+@media (min-width: 1400px) {
+  .vistaPrevia {
+    height: 200px;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1200px) {
+  .tituloProyecto {
+    transform: translateY(-270%);
+  }
+
+  .verMas {
+    transform: translateY(-220%);
+  }
+}
+
+@media (min-width: 770px) and (max-width: 1000px) {
+  .tituloProyecto {
+    transform: translateY(-230%);
+  }
+
+  .verMas {
+    transform: translateY(-180%);
+  }
+}
