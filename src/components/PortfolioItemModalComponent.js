@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { Image, Modal, Carousel, Button, Form } from 'react-bootstrap'
-import { WordleImages, ViajesImages, FacultadImages, HelplabImages, CAHImages, QWQImages, ArgImages, DarioVillarImages, SyzygyImages, NextPlanImages } from '../assets/screenshots';
+import { WordleImages, ViajesImages, FacultadImages, HelplabImages, CAHImages, QWQImages, ArgImages, DarioVillarImages, SyzygyImages, NextPlanImages, EssenImages } from '../assets/screenshots';
 import { LanguageContext } from './languageContext';
 
-export const PortfolioItemModalComponent = ({ index, imagenes, titulo, fechaRealizacion, duracion, descripcion, mejoras, tecnologiasUtilizadas, pageLink, gitHubLink, showModal, handleClose }) => {
+export const PortfolioItemModalComponent = ({ index, proyecto, showModal, handleClose }) => {
     const { isSpanish } = useContext(LanguageContext);
     const images = {
         Wordle: WordleImages,
@@ -15,17 +15,18 @@ export const PortfolioItemModalComponent = ({ index, imagenes, titulo, fechaReal
         Arg: ArgImages,
         DarioVillar: DarioVillarImages,
         Syzygy: SyzygyImages,
-        NextPlan: NextPlanImages
+        NextPlan: NextPlanImages,
+        Essen: EssenImages
     }
 
     return (
         <Modal show={showModal} onHide={handleClose}>
             <Modal.Header closeButton>
-                <Modal.Title> {titulo} </Modal.Title>
+                <Modal.Title> {isSpanish ? proyecto.tituloEsp : proyecto.tituloEng} </Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Carousel>
-                    {images[`${imagenes}`].map((x, i) => {
+                    {images[`${proyecto.imagenes}`].map((x, i) => {
                         return (<Carousel.Item>
                             <Image
                                 className="d-block w-100"
@@ -37,27 +38,27 @@ export const PortfolioItemModalComponent = ({ index, imagenes, titulo, fechaReal
                     )}
                 </Carousel>
                 <div id="infoSyzygy">
-                    <p><i class='fas portfolioIcon fa-calendar'></i> {fechaRealizacion} <i class='fas portfolioIcon fa-clock'></i> {duracion} </p>
-                    <p><i class='fas portfolioIcon fa-list'></i> {descripcion}
+                    <p><i class='fas portfolioIcon fa-calendar'></i> {isSpanish ? proyecto.fechaRealizacionEsp : proyecto.fechaRealizacionEng} <i class='fas portfolioIcon fa-clock'></i> {isSpanish ? proyecto.duracionEsp : proyecto.duracionEng} </p>
+                    <p><i class='fas portfolioIcon fa-list'></i> {isSpanish ? proyecto.descripcionEsp : proyecto.descripcionEng}
                     </p>
-                    {(mejoras && mejoras !== '') && (<p><i class='fas portfolioIcon fa-long-arrow-alt-right'></i><b>{isSpanish ? "Proyecto: " : "Project: "} </b> {mejoras} </p>)}
+                    {(proyecto.mejorasEsp && proyecto.mejorasEsp !== '') && (<p><i class='fas portfolioIcon fa-long-arrow-alt-right'></i><b>{isSpanish ? "Proyecto: " : "Project: "} </b> {isSpanish ? proyecto.mejorasEsp : proyecto.mejorasEng} </p>)}
                     <p><i class='fas portfolioIcon fa-rocket'></i><b>{isSpanish ? "Tecnologías utilizadas: " : "Used technologies: "} </b> </p>
-                    <h4> {tecnologiasUtilizadas.length > 0 && tecnologiasUtilizadas.map((tech, index) => {
+                    <h4> {proyecto.tecnologiasUtilizadas.length > 0 && proyecto.tecnologiasUtilizadas.map((tech, index) => {
                         return (index !== 0 ? ' - ' + tech : tech);
                     })} </h4>
-                    {pageLink && <Form method='get' action={pageLink}>
+                    {proyecto.pageLink && <Form method='get' action={proyecto.pageLink}>
                         <Button variant='outline-primary' className='w-100 py-2 mb-2 rounded-4' type='submit'>
                             <i className='fas portfolioIcon fa-wifi'></i>
                             {isSpanish ? 'Ir a la Página' : 'Go to Page'}
                         </Button>
                     </Form>}
-                    {gitHubLink && <Form method='get' action={gitHubLink}>
+                    {proyecto.gitHubLink && <Form method='get' action={proyecto.gitHubLink}>
                         <Button variant='outline-secondary' className='w-100 py-2 mb-2 rounded-4' type='submit'>
                             <i className='fab portfolioIcon fa-github'></i>
                             {isSpanish ? 'Ver en GitHub' : 'Watch on GitHub'}
                         </Button>
                     </Form>}
-                    {(!pageLink && !gitHubLink) && <Form method='get' action={gitHubLink}>
+                    {(!proyecto.pageLink && !proyecto.gitHubLink) && <Form method='get' action={proyecto.gitHubLink}>
                         <Button variant='outline-primary' className='w-100 py-2 mb-2 rounded-4' type='submit'>
                             <i className='fas portfolioIcon fa-wifi'></i>
                             {isSpanish ? 'Volver' : 'Go Back'}

@@ -1,13 +1,15 @@
 .divfoto {
   margin: auto;
   text-align: center;
-  background-color: #188b5d;
   padding-top: 50px;
+}
+
+.descripcion {
+  text-align: justify;
 }
 
 .infoadicional {
   text-align: center;
-  background-color: #188b5d;
   color: #fbfbff;
 }
 
@@ -76,16 +78,20 @@ h5 {
   color: #0d0106;
 }
 
-#progress1 {
+#progressEssen {
   animation: load1 10s normal forwards;
 }
 
-#progress2 {
+#progressExxon {
   animation: load2 10s normal forwards;
 }
 
-#progress3 {
+#progressDev {
   animation: load3 10s normal forwards;
+}
+
+#progressCivil {
+  animation: load4 10s normal forwards;
 }
 
 @keyframes load1 {
@@ -93,7 +99,7 @@ h5 {
     width: 0;
   }
   100% {
-    width: 79.17%;
+    width: $progressEssen;
   }
 }
 
@@ -102,7 +108,7 @@ h5 {
     width: 0;
   }
   100% {
-    width: 49.86%;
+    width: $progressExxon;
   }
 }
 
@@ -111,7 +117,16 @@ h5 {
     width: 0;
   }
   100% {
-    width: 60.87%;
+    width: $progressDev;
+  }
+}
+
+@keyframes load4 {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: $progressCivil;
   }
 }
 

@@ -1,0 +1,174 @@
+[
+  {
+    "id": 1,
+    "imagen": "fotoessen",
+    "imagenAlt": "Essen Aluminio",
+    "tituloEsp": "Full-Stack Developer en Essen Aluminio",
+    "tituloEng": "Full-Stack Developer at Essen Aluminio",
+    "descripcionEsp": "En Julio de 2023 comencé en una posición full-time en el equipo de Sistemas/IT dentro de la empresa Essen Aluminio. La empresa se dedica a la comercialización de ollas y elementos de cocina de aluminio a través del modelo de venta directa. El equipo en el que estoy es responsable del soporte y desarrollo de la página de uso interno de los Emprendedores, así como de proveedores o de otras áreas de la empresa. La página habilita a los Emprendedores a realizar múltiples funciones, incluyendo la carga de pedidos, pagos con tarjetas de crédito y débito (integrada con múltiples medios de pago en Argentina, Bolivia, Chile, Paraguay, Perú y Uruguay), la creación de reclamos de atención al cliente, la visualización de reportes y la gestión de su red y sus clientes. Mi tarea es realizar el mantenimiento y el desarrollo de nuevas funcionalidades para el sistema de gestión de la empresa, que incluye un ERP y un CRM. La página está desarrollada en C# con ASP.NET Framework 4, y se quiere realizar una migración a React con TypeScript y una API .NET 6 con conexión a la base de datos a través de Entity Framework. También se está realizando una migración a Azure DevOps para automatización de deployments y CI/CD.",
+    "descripcionEng": "In July 2023 I started a full-time position in the IT team at Essen Aluminio. The company sells aluminum pots and kitchenware through a direct sales model. The team I am in is responsible for the support and development of the internal website for the Entrepreneurs, as well as for suppliers or other areas of the company. The website enables Entrepreneurs to perform multiple functions, including order loading, credit and debit card payments (integrated with multiple payment methods in Argentina, Bolivia, Chile, Paraguay, Perú and Uruguay), creation of claims for customer support, report visualization and network and customer management. My assignment is to perform maintenance and development of new features for the company's management system, which includes an ERP and a CRM. The website is developed in C# with ASP.NET Framework 4, and a migration to React with TypeScript and a .NET 6 API with connection to the database through Entity Framework is being planned. A migration to Azure DevOps for deployment automation and CI/CD is also being planned.",
+    "counters": [
+      {
+        "countTo": 22,
+        "cuentaDe": "/22",
+        "textoEsp": "sprints completados",
+        "textoEng": "sprints completed"
+      },
+      {
+        "countTo": 52,
+        "cuentaDe": "",
+        "textoEsp": "tickets en los últimos 6 meses",
+        "textoEng": "tickets in the last 6 months"
+      },
+      {
+        "countTo": 4,
+        "cuentaDe": ".9",
+        "textoEsp": "rating de aprobación de tickets",
+        "textoEng": "ticket approval rating"
+      }
+    ],
+    "progreso": "22/22 (100%)",
+    "idProgreso": "progressEssen",
+    "botones": [
+      {
+        "textoEsp": "Pedir Referencias",
+        "textoEng": "Ask for references",
+        "link": "https://www.linkedin.com/in/gabriel-arce-148b59a4/"
+      },
+      {
+        "textoEsp": "Ir a Essen",
+        "textoEng": "Go to Essen",
+        "link": "https://web.essen.com.ar/latam/login.aspx"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "imagen": "fotoexxon",
+    "imagenAlt": "ExxonMobil",
+    "tituloEsp": "Pasantía IT en ExxonMobil",
+    "tituloEng": "IT Internship at ExxonMobil",
+    "descripcionEsp": "En Marzo de 2022 comencé mi pasantía en el equipo de Modern Application Development, en el sector de Unconventional IT (exploración no convencional). Trabajé en un equipo global, con reuniones en inglés y bajo la metodología Agile/SCRUM, en contacto constante con los clientes y atendiendo a sus necesidades y requerimientos. Mi tarea era realizar la migración y el soporte de aplicaciones como NextPlan, Compressor, DVT y SACS de un framework .NET MVC a frontend en React y TypeScript con API C# en el backend y conexión a la base de datos a través de Entity Framework. NextPlan es una aplicación de uso interno para permitir la toma de decisiones estratégicas a los responsables del planeamiento del sector Unconventional, y está alojada en la plataforma cloud Microsoft Azure. En el equipo se cumple con los estándares y las buenas prácticas de la industria, como Pair Programming, testeos del frontend a través de Jest, control de versiones en GitHub y documentación del código.",
+    "descripcionEng": "In March 2022 I started my internship in the Modern Application Development team, part of the Unconventional IT sector, for unconventional exploration of oil and gas. I worked in a global team, with meetings in English and under the Agile/SCRUM methodology, connecting with the customers and meeting their needs and requirements. My assignments included completing the migration and support of applications like NextPlan, Compressor, DVT and SACS, using .NET MVC for the older ones and React and TypeScript with a C# API for the newer ones. The apps connect to different databases via Entity Framework and SQL stored procedures. NextPlan is an application for internal use, which lets Development Planners make decisions and plan ahead based on data. This website is stored on Microsoft Azure. Our team fulfills the industry standards for coding and software best practices, including Pair Programming, frontend testing with Jest, version control through GitHub and code documentation.",
+    "counters": [
+      {
+        "countTo": 31,
+        "cuentaDe": "/31",
+        "textoEsp": "sprints completados",
+        "textoEng": "sprints completed"
+      },
+      {
+        "countTo": 29,
+        "cuentaDe": "",
+        "textoEsp": "aplicaciones soportadas",
+        "textoEng": "supported applications"
+      },
+      {
+        "countTo": 14,
+        "cuentaDe": "",
+        "textoEsp": "personas en el equipo de MAD",
+        "textoEng": "people in the MAD team"
+      }
+    ],
+    "progreso": "31/31 (100%)",
+    "idProgreso": "progressExxon",
+    "botones": [
+      {
+        "textoEsp": "Pedir Referencias",
+        "textoEng": "Ask for references",
+        "link": "https://www.linkedin.com/in/silvina-alejandra-dalchiele-8284a012a/"
+      },
+      {
+        "textoEsp": "Ver mis contribuciones",
+        "textoEng": "See my contributions",
+        "link": "portfolio"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "imagen": "fotodev",
+    "imagenAlt": "Full-Stack Web Development",
+    "tituloEsp": "Cursos y certificaciones de Desarrollo Web Full-Stack",
+    "tituloEng": "Courses and lessons on Full-Stack Web Development",
+    "descripcionEsp": "Siempre me interesó la programación, y en particular el desarrollo web. Desde los 15 años hice cursos en forma completamente autodidacta y desarrollé múltiples sitios web para proyectos personales, para amigos y conocidos e incluso para trabajos del colegio secundario y de la universidad. Aprendí lenguajes y herramientas de programación como HTML5, CSS3, JavaScript, jQuery, Bootstrap, WordPress, PHP, mySQL, Python, Node, React, .NET, Git/GitHub, Angular, entre otras tecnologías. Los cursos son de diversas plataformas, incluyendo la UTN FRBA (a través del programa Becas NEORIS), Udemy, LinkedIn Learning, Coursera, Pluralsight, entre otras. En la actualidad estoy aprendiendo más sobre Angular y Python, además de CI/CD a través de Azure DevOps y GitHub.",
+    "descripcionEng": "I was always interested in coding, especially in web development. Since I was 15 years old I took courses in a completely self-taught way, developing many websites for personal projects, friends and family and even for school and college projects. I learned development languages and tools such as HTML5, CSS3, JavaScript, jQuery, Bootstrap, WordPress, PHP, mySQL, Python, Node, React, .NET, Git/GitHub, Angular, among other technologies. The courses are from different platforms, including UTN FRBA (through the Becas NEORIS program), Udemy, LinkedIn Learning, Coursera, Pluralsight, among others. Currently, I am learning more about Angular and Python, plus CI/CD through Azure DevOps and GitHub.",
+    "counters": [
+      {
+        "countTo": 38,
+        "cuentaDe": "/75",
+        "textoEsp": "cursos y certificaciones",
+        "textoEng": "courses and certifications"
+      },
+      {
+        "countTo": 350,
+        "cuentaDe": "/702",
+        "textoEsp": "horas de clase",
+        "textoEng": "hours of lessons"
+      },
+      {
+        "countTo": 11,
+        "cuentaDe": "",
+        "textoEsp": "proyectos creados",
+        "textoEng": "created projects"
+      }
+    ],
+    "progreso": "350/702 (49,86%)",
+    "idProgreso": "progressDev",
+    "botones": [
+      {
+        "textoEsp": "Ver mis certificados",
+        "textoEng": "See my certificates",
+        "link": "contacto"
+      },
+      {
+        "textoEsp": "Ver mis proyectos",
+        "textoEng": "See my projects",
+        "link": "portfolio"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "imagen": "fotoconst",
+    "imagenAlt": "Ingeniería Civil/Civil Engineering",
+    "tituloEsp": "Ingeniería Civil en UTN FRBA",
+    "tituloEng": "Civil Engineering at UTN FRBA",
+    "descripcionEsp": "Estoy en el quinto nivel de un plan de 6 niveles. En el futuro, planeo seguir la orientación de Vías de Comunicación y dedicarme a la Ingeniería en Transporte. Asisto a clases en la Universidad Tecnológica Nacional, Facultad Regional Buenos Aires. Entré a la facultad en 2019, por lo que tuve un año de cursada presencial y dos virtuales, y en 2022 regresé a la presencialidad. Aprendí mucho sobre los distintos ámbitos de la Ingeniería, incluyendo ciencias básicas, cálculo y análisis de estructuras, tecnologías y técnicas relacionadas con materiales y construcción, cálculo y distribución de instalaciones domiciliarias, diseño y estudio de proyectos. Además, la facultad me preparó mucho para el trabajo en grupo, así como para la confección de documentación de obra a través de AutoCAD, planillas Excel, Mathcad, RAM Elements, entre otros programas.",
+    "descripcionEng": "I am in the fifth year of my university courses, from a 6-year degree. In the future, I plan to follow the Means of Transport profile and work in Transport Engineering. I attend courses at the National Technological University, in Buenos Aires. I started my career in 2019, so I only had a year of in-person courses, and two years online. In 2022 I returned to the University to have in-person lessons again. I learned greatly about different aspects of Engineering, including basic Math and Physics, structural analysis and technologies related to materials and construction. Moreover, my university prepared me to work in a team, as well as to make blueprints and other documents needed for building, through AutoCAD, Excel spreadsheets, Mathcad, RAM Elements, among other programs and applications.",
+    "counters": [
+      {
+        "countTo": 5,
+        "cuentaDe": "°",
+        "textoEsp": "año de la carrera",
+        "textoEng": "year of my degree"
+      },
+      {
+        "countTo": 33,
+        "cuentaDe": "/46",
+        "textoEsp": "materias aprobadas",
+        "textoEng": "completed subjects"
+      },
+      {
+        "countTo": 8,
+        "cuentaDe": ".12/10",
+        "textoEsp": "promedio general",
+        "textoEng": "average score"
+      }
+    ],
+    "progreso": "33/46 (71,74%)",
+    "idProgreso": "progressCivil",
+    "botones": [
+      {
+        "textoEsp": "Ver materias aprobadas",
+        "textoEng": "See completed subjects",
+        "link": "comprobante.pdf"
+      },
+      {
+        "textoEsp": "Ver trabajos realizados",
+        "textoEng": "See my projects",
+        "link": "trabajos.pdf"
+      }
+    ]
+  }
+]

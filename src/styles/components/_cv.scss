@@ -1,5 +1,5 @@
 .divcv {
-  padding: 0;
+  padding: 30px 10px;
 }
 
 .cvphoto {
@@ -12,7 +12,7 @@
   vertical-align: middle;
   flex-direction: column;
   justify-content: center;
-  padding-top: 10px;
+  padding-top: 20px;
   padding-left: 20px;
 }
 
@@ -24,33 +24,6 @@
   margin: 10px 20px 10px 0;
   float: right;
   text-align: right;
-}
-
-.divfoto {
-  margin: auto;
-  text-align: center;
-  background: rgb(151, 151, 185);
-  background: radial-gradient(
-    circle,
-    rgb(151, 171, 185) 0%,
-    rgb(143, 193, 200) 100%
-  );
-  padding-top: 50px;
-}
-
-.infoadicional {
-  text-align: center;
-  background: rgb(151, 151, 185);
-  background: radial-gradient(
-    circle,
-    rgb(151, 171, 185) 0%,
-    rgb(143, 193, 200) 100%
-  );
-  color: #fbfbff;
-}
-
-h2 {
-  margin: 20px auto;
 }
 
 h5 {
@@ -65,7 +38,6 @@ h5 {
 .filaabajo {
   margin-bottom: 50px;
   padding-left: 20px;
-  padding-bottom: 68px;
 }
 
 .cvtext {
@@ -79,7 +51,17 @@ h5 {
 }
 
 .textoCurso {
-  margin: 10px 0 !important;
+  margin: 0 15px !important;
+  font-family: "Public Sans", sans-serif;
+  font-weight: 100;
+}
+
+.blackText {
+  color: black;
+}
+
+.whiteText {
+  color: #fbfbff !important;
 }
 
 .cvrow {
