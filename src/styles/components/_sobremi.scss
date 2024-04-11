@@ -78,20 +78,24 @@ h5 {
   color: #0d0106;
 }
 
-#progressEssen {
+#progressChevron {
   animation: load1 10s normal forwards;
 }
 
-#progressExxon {
+#progressEssen {
   animation: load2 10s normal forwards;
 }
 
-#progressDev {
+#progressExxon {
   animation: load3 10s normal forwards;
 }
 
-#progressCivil {
+#progressDev {
   animation: load4 10s normal forwards;
+}
+
+#progressCivil {
+  animation: load5 10s normal forwards;
 }
 
 @keyframes load1 {
@@ -99,7 +103,7 @@ h5 {
     width: 0;
   }
   100% {
-    width: $progressEssen;
+    width: $progressChevron;
   }
 }
 
@@ -108,7 +112,7 @@ h5 {
     width: 0;
   }
   100% {
-    width: $progressExxon;
+    width: $progressEssen;
   }
 }
 
@@ -117,11 +121,20 @@ h5 {
     width: 0;
   }
   100% {
-    width: $progressDev;
+    width: $progressExxon;
   }
 }
 
 @keyframes load4 {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: $progressDev;
+  }
+}
+
+@keyframes load5 {
   0% {
     width: 0;
   }

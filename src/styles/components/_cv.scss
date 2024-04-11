@@ -26,8 +26,9 @@
   text-align: right;
 }
 
-h5 {
-  margin: 10px auto;
+h4.titulo,
+h5.titulo {
+  margin: 0 !important;
 }
 
 .tituloadicional {
@@ -36,12 +37,11 @@ h5 {
 }
 
 .filaabajo {
-  margin-bottom: 50px;
-  padding-left: 20px;
+  margin-bottom: 30px;
 }
 
 .cvtext {
-  font-family: "Public Sans", sans-serif;
+  font-family: "Lora", serif;
 }
 
 .titulo {
@@ -52,7 +52,7 @@ h5 {
 
 .textoCurso {
   margin: 0 15px !important;
-  font-family: "Public Sans", sans-serif;
+  font-family: "Lora", serif;
   font-weight: 100;
 }
 
@@ -71,4 +71,27 @@ h5 {
 
 hr {
   margin: 26.5px 0;
+}
+
+.titulo {
+  text-align: center;
+}
+
+.workTitle {
+  display: flex;
+  vertical-align: middle;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.tituloGrande {
+  margin-bottom: 15px;
+}
+
+.divCurso {
+  margin-bottom: 10px;
+}
+
+h6 {
+  margin: 0;
 }

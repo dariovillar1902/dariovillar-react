@@ -1,24 +1,67 @@
 [
   {
     "id": 1,
-    "imagen": "fotoessen",
-    "imagenAlt": "Essen Aluminio",
-    "tituloEsp": "Full-Stack Developer en Essen Aluminio",
-    "tituloEng": "Full-Stack Developer at Essen Aluminio",
-    "descripcionEsp": "En Julio de 2023 comencé en una posición full-time en el equipo de Sistemas/IT dentro de la empresa Essen Aluminio. La empresa se dedica a la comercialización de ollas y elementos de cocina de aluminio a través del modelo de venta directa. El equipo en el que estoy es responsable del soporte y desarrollo de la página de uso interno de los Emprendedores, así como de proveedores o de otras áreas de la empresa. La página habilita a los Emprendedores a realizar múltiples funciones, incluyendo la carga de pedidos, pagos con tarjetas de crédito y débito (integrada con múltiples medios de pago en Argentina, Bolivia, Chile, Paraguay, Perú y Uruguay), la creación de reclamos de atención al cliente, la visualización de reportes y la gestión de su red y sus clientes. Mi tarea es realizar el mantenimiento y el desarrollo de nuevas funcionalidades para el sistema de gestión de la empresa, que incluye un ERP y un CRM. La página está desarrollada en C# con ASP.NET Framework 4, y se quiere realizar una migración a React con TypeScript y una API .NET 6 con conexión a la base de datos a través de Entity Framework. También se está realizando una migración a Azure DevOps para automatización de deployments y CI/CD.",
-    "descripcionEng": "In July 2023 I started a full-time position in the IT team at Essen Aluminio. The company sells aluminum pots and kitchenware through a direct sales model. The team I am in is responsible for the support and development of the internal website for the Entrepreneurs, as well as for suppliers or other areas of the company. The website enables Entrepreneurs to perform multiple functions, including order loading, credit and debit card payments (integrated with multiple payment methods in Argentina, Bolivia, Chile, Paraguay, Perú and Uruguay), creation of claims for customer support, report visualization and network and customer management. My assignment is to perform maintenance and development of new features for the company's management system, which includes an ERP and a CRM. The website is developed in C# with ASP.NET Framework 4, and a migration to React with TypeScript and a .NET 6 API with connection to the database through Entity Framework is being planned. A migration to Azure DevOps for deployment automation and CI/CD is also being planned.",
+    "imagen": "fotochevron",
+    "imagenAlt": "Chevron",
+    "tituloEsp": "Software Engineer en Chevron",
+    "tituloEng": "Software Engineer at Chevron",
+    "descripcionEsp": "En Marzo de 2024 comencé en una posición full-time como Software Engineer en Chevron. La empresa es una de las mayores compañías de energía del mundo, con operaciones en más de 180 países. El equipo en el que estoy es responsable del soporte y desarrollo de una aplicación denominada ADAP (Automated Design Assurance Process). ADAP es una solución automatizada de garantía de diseño que permite coordinar la iniciación de proyectos y los procesos de reseñas, eliminando ineficiencias en el flujo de trabajo manual existente (actualmente se comparte la información a través de planillas Excel y tableros de control en PowerBI) y acelerando la confirmación de la calidad del diseño del proyecto para reducir la ocurrencia de deficiencias técnicas de diseño y mejorar el rendimiento del negocio en proyectos de la compañía. La aplicación se compone de una API hecha con C#/.NET 6 y un frontend con Angular y TypeScript. La base de datos es SQL Server y se utiliza Entity Framework para las conexiones de la API. La aplicación está integrada a Azure DevOps para automatización de deployments y CI/CD.",
+    "descripcionEng": "In March 2024 I started a full-time position as a Software Engineer at Chevron. The company is one of the largest energy companies in the world, with operations in more than 180 countries. The team I am in is responsible for the support and development of an application called ADAP (Automated Design Assurance Process). ADAP is an automated design assurance solution that allows to coordinate project initiation and review processes, eliminating inefficiencies in the existing manual workflow (currently information is shared through Excel spreadsheets and PowerBI dashboards) and accelerating the confirmation of project design quality to reduce the occurrence of technical design deficiencies and improve business performance in company projects. The application consists of an API made with C#/.NET 6 and a frontend with Angular and TypeScript. The database is SQL Server and Entity Framework is used for the API connections. The application is integrated with Azure DevOps for deployment automation and CI/CD.",
     "counters": [
       {
-        "countTo": 22,
-        "cuentaDe": "/22",
+        "countTo": 2,
+        "cuentaDe": "/30",
         "textoEsp": "sprints completados",
         "textoEng": "sprints completed"
       },
       {
-        "countTo": 52,
+        "countTo": 2,
         "cuentaDe": "",
-        "textoEsp": "tickets en los últimos 6 meses",
-        "textoEng": "tickets in the last 6 months"
+        "textoEsp": "tareas realizadas",
+        "textoEng": "tasks completed"
+      },
+      {
+        "countTo": 32,
+        "cuentaDe": "",
+        "textoEsp": "horas dedicadas a aprendizaje",
+        "textoEng": "hours dedicated to learning"
+      }
+    ],
+    "progreso": "2/30 (6.67%)",
+    "idProgreso": "progressChevron",
+    "botones": [
+      {
+        "textoEsp": "Pedir Referencias",
+        "textoEng": "Ask for references",
+        "link": "https://www.linkedin.com/in/nicolas-galli-41353488/"
+      },
+      {
+        "textoEsp": "Ir a Chevron",
+        "textoEng": "Go to Chevron",
+        "link": "https://www.chevron.com/worldwide/argentina"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "imagen": "fotoessen",
+    "imagenAlt": "Essen Aluminio",
+    "tituloEsp": "Programador SSr en Essen Aluminio",
+    "tituloEng": "SSr Programmer at Essen Aluminio",
+    "descripcionEsp": "En Julio de 2023 comencé en una posición full-time en el equipo de Sistemas/IT dentro de la empresa Essen Aluminio. La empresa se dedica a la comercialización de ollas y elementos de cocina de aluminio a través del modelo de venta directa. El equipo en el que estoy es responsable del soporte y desarrollo de la página de uso interno de los Emprendedores, así como de proveedores o de otras áreas de la empresa. La página habilita a los Emprendedores a realizar múltiples funciones, incluyendo la carga de pedidos, pagos con tarjetas de crédito y débito (integrada con múltiples medios de pago en Argentina, Bolivia, Chile, Paraguay, Perú y Uruguay), la creación de reclamos de atención al cliente, la visualización de reportes y la gestión de su red y sus clientes. Mi tarea era realizar el mantenimiento y el desarrollo de nuevas funcionalidades para el sistema de gestión de la empresa, que incluye un ERP y un CRM. La página está desarrollada en C# con ASP.NET Framework 4, y se quiere realizar una migración a React con TypeScript y una API .NET 6 con conexión a la base de datos a través de Entity Framework. También se está realizando una migración a Azure DevOps para automatización de deployments y CI/CD.",
+    "descripcionEng": "In July 2023 I started a full-time position in the IT team at Essen Aluminio. The company sells aluminum pots and kitchenware through a direct sales model. The team I am in is responsible for the support and development of the internal website for the Entrepreneurs, as well as for suppliers or other areas of the company. The website enables Entrepreneurs to perform multiple functions, including order loading, credit and debit card payments (integrated with multiple payment methods in Argentina, Bolivia, Chile, Paraguay, Perú and Uruguay), creation of claims for customer support, report visualization and network and customer management. My assignment was to perform maintenance and development of new features for the company's management system, which includes an ERP and a CRM. The website is developed in C# with ASP.NET Framework 4, and a migration to React with TypeScript and a .NET 6 API with connection to the database through Entity Framework is being planned. A migration to Azure DevOps for deployment automation and CI/CD is also being planned.",
+    "counters": [
+      {
+        "countTo": 30,
+        "cuentaDe": "/30",
+        "textoEsp": "sprints completados",
+        "textoEng": "sprints completed"
+      },
+      {
+        "countTo": 96,
+        "cuentaDe": "",
+        "textoEsp": "tickets en los últimos 7 meses",
+        "textoEng": "tickets in the last 7 months"
       },
       {
         "countTo": 4,
@@ -27,7 +70,7 @@
         "textoEng": "ticket approval rating"
       }
     ],
-    "progreso": "22/22 (100%)",
+    "progreso": "30/30 (100%)",
     "idProgreso": "progressEssen",
     "botones": [
       {
@@ -43,7 +86,7 @@
     ]
   },
   {
-    "id": 2,
+    "id": 3,
     "imagen": "fotoexxon",
     "imagenAlt": "ExxonMobil",
     "tituloEsp": "Pasantía IT en ExxonMobil",
@@ -64,10 +107,10 @@
         "textoEng": "supported applications"
       },
       {
-        "countTo": 14,
+        "countTo": 150,
         "cuentaDe": "",
-        "textoEsp": "personas en el equipo de MAD",
-        "textoEng": "people in the MAD team"
+        "textoEsp": "k USD anuales ahorrados por el desarrollo de Well Summary Report",
+        "textoEng": "k USD saved annually by the development of Well Summary Report"
       }
     ],
     "progreso": "31/31 (100%)",
@@ -86,7 +129,7 @@
     ]
   },
   {
-    "id": 3,
+    "id": 4,
     "imagen": "fotodev",
     "imagenAlt": "Full-Stack Web Development",
     "tituloEsp": "Cursos y certificaciones de Desarrollo Web Full-Stack",
@@ -129,7 +172,7 @@
     ]
   },
   {
-    "id": 4,
+    "id": 5,
     "imagen": "fotoconst",
     "imagenAlt": "Ingeniería Civil/Civil Engineering",
     "tituloEsp": "Ingeniería Civil en UTN FRBA",

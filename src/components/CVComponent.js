@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
-import { Col, Container, Image, Row } from 'react-bootstrap';
-import cvPhoto from "../assets/foto2.jpeg";
+import { Col, Container, Row } from 'react-bootstrap';
 import { DarkModeContext } from './darkModeContext';
 import { LanguageContext } from './languageContext';
+import CVWorkComponent from './CVWorkComponent';
+import CVCursoComponent from './CVCursoComponent';
 
 const CVComponent = () => {
     const { darkMode } = useContext(DarkModeContext);
@@ -11,11 +12,9 @@ const CVComponent = () => {
     return (
         <Container className={(darkMode ? 'darkBody' : '') + ' divcv'}>
             <Row className='cvrow'>
-                <Col md={3} className='divfoto'>
-                    <Image src={cvPhoto} className='cvphoto' alt='Resume - Dario Villar' />
-                </Col>
+                <h2 className="titulo nombre"> {isSpanish ? 'Darío Villar' : 'Dario Villar'} </h2>
+                <h4 className="titulo"> Full Stack Software Engineer </h4>
                 <Col className='filaarriba'>
-                    <h1 className="titulo infocontacto nombre"> Dario Villar </h1>
                     <h6 className="cvtext infocontacto">{isSpanish ? '19/02/2001' : '02/19/2001'} </h6>
                     <h6 className="cvtext infocontacto"> Buenos Aires, Argentina </h6>
                     <h6 className="cvtext infocontacto"> +54 9 113 003 4639 </h6>
@@ -29,140 +28,28 @@ const CVComponent = () => {
                 </Col>
             </Row>
             <hr />
-            <Row className='cvrow'>
-                <Col md={12} className='filaabajo'>
-                    <h2 className="titulo"> {isSpanish ? 'Experiencia Laboral' : 'Work Experience'} </h2>
-                    <h5 className="titulo"> Essen Aluminio </h5>
-                    <span className="cvtext titulo"> {isSpanish ? 'Full-Stack Web Developer (Julio 2023 - Actualidad)' : 'Full-Stack Web Developer (July 2023 - Present Day)'} </span>
-                    <br />
-                    <span className="cvtext"> {isSpanish ? 'Soporte y desarrollo de la página de uso interno de los Emprendedores, así como de proveedores y otras áreas de la empresa, para carga de pedidos, pagos con tarjetas de crédito y débito (integrada con múltiples medios de pago en Argentina, Bolivia, Chile, Paraguay, Perú y Uruguay), creación de reclamos de atención al cliente, visualización de reportes y gestión de su red y sus clientes. Manejo de tickets para agregado de nuevas funciones, resolución de errores, asignación de permisos y ayuda a operadores de Argentina y de las filiales internacionales. Desarrollo y modificación de stored procedures para conexión a base de datos, conexión con un sistema de gestión ERP, trabajo con metodologías ágiles.' : 'Development and support of the internally used website for Entrepreneurs, as well as suppliers and other areas of the company, for order placement, credit and debit card payments (integrated with multiple payment methods in Argentina, Bolivia, Chile, Paraguay, Peru and Uruguay), creation of customer service claims, visualization of reports and management of their network and their customers. Handling of tickets for addition of new functionalities, bug fixing, permission assignment and support for operators from Argentina and international branches. Development and alteration of stored procedures to connect to databases, connection with an ERP management system, work with Agile methodologies.'} </span>
-                    <br />
-                    <span className="cvtext"> {isSpanish ? 'Tecnologías y herramientas utilizadas: ' : 'Used tools and technologies: '} C#, ASP.NET, .NET Framework 4, JavaScript, GitLab, .NET Core 3.1, Entity Framework Core, SQL Server, Bootstrap, HTML5, CSS3.</span>
-                    <hr />
-                    <h5 className="titulo"> ExxonMobil </h5>
-                    <span className="cvtext titulo"> {isSpanish ? 'Full-Stack Web Developer (Marzo 2022 - Julio 2023)' : 'Full-Stack Web Developer (March 2022 - July 2023)'} </span>
-                    <br />
-                    <span className="cvtext"> {isSpanish ? 'Integrante del equipo de Modern Application Development en Unconventional IT. Desarrollo y soporte de aplicaciones web de uso interno y externo para exploración no convencional de petróleo. Reuniones en inglés con equipos globales bajo la metodología Agile/SCRUM.' : 'Member of the Modern Application Development Team inside Unconventional IT. Development and support of internal and external web applications for unconventional oil and gas exploration. Meeting with global teams under the Agile/SCRUM methodology.'} </span>
-                    <span className="cvtext"> {isSpanish ? 'Proyectos:' : 'Projects:'}</span>
-                    <br />
-                    <br />
-                    <ul>
-                        <li className="cvtext"><b> NextPlan: </b>{isSpanish ? 'NextPlan es una aplicación web que permite a los responsables de planeamiento y desarrollo de exploración no convencional la visualización y edición de datos para la creación de planes estratégicos de negocio. Parte del equipo responsable de la migración de la aplicación de framework ASP.NET MVC y Razor a React 17/TypeScript, con conexión a API que utiliza .NET 6 y Entity Framework Core. Responsable de la mejora de múltiples páginas, implementación de subida y descarga de archivos para actualización masiva de datos, ejecución de control de acceso basado en roles, testeo continuo de la aplicación con Jest.' : 'NextPlan is a web application that allows development planners for unconventional exploration the visualization and edition of data to create strategic business plans. I am part of the team that is responsible for migrating the application from ASP.NET MVC and Razor to React 17/TypeScript, with a connection to an API that uses .NET 6 and Entity Framework Core. Responsible for refactoring of multiple pages, implementation of file uploads and downloads for bulk updates, execution of role-based access control, testing of the application with Jest.'} </li>
-                        <li className="cvtext"><b> Compressor: </b> {isSpanish ? 'Soporte y desarrollo de la aplicación web de uso interno para consumo de datos de compresores de gas. Parte del equipo responsable de la migración de la aplicación de framework ASP.NET MVC y Razor a React 18/TypeScript, con conexión a API que utiliza .NET 6 y Entity Framework Core. Responsable de corrección de datos incorrectos en la base de datos, creación de nuevas páginas y migración del repositorio de Azure DevOps a GitHub, testeo continuo de la aplicación con Jest.' : 'Development and support of the internally used application for data consumption about gas compressors. Part of the team responsible for migrating the application from ASP.NET MVC and Razor to React 18/TypeScript, which connects to an API that uses .NET 6 and Entity Framework Core. Responsible for fixing incorrect data points in the database, creation of new pages and migration of the repository from Azure DevOps to GitHub, testing of the application with Jest.'} </li>
-                        {/*  <li className="cvtext"><b> ODA/ORDA: </b> {isSpanish ? 'Desarrollo de nuevos endpoints en dos APIs REST desarrolladas en .NET Core 3.1 que exponen operaciones relacionadas a datos de distintas fuentes como PVRC, NextField, Ignition, SCADA. Conexión a base de datos centralizada a través de stored procedures y SQL Server.' : 'Development of new endpoints in two REST APIs developed in .NET Core 3.1 which expose operations related to data from different sources such as PVRC, NextField, Ignition, SCADA. Connection to centralized database through stored procedures and SQL Server.'} </li> */}
-                    </ul>
-                    <span className="cvtext"> {isSpanish ? 'Tecnologías y herramientas utilizadas: ' : 'Used tools and technologies: '} React, TypeScript, .NET 6, C#, .NET Core 3.1, ASP.NET MVC, JavaScript, Microsoft Azure, GitHub, Entity Framework Core, SQL Server, Bootstrap, HTML5, CSS3.</span>
-                    <hr />
-                    <h2 className="titulo"> {isSpanish ? 'Formación Académica' : 'Academic Background'} </h2>
-                    <h5 className="titulo"> {isSpanish ? 'UTN FRBA (Universidad Tecnológica Nacional - Facultad Regional Buenos Aires)' : 'UTN FRBA (National Technological University - Buenos Aires branch)'} </h5>
-                    <span className="cvtext titulo"> {isSpanish ? 'Estudiante de Ingeniería Civil (2019 - Actualidad)' : 'Civil Engineering Student (2019 - Present day)'}
-                    </span>
-                    <br />
-                    <span className="cvtext"> {isSpanish ? 'Actualmente en 5° año. 33 materias aprobadas de 46. Aprendizaje de conceptos de física, química, matemática, estadística, entre otras ciencias básicas. Nociones de cálculo estructural, tecnología de materiales, técnicas constructivas, proyecto arquitectónico y de instalaciones, estudios y ensayos de laboratorio sobre diversos temas relacionados con la industria de la construcción. Promedio general actual: 8.12/10' : 'Currently in 5th year. 33 out of 46 completed subjects. Learned about concepts of physics, chemistry, mathematics, statistics, among other basic sciences. Notions of structural calculation, materials technology, construction techniques, architectural projects and water, gas and air conditioning facilities, laboratory tests and research on various topics related to the construction industry. Overall average score: 8.12/10'}
-                    </span>
-                    <br />
-                    <span className="cvtext"> {isSpanish ? 'Tecnologías y herramientas utilizadas: ' : 'Used tools and technologies: '} AutoCAD 2D, AutoCad 3D, RAM Elements, Civil 3D, SketchUp, Revit, Excel. </span>
-                    {/* <h5 className="titulo"> {isSpanish ? 'Colegio Schönthal' : 'Schönthal Institute'} </h5>
-                    <span className="cvtext titulo"> {isSpanish ? 'Bachillerato Bilingüe con Orientación en Informática y Administración de Empresas (2014 - 2018)' : 'Bilingual High School Diploma oriented to Computer Science and Business Administration (2014 - 2018)'} </span>
-                    <br />
-                    <span className="cvtext"> {isSpanish ? 'Conocimientos básicos de programación orientada a objetos, desarrollo de videojuegos, arquitectura de computadoras, robótica y circuitos eléctricos, modelado 3D, edición de video. Conceptos elementales de contabilidad, administración de empresas, marketing, economía, gestión de proyectos y organizaciones. Inglés bilingüe, mejor promedio de inglés. Ganador de concursos de programación Dale Aceptar y Mini Copa Turing. Doble mención en Olimpíada Matemática Argentina. Promedio final general: 9.15/10' : 'Basic knowledge of object-oriented programming, video game development, software and hardware architecture, robotics and electrical circuits, 3D modeling, video editing. Elementary concepts of accounting, business administration, marketing, economics, projects and organizations management. Bilingual English, best English average score. Winner of programming contests Dale Aceptar and Mini Copa Turing. Double mention in Argentine Mathematical Olympiad. Overall final average score: 9.15/10'}
-                    </span> */}
-                    <h5 className="titulo"> Cambridge English Language Assessment </h5>
-                    <span className="cvtext titulo"> First Certificate in English (2016) </span>
-                    <br />
-                    <span className="cvtext"> {isSpanish ? 'Nivel C1. Nota A (aprobado con distinción). Reading and Writing: 180/190. Use of English: 186/190. Listening: 190/190. Speaking: 177/190. Puntaje general: 183/190.' : 'Level C1. Grade A (passed with distinction). Reading and Writing: 180/190. Use of English: 186/190. Listening: 190/190. Speaking: 177/190. Overall score: 183/190.'}
-                    </span>
-                    <hr />
-                    <h2 className="titulo"> {isSpanish ? 'Cursos y certificaciones' : 'Courses and Certifications'} </h2>
-                    <h6 className="titulo">  {isSpanish ? 'Inteligencia Artificial aplicada al Transporte' : 'Artificial Intelligence applied to Transportation'}
-                        <span className={"cvtext textoCurso " + (darkMode ? 'whiteText' : 'blackText')}>
-                            {isSpanish ? 'Banco Interamericano de Desarrollo (Diciembre 2023 - 24 horas)' : 'Inter-American Development Bank (December 2023 - 24 hours)'}
-                        </span>
-                        <p className={"cvtext textoCurso " + (darkMode ? 'whiteText' : 'blackText')}>
-                            {isSpanish ? 'Tecnologías y herramientas utilizadas: Inteligencia Artificial, machine learning, redes neuronales, redes convolucionales.' : 'Used tools and technologies: Artificial Intelligence, machine learning, neural networks, convolutional networks.'}
-                        </p>
-                    </h6>
-                    <h6 className="titulo"> AZ-204 Azure Developer Associate
-                        <span className={"cvtext textoCurso " + (darkMode ? 'whiteText' : 'blackText')}>
-                            {isSpanish ? 'Microsoft (Septiembre 2023 - 11 horas)' : 'Microsoft (September 2023 - 11 hours)'}
-                        </span>
-                        <p className={"cvtext textoCurso " + (darkMode ? 'whiteText' : 'blackText')}>
-                            {isSpanish ? 'Tecnologías y herramientas utilizadas: ' : 'Used tools and technologies: '} Microsoft Azure, .NET 7, C#.
-                        </p>
-                    </h6>
-                    <h6 className="titulo">
-                        {isSpanish ? 'Microsoft Build - Desafío de .NET' : 'Microsoft Build: .NET Challenge'}
-                        <span className={"cvtext textoCurso " + (darkMode ? 'whiteText' : 'blackText')}>
-                            {isSpanish ? 'Microsoft (Mayo 2023 a Junio 2023 - 28 horas)' : 'Microsoft (May 2023 to June 2023 - 28 hours)'}
-                        </span>
-                        <p className={"cvtext textoCurso " + (darkMode ? 'whiteText' : 'blackText')}>
-                            {isSpanish ? 'Tecnologías y herramientas utilizadas: ' : 'Used tools and technologies: '} .NET 6, .NET 7, C#, ASP.NET MVC, Razor, Blazor, Entity Framework Core, Microsoft Azure.
-                        </p>
-                    </h6>
-                    <h6 className="titulo">
-                        {isSpanish ? 'Cursos de Desarrollo Web' : 'Web Development Courses'}
-                        <span className={"cvtext textoCurso " + (darkMode ? 'whiteText' : 'blackText')}>
-                            {isSpanish ? 'Pluralsight (Marzo 2022 a Diciembre 2022 - 57 horas)' : 'Pluralsight (March 2022 to December 2022 - 57 hours)'}
-                        </span>
-                        <p className={"cvtext textoCurso " + (darkMode ? 'whiteText' : 'blackText')}>
-                            {isSpanish ? 'Tecnologías y herramientas utilizadas: ' : 'Used tools and technologies: '} .NET 6, C#, Postman, Entity Framework Core, Microsoft Azure, OData, React 18, Docker, Python, Angular 16, Next.js.
-                        </p>
-                    </h6>
-                    <h6 className="titulo"> The Bits and Bytes of Computer Networking
-                        <span className={"cvtext textoCurso " + (darkMode ? 'whiteText' : 'blackText')}>
-                            {isSpanish ? 'Google/Coursera (Enero 2022 - 36 horas)' : 'Google/Coursera (January 2022 - 36 hours)'}
-                        </span>
-                        <p className={"cvtext textoCurso " + (darkMode ? 'whiteText' : 'blackText')}>
-                            {isSpanish ? 'Tecnologías y herramientas utilizadas: Redes y comunicaciones, protocolo TCP/IP, DNS, direcciones IP.' : 'Used tools and technologies: Networking and communications, TCP/IP protocol, DNS, IP addresses.'}
-                        </p>
-                    </h6>
-                    <h6 className="titulo">
-                        {isSpanish ? 'Desarrollador .NET' : '.NET Development'}
-                        <span className={"cvtext textoCurso " + (darkMode ? 'whiteText' : 'blackText')}>
-                            {isSpanish ? 'UTN FRBA/Becas NEORIS (Octubre 2021 a Diciembre 2021 - 96 horas)' : 'UTN FRBA/Becas NEORIS (October 2021 to December 2021 - 96 hours)'}
-                        </span>
-                        <p className={"cvtext textoCurso " + (darkMode ? 'whiteText' : 'blackText')}>
-                            {isSpanish ? 'Tecnologías y herramientas utilizadas: ' : 'Used tools and technologies: '} .NET 6, .NET 7, C#, ASP.NET MVC, Razor, Blazor, Entity Framework Core.
-                        </p>
-                    </h6>
-                    <h6 className="titulo">
-                        {isSpanish ? 'React: de Cero a Experto' : 'React: from Zero to Expert'}
-                        <span className={"cvtext textoCurso " + (darkMode ? 'whiteText' : 'blackText')}>
-                            {isSpanish ? 'Udemy (Noviembre 2021 - 49 horas)' : 'Udemy (November 2021 - 49 hours)'}
-                        </span>
-                        <p className={"cvtext textoCurso " + (darkMode ? 'whiteText' : 'blackText')}>
-                            {isSpanish ? 'Tecnologías y herramientas utilizadas: ' : 'Used tools and technologies: '} React, Redux, Jest, Firebase, MongoDB, Express, Node, Heroku
-                        </p>
-                    </h6>
-                    <h6 className="titulo"> Technical Support Fundamentals
-                        <span className={"cvtext textoCurso " + (darkMode ? 'whiteText' : 'blackText')}>
-                            {isSpanish ? 'Google/Coursera (Agosto 2021 - 40 horas)' : 'Google/Coursera (August 2021 - 40 hours)'}
-                        </span>
-                        <p className={"cvtext textoCurso " + (darkMode ? 'whiteText' : 'blackText')}>
-                            {isSpanish ? 'Tecnologías y herramientas utilizadas: Soporte IT, hardware, sistemas operativos, instalación de software, documentación.' : 'Used tools and technologies: IT Support, hardware, operating systems, software installation, documentation.'}
-                        </p>
-                    </h6>
-                    <h6 className="titulo">
-                        {isSpanish ? 'Conviértete en Desarrollador Web Full-Stack' : 'Become a Full-Stack Web Developer'}
-                        <span className={"cvtext textoCurso " + (darkMode ? 'whiteText' : 'blackText')}>
-                            {isSpanish ? 'LinkedIn Learning (Febrero 2021 - 31 horas)' : 'LinkedIn Learning (February 2021 - 31 hours)'}
-                        </span>
-                        <p className={"cvtext textoCurso " + (darkMode ? 'whiteText' : 'blackText')}>
-                            {isSpanish ? 'Tecnologías y herramientas utilizadas: ' : 'Used tools and technologies: '} JavaScript, SQL, Node, Express, GitHub, SCRUM.
-                        </p>
-                    </h6>
-                    <h6 className="titulo"> The Complete Web Developer Course 2.0
-                        <span className={"cvtext textoCurso " + (darkMode ? 'whiteText' : 'blackText')}>
-                            {isSpanish ? 'Udemy (Marzo 2018 - 30 horas)' : 'Udemy (March 2018 - 30 hours)'}
-                        </span>
-                        <p className={"cvtext textoCurso " + (darkMode ? 'whiteText' : 'blackText')}>
-                            {isSpanish ? 'Tecnologías y herramientas utilizadas: ' : 'Used tools and technologies: '} HTML5, CSS3, JavaScript, jQuery, Bootstrap, WordPress, PHP, mySQL, Python.
-                        </p>
-                    </h6>
-                </Col>
-            </Row>
-
-        </Container>
+            <h3 className="titulo tituloGrande"> {isSpanish ? 'Experiencia Laboral' : 'Work Experience'} </h3>
+            <CVWorkComponent titulo="Software Engineer" empresa="Chevron" fecha={isSpanish ? 'Marzo 2024 - Actualidad' : 'March 2024 - Present Day'} items={isSpanish ? ['Desarrollo y soporte de una aplicación denominada ADAP, una solución automatizada de garantía de diseño que permite acelerar la confirmación de la calidad del diseño del proyecto para reducir la ocurrencia de deficiencias técnicas de diseño y mejorar el rendimiento del negocio.', 'Utilización de Angular y TypeScript, y creación de endpoints en API REST con .NET 6 y Entity Framework para manejo y visualización de datos, permitiendo además la edición masiva mediante la posibilidad de importar y exportar archivos Excel.', 'Trabajo con metodologías ágiles y SCRUM en equipos globales, utilización de herramientas de testeo y CI/CD para automatización mediante Azure DevOps.'] : ['Development and support of an application known as ADAP, an Automated Design Assurance Process solution that expedites confirmation of project design quality to reduce the likelihood of technical design deficiencies and improve business performance.', 'Use of Angular and TypeScript, and creation of endpoints in a REST API with .NET 6 and Entity Framework for data handling and visualization, also allowing massive editing through the possibility of importing and exporting Excel files.', 'Work with Agile methodologies and SCRUM in global teams, using testing tools and CI/CD for automation through Azure DevOps.']} stack={['Angular', 'TypeScript', '.NET 6', 'C#', '.NET Core 3.1', 'ASP.NET MVC', 'JavaScript', 'Microsoft Azure', 'Azure DevOps', 'Entity Framework Core', 'SQL Server']} />
+            <CVWorkComponent titulo={isSpanish ? 'Programador SSr' : 'SSr Programmer'} empresa={'Essen Aluminio'} fecha={isSpanish ? 'Julio 2023 - Marzo 2024' : 'July 2023 - March 2024'} items={isSpanish ? ['Desarrollo y soporte de la página web de uso interno para los Emprendedores y el staff de la empresa. Conexión a base de datos con SQL a través de stored procedures y sistema ERP mediante APIs REST/SOAP y WebServices.', 'Implementación de 6 proyectos para integración con múltiples medios de pago en Argentina, Bolivia, Paraguay, Perú y Uruguay, visualización de reportes y métricas de ventas, operaciones de administración comercial y marketing.', 'Reducción del backlog de tickets pendientes de 85 a 38. 96 tickets resueltos en 7 meses con un puntaje de satisfacción de usuarios de 4.9/5. Trabajo con metodologías ágiles.'] : ['Development and support of the internal website for Entrepreneurs and company staff. Connection to SQL database through stored procedures and ERP system via REST/SOAP APIs and WebServices.', 'Implementation of 6 projects for integration with multiple payment methods in Argentina, Bolivia, Paraguay, Peru, and Uruguay, visualization of sales reports and metrics, commercial administration, and marketing operations.', 'Reduction of the backlog of pending tickets from 85 to 38. 96 tickets resolved in 7 months with a user satisfaction score of 4.9/5. Worked with agile methodologies.']} stack={['C#', 'ASP.NET', '.NET Framework 4', 'JavaScript', 'GitLab', '.NET Core 3.1', 'Entity Framework Core', 'SQL Server', 'WebServices', 'Bootstrap']} />
+            <CVWorkComponent titulo={'Trainee Full Stack Web Developer'} empresa={'ExxonMobil'} fecha={isSpanish ? 'Marzo 2022 - Julio 2023' : 'March 2022 - July 2023'} items={isSpanish ? ['Desarrollo y soporte de aplicaciones web de uso interno alojadas en Azure para exploración no convencional de petróleo por parte de los geólogos y geofísicos de la empresa. Visualización de datos relacionados a los reservorios y sus instalaciones, generación de reportes y métricas de exploración.', 'Ahorro anual de USD ~150k a través de la integración de la aplicación web NextPlan con Enersight, evitando procesamiento de datos en forma manual. Creación de una nueva versión de la aplicación web Compressor para manejo de información sobre compresores de gas natural, reducción de tiempos de carga de 1 minuto a 5 segundos en promedio.', 'Migración de módulos de ASP.NET MVC a React y TypeScript, y creación de endpoints en API REST con .NET 6 y Entity Framework para manejo y visualización de datos, permitiendo además la edición masiva mediante la posibilidad de importar y exportar archivos Excel.', 'Trabajo con metodologías ágiles y SCRUM en equipos globales, utilización de herramientas de testeo como Jest y Postman y CI/CD para automatización. Migración de aplicaciones de Azure DevOps a GitHub.'] : ['Development and support of internal web applications hosted on Azure for unconventional oil exploration by company geologists and geophysicists. Visualization of data related to reservoirs and their facilities, generation of reports and exploration metrics.', 'Annual savings of approximately USD ~150k through the integration of the NextPlan web application with Enersight, avoiding manual data processing. Creation of a new version of the Compressor web application for managing information about natural gas compressors, reduction of loading times from a minute to 5 seconds on average.', 'Migration of ASP.NET MVC modules to React and TypeScript, and creation of endpoints in REST API with .NET 6 and Entity Framework for data handling and visualization, also allowing bulk editing through the possibility of importing and exporting Excel files.', 'Worked with agile methodologies and SCRUM in global teams, using testing tools such as Jest and Postman and CI/CD for automation. Migration of Azure DevOps applications to GitHub.']} stack={['React', 'TypeScript', '.NET 6', 'C#', '.NET Core 3.1', 'ASP.NET MVC', 'JavaScript', 'Microsoft Azure', 'GitHub', 'Entity Framework Core', 'SQL Server', 'Bootstrap']} isLastEntry={true} />
+            <hr />
+            <h3 className="titulo tituloGrande"> {isSpanish ? 'Formación Académica' : 'Academic Background'} </h3>
+            <CVWorkComponent titulo={isSpanish ? 'Ingeniería Civil' : 'Civil Engineering'} empresa={'Universidad Tecnológica Nacional'} fecha={isSpanish ? 'Marzo 2019 - Actualidad' : 'March 2019 - Present Day'} items={isSpanish ? ['Actualmente en 5° año, realizando el Proyecto Final.', 'Perfil orientado a Vías de Comunicación.', '33 materias aprobadas de 46. Promedio general 8.12/10.'] : ['Currently in 5th year, working on the Final Project.', 'Profile oriented to Transportation.', '33 completed subjects out of 46. Overall average score 8.12/10.']} stack={['AutoCAD 2D', 'AutoCad 3D', 'RAM Elements', 'Civil 3D', 'SketchUp', 'Revit', 'MS Project', 'Excel']} />
+            <CVWorkComponent titulo={isSpanish ? 'First Certificate in English' : 'First Certificate in English'} empresa={'Cambridge English Language Assessment'} fecha={'2016'} items={isSpanish ? ['Nivel C1. Nota A (aprobado con distinción).', 'Puntaje general: 183/190.'] : ['Level C1. Grade A (passed with distinction).', 'Overall score: 183/190.']} stack={[]} isLastEntry={true} />
+            <hr />
+            <h3 className="titulo tituloGrande"> {isSpanish ? 'Cursos y certificaciones' : 'Courses and Certifications'} </h3>
+            <CVCursoComponent titulo={isSpanish ? 'Angular: de Cero a Experto' : 'Angular: from Zero to Expert'} issuer={'Udemy'} fecha={isSpanish ? 'Abril 2024 - Actualidad' : 'April 2024 - Present Day'} horas={45} stack={['Angular', 'TypeScript', 'Nest', 'Docker', 'MongoDB', 'Tailwind']} />
+            <CVCursoComponent titulo={isSpanish ? 'Desarrollador de Software IBM Full Stack' : 'IBM Full Stack Software Developer'} issuer={'IBM/Coursera'} fecha={isSpanish ? 'Febrero 2024 - Actualidad' : 'February 2024 - Present Day'} horas={161} stack={['React', 'Python', 'GitHub', 'Node', 'Express', 'SQL', 'Docker', 'Kubernetes']} />
+            <CVCursoComponent titulo={isSpanish ? 'Python 3: Nivel Inicial' : 'Python 3: Initial Level'} issuer={'Universidad Tecnológica Nacional'} fecha={isSpanish ? 'Enero 2024 - Marzo 2024' : 'January 2024 - March 2024'} horas={75} stack={['Python', 'Jupyter Lab', 'Tkinter', 'SQLite', 'Xampp', 'Beautiful Soup', 'Apache']} />
+            <CVCursoComponent titulo={isSpanish ? 'Inteligencia Artificial aplicada al Transporte' : 'Artificial Intelligence applied to Transportation'} issuer={'Banco Interamericano de Desarrollo'} fecha={isSpanish ? 'Diciembre 2023' : 'December 2023'} horas={24} stack={isSpanish ? ['Inteligencia Artificial', 'machine learning', 'redes neuronales', 'redes convolucionales'] : ['Artificial Intelligence', 'machine learning', 'neural networks', 'convolutional networks']} />
+            <CVCursoComponent titulo={isSpanish ? 'Microsoft Certified: Azure Developer Associate (AZ-204)' : 'Microsoft Certified: Azure Developer Associate (AZ-204)'} issuer={'Microsoft'} fecha={isSpanish ? 'Septiembre 2023' : 'September 2023'} horas={11} stack={['Microsoft Azure', '.NET 7', 'C#']} />
+            <CVCursoComponent titulo={isSpanish ? 'Microsoft Build - Desafío de .NET' : 'Microsoft Build: .NET Challenge'} issuer={'Microsoft'} fecha={isSpanish ? 'Mayo 2023 - Junio 2023' : 'May 2023 - June 2023'} horas={28} stack={['.NET 6', '.NET 7', 'C#', 'ASP.NET MVC', 'Razor', 'Blazor', 'Entity Framework Core', 'Microsoft Azure']} />
+            <CVCursoComponent titulo={isSpanish ? 'Cursos de Desarrollo Web' : 'Web Development Courses'} issuer={'Pluralsight'} fecha={isSpanish ? 'Marzo 2022 - Diciembre 2022' : 'March 2022 - December 2022'} horas={57} stack={['.NET 6', 'C#', 'Postman', 'Entity Framework Core', 'Microsoft Azure', 'OData', 'React 18', 'Docker', 'Python', 'Angular 16', 'Next.js']} />
+            <CVCursoComponent titulo={isSpanish ? 'Desarrollador .NET' : '.NET Developer'} issuer={'UTN FRBA/Becas NEORIS'} fecha={isSpanish ? 'Octubre 2021 - Diciembre 2021' : 'October 2021 - December 2021'} horas={96} stack={['.NET 6', '.NET 7', 'C#', 'ASP.NET MVC', 'Razor', 'Blazor', 'Entity Framework Core']} />
+            <CVCursoComponent titulo={isSpanish ? 'React: de Cero a Experto' : 'React: from Zero to Expert'} issuer={'Udemy'} fecha={isSpanish ? 'Noviembre 2021' : 'November 2021'} horas={49} stack={['React', 'Redux', 'Jest', 'Firebase', 'MongoDB', 'Express', 'Node', 'Heroku']} />
+            <CVCursoComponent titulo={isSpanish ? 'Conviértete en Desarrollador Web Full-Stack' : 'Become a Full-Stack Web Developer'} issuer={'LinkedIn Learning'} fecha={isSpanish ? 'Febrero 2021' : 'February 2021'} horas={31} stack={['JavaScript', 'SQL', 'Node', 'Express', 'GitHub', 'SCRUM']} />
+            <CVCursoComponent titulo={isSpanish ? 'The Complete Web Developer Course 2.0' : 'The Complete Web Developer Course 2.0'} issuer={'Udemy'} fecha={isSpanish ? 'Marzo 2018' : 'March 2018'} horas={30} stack={['HTML5', 'CSS3', 'JavaScript', 'jQuery', 'Bootstrap', 'WordPress', 'PHP', 'mySQL', 'Python']} />
+        </Container >
     )
 }
 

@@ -47,4 +47,4 @@ export const allCerts = [
     { id: 45, src: 'utn1.pdf', issuer: 'UTN', nameEsp: 'Desarrollador .NET', nameEng: '.NET Developer', completionDate: '2021-12-01' },
     { id: 46, src: 'https://learn.microsoft.com/es-es/users/dariovillar-9012/credentials/d9875c32dc10f1d1', issuer: 'Microsoft', nameEsp: 'Microsoft Certified: Azure Developer Associate', nameEng: 'Microsoft Certified: Azure Developer Associate', completionDate: '2023-09-01' },
     { id: 47, src: 'bid1.pdf', issuer: 'BID', nameEsp: 'Inteligencia Artificial aplicada al Transporte', nameEng: 'Artificial Intelligence applied to Transportation', completionDate: '2023-12-01' },
-]
+    { id: 48, src: 'utn2.pdf', issuer: 'UTN', nameEsp: 'Python 3 - Nivel Inicial', nameEng: 'Python 3 - Initial Level', completionDate: '2024-03-28' },]

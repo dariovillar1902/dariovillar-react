@@ -3,8 +3,8 @@
     "id": 1,
     "imagenes": "Essen",
     "tituloEsp": "WebNegocio Essen",
-    "fechaRealizacionEsp": "Julio 2023 - Diciembre 2023",
-    "duracionEsp": "6 meses",
+    "fechaRealizacionEsp": "Julio 2023 - Marzo 2024",
+    "duracionEsp": "9 meses",
     "descripcionEsp": "Soporte y desarrollo de la página de uso interno de los Emprendedores, así como de proveedores y otras áreas de la empresa, para carga de pedidos, pagos con tarjetas de crédito y débito (integrada con múltiples medios de pago en Argentina, Bolivia, Chile, Paraguay, Perú y Uruguay), creación de reclamos de atención al cliente, visualización de reportes y gestión de su red y sus clientes. Manejo de tickets para agregado de nuevas funciones, resolución de errores, asignación de permisos y ayuda a operadores de Argentina y de las filiales internacionales. Desarrollo y modificación de stored procedures para conexión a base de datos, conexión con un sistema de gestión ERP, trabajo con metodologías ágiles.",
     "mejorasEsp": "Se determinan en cada sprint los objetivos del equipo, a través de la metodología Agile/SCRUM se dividen las tareas a realizar en los distintos sprints, llevando el registro y control de lo completado en cada período.",
     "tecnologiasUtilizadas": [
@@ -16,8 +16,8 @@
       "GitLab"
     ],
     "tituloEng": "WebNegocio Essen",
-    "fechaRealizacionEng": "July 2023 - December 2023",
-    "duracionEng": "6 months",
+    "fechaRealizacionEng": "July 2023 - March 2024",
+    "duracionEng": "9 months",
     "descripcionEng": "Support and development for the internal use website for the Entrepreneurs, as well as suppliers and other areas of the company, for order placement, credit and debit card payments (integrated with multiple payment methods in Argentina, Bolivia, Chile, Paraguay, Peru and Uruguay), creation of customer service claims, visualization of reports and management of their network and customers. Handling tickets for new feature requests, bug fixes, permission assignment and help for operators in Argentina and international branches. Development and modification of stored procedures for database connection, connection with an ERP management system, work with agile methodologies.",
     "mejorasEng": "For each sprint the team objectives are determined through the Agile/SCRUM methodology, dividing the tasks in the different sprints, keeping track of what was completed in each time frame.",
     "pageLink": "https://web.essen.com.ar/latam/login.aspx"
