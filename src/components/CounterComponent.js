@@ -8,7 +8,7 @@ const CounterComponent = ({ countTo }) => {
         return () => {
             clearInterval(id);
         };
-    }, []);
+    }, [countTo]);
 
     return (
         <span className="number">{(count <= countTo) ? count : countTo}</span>
