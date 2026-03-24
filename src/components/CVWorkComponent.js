@@ -4,18 +4,25 @@ import { Col, Row } from 'react-bootstrap';
 const CVWorkComponent = ({ titulo, empresa, fecha, items, stack, isLastEntry }) => {
     return (
         <Row className='cvrow'>
-            <Col md={12} className={!isLastEntry && 'filaabajo'}>
+            <Col md={12} className={!isLastEntry ? 'filaabajo' : ''}>
                 <div className='workTitle'>
-                    <h5 className="titulo">{titulo}</h5>
-                    <span className="cvtext titulo"> {empresa + ' (' + fecha + ')'}</span>
+                    <div className='workTitleLeft'>
+                        <span className='workIcon'>❖</span>
+                        <h5 className="titulo workJobTitle">{titulo}</h5>
+                        <span className="cvtext workEmpresa">, {empresa}</span>
+                    </div>
+                    <span className="cvtext workFecha">{fecha}</span>
                 </div>
-                <br />
-                <ul>
-                    {items.map((item, index) => {
-                        return <li key={index} className='cvtext'>{item}</li>
-                    })}
+                <ul className='workList'>
+                    {items.map((item, index) => (
+                        <li key={index} className='cvtext'>{item}</li>
+                    ))}
                 </ul>
-                {stack.length > 0 && <span className="cvtext"> Stack: {stack.join(', ')} </span>}
+                {stack.length > 0 && (
+                    <p className="cvtext stackText">
+                        <strong>Stack:</strong> {stack.join(', ')}
+                    </p>
+                )}
             </Col>
         </Row>
     )
