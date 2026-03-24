@@ -8,10 +8,18 @@ const CVCursoComponent = ({ titulo, issuer, fecha, horas, stack }) => {
     return (
         <div className='divCurso'>
             <div className='workTitle'>
-                <h6 className="titulo">{titulo}</h6>
-                <span className="cvtext titulo"> {issuer + ' (' + fecha + ' - ' + horas.toString() + (isSpanish ? ' horas)' : ' hours)')} </span>
+                <div className='workTitleLeft'>
+                    <span className='workIcon'>❖</span>
+                    <h6 className="titulo workJobTitle">{titulo}</h6>
+                    <span className="cvtext workEmpresa">, {issuer}</span>
+                </div>
+                <span className="cvtext workFecha">{fecha} · {horas}{isSpanish ? 'h' : 'h'}</span>
             </div>
-            <p className={"cvtext textoCurso " + (darkMode ? 'whiteText' : 'blackText')}> Stack: {stack.join(', ')}</p>
+            {stack.length > 0 && (
+                <p className={"cvtext textoCurso " + (darkMode ? 'whiteText' : 'blackText')}>
+                    {stack.join(' · ')}
+                </p>
+            )}
         </div>
     )
 }

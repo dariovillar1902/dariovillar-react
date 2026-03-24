@@ -1,6 +1,8 @@
 .vistaPrevia {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 12px;
+  display: block;
+  transition: filter 0.3s ease, transform 0.3s ease;
 }
 
 .modal-title {
@@ -34,36 +36,8 @@ h4 {
 }
 
 .portfolioIcon {
-  color: #ff331f;
+  color: #5948d5;
   margin: 0 10px;
-}
-
-.tituloProyecto {
-  background: linear-gradient(90deg, #388697, #5948d5);
-  color: white;
-  font-family: "Montserrat", sans-serif;
-  z-index: 10;
-  text-align: center;
-  font-weight: bold;
-  padding: 10px 5px;
-  max-width: 100%;
-  border-radius: 10px;
-  margin: auto !important;
-  transform: translateY(-400%);
-  visibility: hidden;
-}
-
-.verMasModal {
-  background-color: #ff331f;
-  color: white;
-  font-weight: bold;
-  z-index: 10;
-  font-family: "Montserrat", sans-serif;
-  border-radius: 15px;
-  padding: 10px 20px;
-  margin: auto !important;
-  transform: translateY(-300%);
-  visibility: hidden;
 }
 
 .containerImagen {
@@ -72,39 +46,80 @@ h4 {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 8px 32px rgba(89, 72, 213, 0.3);
+    transform: translateY(-4px);
+  }
 }
 
 .filterClassName {
-  filter: brightness(0.5) !important;
+  filter: brightness(0.35) !important;
+  transform: scale(1.04);
+}
+
+.tituloProyecto {
+  background: transparent;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  z-index: 10;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 8px 12px;
+  width: 90%;
+  border-radius: 6px;
+  position: absolute;
+  left: 50%;
+  top: 38%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.verMasModal {
+  background: linear-gradient(90deg, #388697, #5948d5);
+  color: white;
+  font-weight: 700;
+  font-size: 0.8rem;
+  z-index: 10;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 8px;
+  border: none;
+  padding: 8px 18px;
+  letter-spacing: 0.04em;
+  position: absolute;
+  left: 50%;
+  top: 62%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(89, 72, 213, 0.5);
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  white-space: nowrap;
+
+  &:hover {
+    opacity: 0.9 !important;
+  }
 }
 
 .visibleInfo {
+  opacity: 1 !important;
   visibility: visible !important;
 }
 
 @media (min-width: 1400px) {
   .vistaPrevia {
     height: 200px;
-  }
-}
-
-@media (min-width: 1000px) and (max-width: 1200px) {
-  .tituloProyecto {
-    transform: translateY(-270%);
-  }
-
-  .verMas {
-    transform: translateY(-220%);
-  }
-}
-
-@media (min-width: 770px) and (max-width: 1000px) {
-  .tituloProyecto {
-    transform: translateY(-230%);
-  }
-
-  .verMas {
-    transform: translateY(-180%);
+    object-fit: cover;
   }
 }

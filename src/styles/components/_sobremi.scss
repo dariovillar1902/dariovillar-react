@@ -26,13 +26,28 @@ h5 {
 }
 
 .verMas {
-  background-color: #ff331f;
+  background: linear-gradient(90deg, #388697, #5948d5);
   color: white !important;
   font-weight: bold;
-  font-family: "Helvetica Neue", sans-serif;
-  border-radius: 15px;
-  padding: 10px 20px;
-  margin: 0 20px;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 8px;
+  padding: 10px 24px;
+  margin: 0 12px;
+  border: none;
+  letter-spacing: 0.03em;
+  transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 15px rgba(89, 72, 213, 0.3);
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.88;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(89, 72, 213, 0.45);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
 }
 
 .progress {
@@ -44,33 +59,38 @@ h5 {
   padding: 0 5px;
   display: flex;
   height: 40px;
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   margin: 40px auto;
   font-size: 30px;
 }
 
 .darkProgress {
-  border: 2px solid #fbfbff;
+  border: 1px solid rgba(251, 251, 255, 0.2);
+  background: rgba(251, 251, 255, 0.06) !important;
 }
 
 .lightProgress {
-  border: 2px solid #0d0106;
+  border: 1px solid rgba(13, 1, 6, 0.15);
+  background: rgba(13, 1, 6, 0.05) !important;
 }
 
 .progress-value {
   border-radius: 100px;
   height: 30px;
   width: 0;
+  background: linear-gradient(90deg, #388697, #5948d5);
+  box-shadow: 0 4px 20px rgba(89, 72, 213, 0.4);
 }
 
 .darkProgressValue {
-  box-shadow: 0 10px 40px -10px #fff;
-  background: #fff;
+  background: linear-gradient(90deg, #388697, #5948d5);
+  box-shadow: 0 4px 20px rgba(89, 72, 213, 0.5);
 }
 
 .lightProgressValue {
-  box-shadow: 0 10px 40px -10px #0d0106;
-  background: #0d0106;
+  background: linear-gradient(90deg, #388697, #5948d5);
+  box-shadow: 0 4px 20px rgba(56, 134, 151, 0.4);
 }
 
 .lightTooltip {
@@ -180,7 +200,8 @@ h3 {
 .lineaHorizontal {
   width: 100%;
   border: 0;
-  border-top: 3px solid #fbfbff;
-  color: #fbfbff;
-  opacity: 1;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #388697, #5948d5, transparent);
+  opacity: 0.5;
+  margin: 20px 0;
 }

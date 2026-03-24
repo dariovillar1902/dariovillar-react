@@ -177,20 +177,20 @@
     "imagenAlt": "Ingeniería Civil/Civil Engineering",
     "tituloEsp": "Ingeniería Civil en UTN FRBA",
     "tituloEng": "Civil Engineering at UTN FRBA",
-    "descripcionEsp": "Estoy en el quinto nivel de un plan de 6 niveles. En el futuro, planeo seguir la orientación de Vías de Comunicación y dedicarme a la Ingeniería en Transporte. Asisto a clases en la Universidad Tecnológica Nacional, Facultad Regional Buenos Aires. Entré a la facultad en 2019, por lo que tuve un año de cursada presencial y dos virtuales, y en 2022 regresé a la presencialidad. Aprendí mucho sobre los distintos ámbitos de la Ingeniería, incluyendo ciencias básicas, cálculo y análisis de estructuras, tecnologías y técnicas relacionadas con materiales y construcción, cálculo y distribución de instalaciones domiciliarias, diseño y estudio de proyectos. Además, la facultad me preparó mucho para el trabajo en grupo, así como para la confección de documentación de obra a través de AutoCAD, planillas Excel, Mathcad, RAM Elements, entre otros programas.",
-    "descripcionEng": "I am in the fifth year of my university courses, from a 6-year degree. In the future, I plan to follow the Means of Transport profile and work in Transport Engineering. I attend courses at the National Technological University, in Buenos Aires. I started my career in 2019, so I only had a year of in-person courses, and two years online. In 2022 I returned to the University to have in-person lessons again. I learned greatly about different aspects of Engineering, including basic Math and Physics, structural analysis and technologies related to materials and construction. Moreover, my university prepared me to work in a team, as well as to make blueprints and other documents needed for building, through AutoCAD, Excel spreadsheets, Mathcad, RAM Elements, among other programs and applications.",
+    "descripcionEsp": "Completé 45 de las 46 materias del plan de estudios, y me resta únicamente el Proyecto Final para obtener el título. En el futuro, planeo seguir la orientación de Vías de Comunicación y dedicarme a la Ingeniería en Transporte. Estudié en la Universidad Tecnológica Nacional, Facultad Regional Buenos Aires, donde ingresé en 2019. Aprendí mucho sobre los distintos ámbitos de la Ingeniería, incluyendo ciencias básicas, cálculo y análisis de estructuras, tecnologías y técnicas relacionadas con materiales y construcción, cálculo y distribución de instalaciones domiciliarias, diseño y estudio de proyectos. Además, la facultad me preparó mucho para el trabajo en grupo, así como para la confección de documentación de obra a través de AutoCAD, planillas Excel, Mathcad, RAM Elements, entre otros programas.",
+    "descripcionEng": "I have completed 45 out of 46 subjects in the degree plan, and only need to complete my Final Project to graduate. In the future, I plan to follow the Means of Transport profile and work in Transport Engineering. I attended the National Technological University in Buenos Aires, starting in 2019. I learned greatly about different aspects of Engineering, including basic Math and Physics, structural analysis and technologies related to materials and construction. Moreover, my university prepared me to work in a team, as well as to make blueprints and other documents needed for building, through AutoCAD, Excel spreadsheets, Mathcad, RAM Elements, among other programs and applications.",
     "counters": [
       {
-        "countTo": 5,
-        "cuentaDe": "°",
-        "textoEsp": "año de la carrera",
-        "textoEng": "year of my degree"
-      },
-      {
-        "countTo": 33,
+        "countTo": 45,
         "cuentaDe": "/46",
         "textoEsp": "materias aprobadas",
         "textoEng": "completed subjects"
+      },
+      {
+        "countTo": 1,
+        "cuentaDe": "",
+        "textoEsp": "materia restante (Proyecto Final)",
+        "textoEng": "remaining subject (Final Project)"
       },
       {
         "countTo": 8,
@@ -199,7 +199,7 @@
         "textoEng": "average score"
       }
     ],
-    "progreso": "33/46 (71,74%)",
+    "progreso": "45/46 (97,83%)",
     "idProgreso": "progressCivil",
     "botones": [
       {

@@ -24,6 +24,7 @@ export const NavbarComponent = () => {
                     <Nav.Link href='/'>{isSpanish ? 'Inicio' : 'Home'} </Nav.Link>
                     <Nav.Link href='/sobremi'> {isSpanish ? 'Sobre Mi' : 'About Me'} </Nav.Link>
                     <Nav.Link href='/portfolio'> Portfolio </Nav.Link>
+                    <Nav.Link href='/cv'> CV </Nav.Link>
                     <Nav.Link href='/contacto'> {isSpanish ? 'Contacto' : 'Contact'} </Nav.Link>
                 </Nav>
                 <DarkModeComponent />

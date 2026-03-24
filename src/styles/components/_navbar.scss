@@ -1,24 +1,37 @@
 .darkNavbar {
-  background-color: #0d0106 !important;
-  border-bottom: 2px solid rgb(251, 251, 255);
+  background-color: rgba(13, 1, 6, 0.75) !important;
+  border-bottom: 1px solid rgba(251, 251, 255, 0.12);
   color: rgb(251, 251, 255) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .lightNavbar {
-  background-color: #fbfbff !important;
-  border-bottom: 2px solid #0d0106;
+  background-color: rgba(251, 251, 255, 0.75) !important;
+  border-bottom: 1px solid rgba(13, 1, 6, 0.1);
   color: #0d0106 !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .navbar {
   min-height: 68px;
   padding-left: 1em;
   padding-right: 1em;
-  z-index: 10;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-link {
+  letter-spacing: 0.04em;
+  font-weight: 500;
+  transition: color 0.2s ease !important;
 }
 
 .nav-link:hover {
-  color: #ff331f !important;
+  color: #5948d5 !important;
 }
 
 .navbar-collapse {
@@ -32,6 +45,11 @@
   display: block;
   max-width: 32px;
   max-height: 22px;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 input[type="checkbox"] {
@@ -88,4 +106,6 @@ input[type="checkbox"]:focus {
 
 .fs-4 {
   vertical-align: middle;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
