@@ -285,15 +285,65 @@ h6 {
   text-align: right;
 }
 
+// ─── Page Break (screen) ───────────────────────────────────────────────────
+.cvPageBreak {
+  display: block;
+  width: 100%;
+  height: 0;
+  border-top: 2px dashed rgba(128, 128, 128, 0.28);
+  margin: 20px 0;
+  position: relative;
+
+  &::after {
+    content: '— Página 2 —';
+    position: absolute;
+    top: -9px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.62rem;
+    opacity: 0.35;
+    padding: 0 10px;
+    font-family: "Open Sans", sans-serif;
+    letter-spacing: 0.12em;
+  }
+}
+
+// ─── Print Button ───────────────────────────────────────────────────────────
+.cvPrintBtn {
+  text-align: center;
+  margin: 28px 0 12px;
+
+  button {
+    padding: 9px 26px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    border: 1.5px solid #197278;
+    background: transparent;
+    color: #197278;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.2s, color 0.2s;
+
+    &:hover {
+      background: #197278;
+      color: white;
+    }
+  }
+}
+
 // ─── Print / A4 ────────────────────────────────────────────────────────────
 @media print {
   @page {
     size: A4;
-    margin: 12mm 15mm;
+    margin: 10mm 14mm;
   }
 
+  .no-print,
   .navbar,
-  .sticky-top {
+  .sticky-top,
+  .cvPrintBtn {
     display: none !important;
   }
 
@@ -315,56 +365,82 @@ h6 {
     max-width: 100% !important;
   }
 
-  .cvName {
-    font-size: 1.6rem;
+  // Salto de página explícito: el separador visual se convierte en page break
+  .cvPageBreak {
+    display: block !important;
+    border: none !important;
+    height: 0 !important;
+    margin: 0 !important;
+    break-after: page !important;
+    page-break-after: always !important;
+
+    &::after {
+      display: none !important;
+    }
   }
 
-  .cvSectionTitle {
+  .filaabajo {
+    break-inside: avoid;
+    margin-bottom: 8px !important;
+    padding-bottom: 3px !important;
+  }
+
+  .divCurso {
+    break-inside: avoid;
+    margin-bottom: 3px !important;
+  }
+
+  h3.cvSectionTitle {
+    break-before: avoid;
+    break-after: avoid;
+    margin: 0 0 8px !important;
+    padding: 5px 0 !important;
     background: #efefef !important;
     color: #111 !important;
     -webkit-print-color-adjust: exact;
   }
 
-  .workIcon {
-    color: #197278 !important;
-  }
-
-  h5.workJobTitle {
-    color: #197278 !important;
-  }
+  .cvName { font-size: 1.55rem; }
 
   .cvDivider {
+    margin: 10px 0 !important;
     border-color: #ccc !important;
     opacity: 1 !important;
   }
 
-  .filaabajo {
-    margin-bottom: 10px !important;
-    padding-bottom: 4px !important;
-    break-inside: avoid;
+  .cvProfile {
+    font-size: 0.79rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 2px !important;
   }
 
-  .cvProfile {
-    font-size: 0.8rem;
+  .workList {
+    margin: 0 0 2px !important;
+
+    li {
+      font-size: 0.78rem !important;
+      line-height: 1.42 !important;
+      margin-bottom: 1px !important;
+    }
+  }
+
+  .stackText {
+    font-size: 0.73rem !important;
+    margin: 2px 0 0 !important;
+  }
+
+  .textoCurso {
+    font-size: 0.71rem !important;
+    margin: 0 0 2px !important;
   }
 
   .cvSkillRow {
-    font-size: 0.78rem;
+    font-size: 0.77rem;
     margin-bottom: 3px;
   }
 
-  .cvSkillLabel {
-    color: #197278 !important;
-    min-width: 100px;
-  }
-
-  h3.cvSectionTitle {
-    break-before: avoid;
-  }
-
-  .workList li {
-    font-size: 0.8rem;
-    line-height: 1.5;
-    margin-bottom: 2px;
-  }
+  .cvSkillLabel { color: #197278 !important; min-width: 100px; }
+  .workIcon { color: #197278 !important; }
+  h5.workJobTitle { color: #197278 !important; }
+  .cvLanguages { font-size: 0.8rem; }
 }
