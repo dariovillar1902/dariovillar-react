@@ -1,4 +1,4 @@
-// Job Search Service — 8 API sources
+// Job Search Service — 9 API sources
 // ✅ Remotive API: remote tech jobs (free, no key)
 // ✅ Arbeitnow API: tech jobs global (free, no key)
 // ✅ RemoteOK API: remote jobs (free, no key)
@@ -7,11 +7,14 @@
 // ✅ Mercado Libre Careers (Eightfold AI): direct company portal (free, no key)
 // ✅ GetOnBoard API: LATAM tech jobs (free, no key)
 // ✅ Ashby HQ: Mural, Linear, PostHog, WorkOS, Deel, Sentry, LiveKit, Clerk, Close, Replit
+// ✅ Workday API (POST): Chevron, Halliburton, Baker Hughes, Weatherford
 // 🔗 Direct links: LinkedIn, Indeed AR, Bumeran, Zonajobs, Computrabajo,
 //    WorkingNomads, WeWorkRemotely, Wellfound, Remote.co,
 //    Globant, Tiendanube, Ualá, OLX, MeLi
 // 🔗 IT Recruiters BA: DR Reclutamiento IT, Michael Page, Robert Half,
 //    Hays, Adecco, Experis
+// 🔗 Oil & Gas / Engineering: ExxonMobil, Shell, SLB, TotalEnergies, BP,
+//    YPF, PAE, Pluspetrol, Tenaris, Ternium, Tecpetrol, Techint, Raizen
 
 const TECH_KEYWORDS = [
   'angular', 'react', 'typescript', 'javascript', '.net', 'dotnet',
@@ -320,7 +323,82 @@ async function fetchJSearchJobs() {
   return allJobs;
 }
 
-// ─── 6. Ashby HQ — direct company career portals ───
+// ─── 6. Workday — Oil & Gas / Engineering companies ───
+// Workday's /wday/cxs/{tenant}/{site}/jobs endpoint accepts unauthenticated
+// POST requests and allows CORS (used for embedded job widgets).
+// Slugs verified from known Workday tenant configurations.
+
+const WORKDAY_COMPANIES = [
+  { tenant: 'chevron',      wdNum: '5', site: 'Chevron',              name: 'Chevron' },
+  { tenant: 'halliburton',  wdNum: '1', site: 'Halliburton_External', name: 'Halliburton' },
+  { tenant: 'bakerhughes',  wdNum: '5', site: 'External',             name: 'Baker Hughes' },
+  { tenant: 'weatherford',  wdNum: '5', site: 'External',             name: 'Weatherford' },
+];
+
+function parseWorkdayDate(postedOn) {
+  if (!postedOn) return null;
+  const now = Date.now() / 1000;
+  const s = postedOn.toLowerCase();
+  if (s.includes('today')) return now;
+  if (s.includes('yesterday')) return now - 86400;
+  const days = s.match(/(\d+)\+?\s*day/);
+  if (days) return now - parseInt(days[1], 10) * 86400;
+  const weeks = s.match(/(\d+)\+?\s*week/);
+  if (weeks) return now - parseInt(weeks[1], 10) * 7 * 86400;
+  const months = s.match(/(\d+)\+?\s*month/);
+  if (months) return now - parseInt(months[1], 10) * 30 * 86400;
+  return null;
+}
+
+async function fetchWorkdayJobs() {
+  const allJobs = [];
+
+  for (const company of WORKDAY_COMPANIES) {
+    try {
+      const baseUrl = `https://${company.tenant}.wd${company.wdNum}.myworkdayjobs.com`;
+      const apiUrl = `${baseUrl}/wday/cxs/${company.tenant}/${company.site}/jobs`;
+
+      const res = await fetch(apiUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ appliedFacets: {}, limit: 50, offset: 0, searchText: '' }),
+      });
+
+      if (!res.ok) continue;
+      const data = await res.json();
+      const postings = data.jobPostings || [];
+
+      allJobs.push(...postings.map((job, i) => {
+        const path = job.externalPath || '';
+        return {
+          id: `workday-${company.tenant}-${job.jobReqId || i}`,
+          title: job.title || '',
+          company: company.name,
+          companyLogo: null,
+          city: job.locationsText || '',
+          isRemote: /remote/i.test(job.locationsText || ''),
+          applyUrl: path ? `${baseUrl}/en-US/${company.site}${path}` : baseUrl,
+          description: (job.bulletFields || []).join(' '),
+          salaryMin: null,
+          salaryMax: null,
+          salaryCurrency: 'USD',
+          salaryPeriod: 'YEAR',
+          employmentType: job.timeType || 'FULLTIME',
+          postedTimestamp: parseWorkdayDate(job.postedOn),
+          publisher: company.name,
+          tags: [],
+        };
+      }));
+    } catch (e) {
+      console.warn(`Workday ${company.tenant} fetch error:`, e);
+    }
+  }
+
+  return allJobs;
+}
+
+// ─── 7. Ashby HQ — direct company career portals ───
+
 // Ashby is an ATS used by many product-led tech companies. Their public
 // posting API requires no key and is CORS-friendly.
 // Confirmed working slugs verified against live API (March 2026).
@@ -611,7 +689,7 @@ function getRelativeDate(timestamp) {
 //     europe, emea, uk, canada, australia, asia — when they appear as the
 //     PRIMARY location constraint (not just in the description body).
 
-const ARGENTINA_POSITIVE = /argentina|buenos\s*aires|caba|latam|latin\s*am[eé]r|south\s*america|sudamer|worldwide|global|work\s*from\s*anywhere|anywhere|remoto/i;
+const ARGENTINA_POSITIVE = /argentina|buenos\s*aires|caba|neuqu[eé]n|mendoza|c[oó]rdoba|rosario|patagonia|comodoro|santa\s*cruz|chubut|salta|tierra\s*del\s*fuego|latam|latin\s*am[eé]r|south\s*america|sudamer|worldwide|global|work\s*from\s*anywhere|anywhere|remoto/i;
 
 const GEO_RESTRICTED = /\b(united\s*states|usa|u\.s\.?(\s|$)|north\s*america|europe\b|emea\b|uk\s*only|canada\s*only|australia\s*only|asia\s*only|india\s*only|apac\b)\b/i;
 
@@ -725,6 +803,106 @@ export function getJobBoardSearchLinks() {
         ],
       },
     ],
+    oilgas: [
+      {
+        name: 'ExxonMobil',
+        icon: 'fas fa-oil-can',
+        urls: [
+          { label: 'Argentina / LATAM', url: 'https://jobs.exxonmobil.com/jobs?keywords=&location=Argentina&stretch=10&stretchUnit=MILES' },
+          { label: 'Software / IT', url: 'https://jobs.exxonmobil.com/jobs?keywords=software+engineer&location=Argentina' },
+        ],
+      },
+      {
+        name: 'Chevron',
+        icon: 'fas fa-oil-can',
+        urls: [
+          { label: 'Todas las posiciones', url: 'https://chevron.wd5.myworkdayjobs.com/en-US/Chevron' },
+          { label: 'Software / IT', url: 'https://chevron.wd5.myworkdayjobs.com/en-US/Chevron?q=software' },
+          { label: 'Argentina', url: 'https://chevron.wd5.myworkdayjobs.com/en-US/Chevron?locations=0cc3265bb0f801a6d25f014c1e010000' },
+        ],
+      },
+      {
+        name: 'Shell',
+        icon: 'fas fa-oil-can',
+        urls: [
+          { label: 'Argentina', url: 'https://careers.shell.com/global/en/search-results?keywords=&country=AR' },
+          { label: 'Software / Digital', url: 'https://careers.shell.com/global/en/search-results?keywords=software&country=AR' },
+        ],
+      },
+      {
+        name: 'SLB (Schlumberger)',
+        icon: 'fas fa-oil-can',
+        urls: [
+          { label: 'Search jobs', url: 'https://careers.slb.com/job-search-results/?keyword=&location=Argentina' },
+        ],
+      },
+      {
+        name: 'TotalEnergies',
+        icon: 'fas fa-oil-can',
+        urls: [
+          { label: 'Argentina', url: 'https://careers.totalenergies.com/global/en/search-results?keywords=&country=AR' },
+        ],
+      },
+      {
+        name: 'BP',
+        icon: 'fas fa-oil-can',
+        urls: [
+          { label: 'Search jobs', url: 'https://www.bp.com/en/global/corporate/careers/jobs.html' },
+        ],
+      },
+      {
+        name: 'Halliburton',
+        icon: 'fas fa-oil-can',
+        urls: [
+          { label: 'Search jobs', url: 'https://www.halliburton.com/en/careers/search-jobs?country=AR' },
+        ],
+      },
+      {
+        name: 'Baker Hughes',
+        icon: 'fas fa-oil-can',
+        urls: [
+          { label: 'Argentina', url: 'https://careers.bakerhughes.com/global/en/search-results?keywords=&location=Argentina' },
+        ],
+      },
+      {
+        name: 'YPF',
+        icon: 'fas fa-industry',
+        urls: [
+          { label: 'Trabajá en YPF', url: 'https://www.ypf.com/trabaja-con-nosotros' },
+        ],
+      },
+      {
+        name: 'PAE — Pan American Energy',
+        icon: 'fas fa-industry',
+        urls: [
+          { label: 'Carreras', url: 'https://www.pae.com.ar/sustentabilidad/personas/unete-al-equipo' },
+        ],
+      },
+      {
+        name: 'Pluspetrol',
+        icon: 'fas fa-industry',
+        urls: [
+          { label: 'Trabajá con nosotros', url: 'https://www.pluspetrol.net/es/carreras' },
+        ],
+      },
+      {
+        name: 'Grupo Techint — Tenaris / Ternium / Tecpetrol',
+        icon: 'fas fa-hard-hat',
+        urls: [
+          { label: 'Tenaris Careers', url: 'https://www.tenaris.com/en/careers' },
+          { label: 'Ternium Careers', url: 'https://careers.ternium.com' },
+          { label: 'Tecpetrol', url: 'https://www.tecpetrol.com/en/about-us/working-at-tecpetrol' },
+          { label: 'Techint Engineering', url: 'https://www.techint.com/work-with-us' },
+        ],
+      },
+      {
+        name: 'Raizen',
+        icon: 'fas fa-industry',
+        urls: [
+          { label: 'Vagas / Carreras', url: 'https://carreiras.raizen.com' },
+        ],
+      },
+    ],
     recruiters: [
       {
         name: 'DR Reclutamiento IT',
@@ -811,13 +989,14 @@ export function getJobBoardSearchLinks() {
 // ─── Main fetch function ───
 
 const SOURCES = [
-  { name: 'JSearch', fn: fetchJSearchJobs },
-  { name: 'Remotive', fn: fetchRemotiveJobs },
-  { name: 'Arbeitnow', fn: fetchArbeitnowJobs },
-  { name: 'RemoteOK', fn: fetchRemoteOKJobs },
-  { name: 'Himalayas', fn: fetchHimalayasJobs },
-  { name: 'Ashby', fn: fetchAshbyJobs },
-  { name: 'GetOnBoard', fn: fetchGetOnBoardJobs },
+  { name: 'JSearch',       fn: fetchJSearchJobs },
+  { name: 'Remotive',      fn: fetchRemotiveJobs },
+  { name: 'Arbeitnow',     fn: fetchArbeitnowJobs },
+  { name: 'RemoteOK',      fn: fetchRemoteOKJobs },
+  { name: 'Himalayas',     fn: fetchHimalayasJobs },
+  { name: 'Workday',       fn: fetchWorkdayJobs },
+  { name: 'Ashby',         fn: fetchAshbyJobs },
+  { name: 'GetOnBoard',    fn: fetchGetOnBoardJobs },
   { name: 'Mercado Libre', fn: fetchMercadoLibreJobs },
 ];
 
