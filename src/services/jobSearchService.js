@@ -1,4 +1,4 @@
-// Job Search Service — 9 API sources
+// Job Search Service — 11 API sources
 // ✅ Remotive API: remote tech jobs (free, no key)
 // ✅ Arbeitnow API: tech jobs global (free, no key)
 // ✅ RemoteOK API: remote jobs (free, no key)
@@ -6,11 +6,16 @@
 // ✅ JSearch API: LinkedIn/Indeed/Glassdoor aggregator (RapidAPI key)
 // ✅ Mercado Libre Careers (Eightfold AI): direct company portal (free, no key)
 // ✅ GetOnBoard API: LATAM tech jobs (free, no key)
-// ✅ Ashby HQ: Mural, Linear, PostHog, WorkOS, Deel, Sentry, LiveKit, Clerk, Close, Replit
+// ✅ Ashby HQ: Mural, Linear, PostHog, WorkOS, Deel, Sentry, LiveKit, Clerk, Close, Replit, Pomelo, Brex
 // ✅ Workday API (POST): Chevron, Halliburton, Baker Hughes, Weatherford
+// ✅ Lever API: Nubank, Rappi (free, no key)
+// ✅ Workable API: Belo (free, no key)
 // 🔗 Direct links: LinkedIn, Indeed AR, Bumeran, Zonajobs, Computrabajo,
 //    WorkingNomads, WeWorkRemotely, Wellfound, Remote.co,
 //    Globant, Tiendanube, Ualá, OLX, MeLi
+// 🔗 Fintech / Banks AR: Belo, Naranja X, Brubank, Lemon Cash, Ripio, Cocos Capital
+// 🔗 Fintech / Banks Global: Nubank, Rappi, Stripe, Revolut, Wise, Brex, Mercury, Plaid
+// 🔗 Banks: Santander AR, BBVA, Banco Galicia, HSBC, JPMorgan
 // 🔗 IT Recruiters BA: DR Reclutamiento IT, Michael Page, Robert Half,
 //    Hays, Adecco, Experis
 // 🔗 Oil & Gas / Engineering: ExxonMobil, Shell, SLB, TotalEnergies, BP,
@@ -414,6 +419,8 @@ const ASHBY_COMPANIES = [
   { slug: 'clerk',   name: 'Clerk' },
   { slug: 'close',   name: 'Close' },
   { slug: 'replit',  name: 'Replit' },
+  { slug: 'pomelo',  name: 'Pomelo' },
+  { slug: 'brex',    name: 'Brex' },
 ];
 
 async function fetchAshbyJobs() {
@@ -454,6 +461,115 @@ async function fetchAshbyJobs() {
       })));
     } catch (e) {
       console.warn(`Ashby ${company.slug} fetch error:`, e);
+    }
+  }
+
+  return allJobs;
+}
+
+// ─── 8. Lever — fintech / LATAM companies ───
+
+// Lever's public postings endpoint requires no auth and returns JSON.
+// Verified slugs as of March 2026.
+
+const LEVER_COMPANIES = [
+  { slug: 'nubank',  name: 'Nubank' },
+  { slug: 'rappi',   name: 'Rappi' },
+];
+
+async function fetchLeverJobs() {
+  const allJobs = [];
+
+  for (const company of LEVER_COMPANIES) {
+    try {
+      const url = `https://api.lever.co/v0/postings/${company.slug}?mode=json`;
+      let res;
+      try {
+        res = await fetch(url);
+      } catch {
+        res = await proxiedFetch(url);
+      }
+      if (!res || !res.ok) continue;
+      const jobs = await res.json();
+      if (!Array.isArray(jobs)) continue;
+
+      allJobs.push(...jobs.map(job => ({
+        id: `lever-${company.slug}-${job.id}`,
+        title: job.text || '',
+        company: company.name,
+        companyLogo: null,
+        city: job.categories?.location || '',
+        isRemote: (job.categories?.location || '').toLowerCase().includes('remote'),
+        applyUrl: job.hostedUrl || '',
+        description: job.descriptionPlain || '',
+        salaryMin: null,
+        salaryMax: null,
+        salaryCurrency: 'USD',
+        salaryPeriod: 'YEAR',
+        employmentType: job.categories?.commitment || 'FULLTIME',
+        postedTimestamp: job.createdAt ? Math.floor(job.createdAt / 1000) : null,
+        publisher: company.name,
+        tags: [job.categories?.department, job.categories?.team].filter(Boolean),
+      })));
+    } catch (e) {
+      console.warn(`Lever ${company.slug} fetch error:`, e);
+    }
+  }
+
+  return allJobs;
+}
+
+// ─── 9. Workable — fintech companies ───
+
+// Workable's widget API accepts unauthenticated POST requests.
+// Custom-domain career pages (e.g. work.belo.app) map to a Workable account slug.
+
+const WORKABLE_FINTECH = [
+  { slug: 'belo', name: 'Belo' },
+];
+
+async function fetchWorkableFintechJobs() {
+  const allJobs = [];
+
+  for (const company of WORKABLE_FINTECH) {
+    try {
+      const url = `https://apply.workable.com/api/v1/widget/accounts/${company.slug}/jobs`;
+      let res;
+      try {
+        res = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query: '', limit: 100 }),
+        });
+      } catch {
+        res = await proxiedFetch(url);
+      }
+      if (!res || !res.ok) continue;
+      const data = await res.json();
+      const jobs = Array.isArray(data.results) ? data.results : [];
+
+      allJobs.push(...jobs.map(job => ({
+        id: `workable-${company.slug}-${job.shortcode}`,
+        title: job.title || '',
+        company: company.name,
+        companyLogo: null,
+        city: job.location?.city || (job.remote ? 'Remote' : ''),
+        isRemote: !!job.remote,
+        applyUrl: `https://apply.workable.com/${company.slug}/j/${job.shortcode}`,
+        description: job.description || '',
+        salaryMin: null,
+        salaryMax: null,
+        salaryCurrency: 'USD',
+        salaryPeriod: 'YEAR',
+        employmentType: job.employment_type || 'FULLTIME',
+        postedTimestamp: job.published_on
+          ? Math.floor(new Date(job.published_on).getTime() / 1000)
+          : null,
+        publisher: company.name,
+        tags: [job.department].filter(Boolean),
+      })));
+    } catch (e) {
+      console.warn(`Workable ${company.slug} fetch error:`, e);
     }
   }
 
@@ -803,6 +919,152 @@ export function getJobBoardSearchLinks() {
         ],
       },
     ],
+    fintech: [
+      {
+        name: 'Belo',
+        icon: 'fas fa-coins',
+        urls: [
+          { label: 'Todas las posiciones', url: 'https://work.belo.app/jobs' },
+        ],
+      },
+      {
+        name: 'Naranja X',
+        icon: 'fas fa-credit-card',
+        urls: [
+          { label: 'Trabaja con nosotros', url: 'https://www.naranjax.com/trabaja-con-nosotros' },
+        ],
+      },
+      {
+        name: 'Brubank',
+        icon: 'fas fa-mobile-alt',
+        urls: [
+          { label: 'Empleos', url: 'https://brubank.breezy.hr' },
+        ],
+      },
+      {
+        name: 'Lemon Cash',
+        icon: 'fas fa-lemon',
+        urls: [
+          { label: 'Careers', url: 'https://lemon.me/careers' },
+        ],
+      },
+      {
+        name: 'Ripio',
+        icon: 'fas fa-bitcoin',
+        urls: [
+          { label: 'Trabajá con nosotros', url: 'https://ripio.com/ar/work-with-us' },
+        ],
+      },
+      {
+        name: 'Cocos Capital',
+        icon: 'fas fa-chart-line',
+        urls: [
+          { label: 'Careers', url: 'https://www.cocos.capital/careers' },
+        ],
+      },
+      {
+        name: 'Pomelo',
+        icon: 'fas fa-exchange-alt',
+        urls: [
+          { label: 'Open positions', url: 'https://jobs.ashbyhq.com/pomelo' },
+        ],
+      },
+      {
+        name: 'Nubank',
+        icon: 'fas fa-university',
+        urls: [
+          { label: 'Open positions', url: 'https://jobs.lever.co/nubank' },
+        ],
+      },
+      {
+        name: 'Rappi',
+        icon: 'fas fa-motorcycle',
+        urls: [
+          { label: 'Careers', url: 'https://jobs.lever.co/rappi' },
+        ],
+      },
+      {
+        name: 'Stripe',
+        icon: 'fas fa-stripe-s',
+        urls: [
+          { label: 'All jobs', url: 'https://stripe.com/jobs/search' },
+          { label: 'Engineering', url: 'https://stripe.com/jobs/search?teams[]=Engineering' },
+        ],
+      },
+      {
+        name: 'Revolut',
+        icon: 'fas fa-bolt',
+        urls: [
+          { label: 'All jobs', url: 'https://www.revolut.com/careers/all-jobs/' },
+          { label: 'Engineering', url: 'https://www.revolut.com/careers/all-jobs/?team=Engineering' },
+        ],
+      },
+      {
+        name: 'Wise',
+        icon: 'fas fa-paper-plane',
+        urls: [
+          { label: 'All jobs', url: 'https://wise.jobs/roles/' },
+          { label: 'Engineering', url: 'https://wise.jobs/roles/?team=Engineering' },
+        ],
+      },
+      {
+        name: 'Brex',
+        icon: 'fas fa-credit-card',
+        urls: [
+          { label: 'Open positions', url: 'https://jobs.ashbyhq.com/brex' },
+        ],
+      },
+      {
+        name: 'Mercury',
+        icon: 'fas fa-piggy-bank',
+        urls: [
+          { label: 'Careers', url: 'https://mercury.com/jobs' },
+        ],
+      },
+      {
+        name: 'Plaid',
+        icon: 'fas fa-link',
+        urls: [
+          { label: 'Careers', url: 'https://plaid.com/careers/' },
+        ],
+      },
+      {
+        name: 'Santander Argentina',
+        icon: 'fas fa-landmark',
+        urls: [
+          { label: 'Empleos', url: 'https://www.santanderjobs.com.ar' },
+        ],
+      },
+      {
+        name: 'BBVA Argentina',
+        icon: 'fas fa-landmark',
+        urls: [
+          { label: 'Careers', url: 'https://careers.bbva.com/argentina/' },
+        ],
+      },
+      {
+        name: 'Banco Galicia',
+        icon: 'fas fa-landmark',
+        urls: [
+          { label: 'Trabajá con nosotros', url: 'https://empleos.galicia.ar' },
+        ],
+      },
+      {
+        name: 'HSBC',
+        icon: 'fas fa-landmark',
+        urls: [
+          { label: 'Technology careers', url: 'https://www.hsbc.com/careers/jobs-and-careers/technology' },
+        ],
+      },
+      {
+        name: 'JPMorgan Chase',
+        icon: 'fas fa-landmark',
+        urls: [
+          { label: 'Technology', url: 'https://careers.jpmorgan.com/us/en/our-businesses/technology' },
+          { label: 'Software Engineering', url: 'https://careers.jpmorgan.com/us/en/jobs/software-engineering-technology' },
+        ],
+      },
+    ],
     oilgas: [
       {
         name: 'ExxonMobil',
@@ -989,15 +1251,17 @@ export function getJobBoardSearchLinks() {
 // ─── Main fetch function ───
 
 const SOURCES = [
-  { name: 'JSearch',       fn: fetchJSearchJobs },
-  { name: 'Remotive',      fn: fetchRemotiveJobs },
-  { name: 'Arbeitnow',     fn: fetchArbeitnowJobs },
-  { name: 'RemoteOK',      fn: fetchRemoteOKJobs },
-  { name: 'Himalayas',     fn: fetchHimalayasJobs },
-  { name: 'Workday',       fn: fetchWorkdayJobs },
-  { name: 'Ashby',         fn: fetchAshbyJobs },
-  { name: 'GetOnBoard',    fn: fetchGetOnBoardJobs },
-  { name: 'Mercado Libre', fn: fetchMercadoLibreJobs },
+  { name: 'JSearch',          fn: fetchJSearchJobs },
+  { name: 'Remotive',         fn: fetchRemotiveJobs },
+  { name: 'Arbeitnow',        fn: fetchArbeitnowJobs },
+  { name: 'RemoteOK',         fn: fetchRemoteOKJobs },
+  { name: 'Himalayas',        fn: fetchHimalayasJobs },
+  { name: 'Workday',          fn: fetchWorkdayJobs },
+  { name: 'Ashby',            fn: fetchAshbyJobs },
+  { name: 'Lever',            fn: fetchLeverJobs },
+  { name: 'Workable Fintech', fn: fetchWorkableFintechJobs },
+  { name: 'GetOnBoard',       fn: fetchGetOnBoardJobs },
+  { name: 'Mercado Libre',    fn: fetchMercadoLibreJobs },
 ];
 
 export async function fetchAndRankJobs(onProgress) {

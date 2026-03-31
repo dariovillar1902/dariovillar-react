@@ -115,8 +115,8 @@ const JobBoardComponent = () => {
               </h1>
               <p className='jb-subtitle'>
                 {isSpanish
-                  ? '9 APIs automáticas + Oil & Gas, recruiters IT y portales remotos'
-                  : '9 automatic APIs + Oil & Gas, IT recruiters & remote boards'
+                  ? '11 APIs automáticas + Fintech, Oil & Gas, recruiters IT y portales remotos'
+                  : '11 automatic APIs + Fintech, Oil & Gas, IT recruiters & remote boards'
                 }
               </p>
             </div>
@@ -144,6 +144,11 @@ const JobBoardComponent = () => {
             isSpanish ? 'Portales locales (Buenos Aires)' : 'Local boards (Buenos Aires)',
             'fas fa-map-marker-alt',
             boardLinks.local
+          )}
+          {renderBoardSection(
+            isSpanish ? 'Fintech / Bancos' : 'Fintech / Banks',
+            'fas fa-coins',
+            boardLinks.fintech
           )}
           {renderBoardSection(
             isSpanish ? 'Oil & Gas / Ingeniería' : 'Oil & Gas / Engineering',
@@ -300,8 +305,8 @@ const JobBoardComponent = () => {
               <h3>{isSpanish ? 'Empleos automáticos' : 'Automatic job feed'}</h3>
               <p>
                 {isSpanish
-                  ? 'Presioná "Actualizar" para cargar empleos de Remotive, Arbeitnow, RemoteOK, Himalayas, GetOnBoard, Mercado Libre, Ashby (Mural, Linear, PostHog y más) y Workday (Chevron, Halliburton, Baker Hughes). Para Oil & Gas, recruiters IT y otros portales, usá los links de arriba.'
-                  : 'Click "Refresh" to load jobs from Remotive, Arbeitnow, RemoteOK, Himalayas, GetOnBoard, Mercado Libre, Ashby (Mural, Linear, PostHog and more) & Workday (Chevron, Halliburton, Baker Hughes). For Oil & Gas, IT recruiters and other boards, use the links above.'
+                  ? 'Presioná "Actualizar" para cargar empleos de Remotive, Arbeitnow, RemoteOK, Himalayas, GetOnBoard, Mercado Libre, Ashby (Mural, Linear, Pomelo, Brex y más), Workday (Chevron, Halliburton, Baker Hughes), Lever (Nubank, Rappi) y Workable (Belo). Para Fintech, Oil & Gas, recruiters IT y otros portales, usá los links de arriba.'
+                  : 'Click "Refresh" to load jobs from Remotive, Arbeitnow, RemoteOK, Himalayas, GetOnBoard, Mercado Libre, Ashby (Mural, Linear, Pomelo, Brex and more), Workday (Chevron, Halliburton, Baker Hughes), Lever (Nubank, Rappi) & Workable (Belo). For Fintech, Oil & Gas, IT recruiters and other boards, use the links above.'
                 }
               </p>
             </div>
