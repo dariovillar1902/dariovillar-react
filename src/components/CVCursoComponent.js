@@ -1,10 +1,8 @@
 import React, { useContext } from 'react';
-import { LanguageContext } from './languageContext';
 import { DarkModeContext } from './darkModeContext';
 
 const CVCursoComponent = ({ titulo, issuer, fecha, horas, stack }) => {
     const { darkMode } = useContext(DarkModeContext);
-    const { isSpanish } = useContext(LanguageContext);
     return (
         <div className='divCurso'>
             <div className='workTitle'>
