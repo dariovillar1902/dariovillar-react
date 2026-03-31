@@ -16,7 +16,7 @@ const CVComponent = () => {
             <Row className='cvrow cvHeaderRow'>
                 <Col md={12} className='cvHeader'>
                     <h2 className="cvName">{isSpanish ? 'DARÍO VILLAR' : 'DARIO VILLAR'}</h2>
-                    <h4 className="cvSubtitle">Lead Software Engineer</h4>
+                    <h4 className="cvSubtitle">Lead Software Engineer · {isSpanish ? 'Ingeniero Civil' : 'Civil Engineer'}</h4>
                     <p className="cvLocation">Buenos Aires, Argentina</p>
                 </Col>
             </Row>
@@ -33,8 +33,8 @@ const CVComponent = () => {
             <h3 className="cvSectionTitle">{isSpanish ? 'PERFIL' : 'PROFILE'}</h3>
             <p className="cvProfile cvtext">
                 {isSpanish
-                    ? 'Full-stack software engineer con más de 3 años de experiencia en organizaciones globales (Chevron, ExxonMobil). Historial comprobado de superar consistentemente los objetivos de entrega, liderar transiciones técnicas y desarrollar soluciones de IA/automatización con impacto empresarial medible. Certificado SAFe® 6 Practitioner. Estudiante avanzado de Ingeniería Civil en UTN-FRBA (45/46 materias), con sólidas bases en resolución de problemas de ingeniería.'
-                    : 'Full-stack software engineer with 3+ years of experience at global enterprise organizations (Chevron, ExxonMobil). Consistent track record of exceeding delivery targets, leading technical transitions, and shipping AI-driven automation with measurable business impact. SAFe® 6 Practitioner. Advanced Civil Engineering student at UTN-FRBA (45/46 subjects), with a strong engineering problem-solving foundation.'
+                    ? 'Full-Stack Software Engineer con más de 4 años de experiencia en organizaciones globales de la industria Oil & Gas (Chevron, ExxonMobil). Historial comprobado de superar consistentemente los objetivos de entrega, liderar equipos técnicos y desarrollar soluciones de IA/automatización con impacto empresarial medible. Certificado SAFe® 6 Practitioner y Microsoft AZ-204 (Azure Developer Associate). Estudiante avanzado de Ingeniería Civil en UTN-FRBA (45/46 materias aprobadas). Inglés C1 (Cambridge FCE, Distinción). Licencia de conducir clase B, movilidad propia.'
+                    : 'Full-Stack Software Engineer with 4+ years of experience at global Oil & Gas organizations (Chevron, ExxonMobil). Consistent track record of exceeding delivery targets, leading technical teams, and shipping AI-driven automation with measurable business impact. SAFe® 6 Practitioner and Microsoft AZ-204 (Azure Developer Associate) certified. Advanced Civil Engineering student at UTN-FRBA (45/46 subjects completed). C1 English (Cambridge FCE, Distinction). Valid driver\'s license, own vehicle.'
                 }
             </p>
 
@@ -45,33 +45,55 @@ const CVComponent = () => {
 
             <CVWorkComponent
                 titulo={'Lead Software Engineer'}
-                empresa={'Oficina Nacional de Compras (ONC)'}
-                fecha={isSpanish ? '2025 – Actualidad' : '2025 – Present'}
-                items={isSpanish
-                    ? ['[Por completar]', '[Por completar]', '[Por completar]']
-                    : ['[To be completed]', '[To be completed]', '[To be completed]']
-                }
-                stack={[]}
-            />
-
-            <CVWorkComponent
-                titulo={'Lead Software Engineer'}
                 empresa={'Chevron'}
                 fecha={isSpanish ? 'Marzo 2024 – Actualidad' : 'March 2024 – Present'}
                 items={isSpanish
                     ? [
-                        'Líder Técnico de ADAP (Automated Design Assurance Process); capacidad superada en un 40% en 2024 (109 story points) y un 60% en 2025, alcanzando el 100% del business value planificado en todos los PIs y el 190% en PI 25.3.',
-                        'Diseño y despliegue de un agente de IA en Copilot Studio para automatización de análisis de varianza G&A — 1er puesto en el hackathon de TechShare — con reducción estimada del ~90% del esfuerzo manual (~15 FTE) para 100–1.000 stakeholders; contribución a la integración DigiSubSea–ISO 19008 desarrollando un agente de identificación de códigos SAB/COR.',
-                        'Mantenimiento del 100% de cumplimiento del SLA de resolución de bugs a 30 días; liderazgo del proceso de KT hacia el equipo ENGINE; coordinación de más de 10 entrevistas de selección (3 contrataciones); representación de Chevron como embajador de marca empleadora en Nerdearla y la Feria Laboral UTN.',
-                        'TechShare Connect & Partnership Lead; PRIDE Argentina Learning Specialist — creación y lanzamiento de "Fun Corner", plataforma de aprendizaje en Power Apps que incorporó a más de 90 miembros a la red.'
+                        'Líder Técnico de ADAP (Automated Design Assurance Process), gestionando un equipo de desarrolladores en Argentina, Polonia e India. Análisis de requerimientos y project management con la Product Owner, Scrum Master y Product Line Architect. Capacidad superada en un 50% en 2024 y 2025, con el 100% del business value planificado alcanzado consistentemente en todos los PIs.',
+                        'Diseño y despliegue de un agente de IA en Copilot Studio para automatización de análisis financieros — 1° puesto otorgado por el CIO de la compañía — con reducción estimada del ~90% del esfuerzo manual (~15 FTE). Contribución a la integración del estándar ISO 19008 mediante un agente de identificación de códigos conectado a Field Development Plan (FDPlan).',
+                        'Mantenimiento del 100% de cumplimiento del SLA de bugs en menos de 30 días. Coordinación de más de 10 entrevistas técnicas (3 contrataciones). Embajador de marca empleadora en Nerdearla y la Feria Laboral UTN.',
+                        'TechShare Connect & Partnership Lead. PRIDE Argentina Learning Specialist — creación de "Fun Corner", plataforma de aprendizaje en Power Apps con más de 90 miembros incorporados.'
                     ]
                     : [
-                        'Technical Lead for ADAP (Automated Design Assurance Process); exceeded assigned capacity by 40% in 2024 (109 story points) and 60% in 2025, achieving 100% planned business value across all PIs and 190% in PI 25.3.',
-                        'Designed and deployed a Copilot Studio AI agent for G&A variance analysis automation — 1st place at TechShare hackathon — with projected ~90% effort reduction (~15 FTE savings) for 100–1,000 stakeholders; contributor to DigiSubSea–ISO 19008 integration, developing an AI-powered SAB/COR code identification agent.',
-                        'Maintained 100% compliance with the 30-day bug-fix SLA; led KT process for ENGINE team handoff; coordinated 10+ technical hiring interviews (3 new hires); represented Chevron as employer brand ambassador at Nerdearla and the UTN job fair.',
-                        'TechShare Connect & Partnership Lead; PRIDE Argentina Learning Specialist — designed and launched "Fun Corner", a Power Apps learning platform that onboarded 90+ members to the network.'
+                        'Technical Lead for ADAP (Automated Design Assurance Process), managing a team of developers across Argentina, Poland and India. Requirements analysis and project management alongside the Product Owner, Scrum Master and Product Line Architect. Exceeded assigned capacity by 50% in 2024 and 2025, achieving 100% of planned business value across all PIs.',
+                        'Designed and deployed a Copilot Studio AI agent for financial analysis automation — awarded 1st place by the company CIO — with projected ~90% effort reduction (~15 FTE). Contributed to ISO 19008 integration by developing a code identification agent connected to Field Development Plan (FDPlan) data sources.',
+                        'Maintained 100% compliance with the 30-day bug-fix SLA. Coordinated 10+ technical hiring interviews (3 new hires). Represented Chevron as employer brand ambassador at Nerdearla and the UTN job fair.',
+                        'TechShare Connect & Partnership Lead. PRIDE Argentina Learning Specialist — designed and launched "Fun Corner", a Power Apps learning platform that onboarded 90+ members.'
                     ]}
-                stack={['Angular', 'TypeScript', 'C#', '.NET 6', 'Azure DevOps', 'SQL Server', 'Copilot Studio', 'Power Apps']}
+                stack={['Angular', 'TypeScript', 'C#', '.NET 8', 'Azure DevOps', 'SQL Server', 'Copilot Studio', 'Power Apps']}
+            />
+
+            <CVWorkComponent
+                titulo={isSpanish ? 'Analista Programador' : 'Software Analyst Developer'}
+                empresa={'Oficina Nacional de Compras (ONC)'}
+                fecha={isSpanish ? 'Enero 2025 – Actualidad' : 'January 2025 – Present'}
+                items={isSpanish
+                    ? [
+                        'Resolución de 248 tickets de soporte en 8 meses con un tiempo de respuesta promedio de 2 días; automatización de procesos SQL mediante stored procedures y jobs programados en los portales COMPR.AR y CONTRAT.AR, plataformas centrales de contrataciones públicas del Estado Nacional.',
+                        'Desarrollo de módulos nuevos siguiendo buenas prácticas, obteniendo requerimientos directamente con organismos públicos; análisis funcional y técnico para garantizar la calidad de las soluciones entregadas.',
+                        'Participación activa en la migración del sistema legacy de ASP.NET Framework 4 hacia una API moderna con .NET 9 y frontend en Next.js con TypeScript, mejorando la escalabilidad y mantenibilidad de la plataforma.'
+                    ]
+                    : [
+                        'Resolved 248 support tickets in 8 months, maintaining a 2-day average response time; automated SQL workflows via stored procedures and scheduled jobs across COMPR.AR and CONTRAT.AR, Argentina\'s national public procurement platforms.',
+                        'Architected new application modules following development best practices, gathering requirements directly from public agencies; conducted functional and technical analysis to ensure solution quality and stakeholder alignment.',
+                        'Driving migration of legacy ASP.NET Framework 4 system to a modern .NET 9 API with a Next.js/TypeScript frontend, improving platform scalability and long-term maintainability.'
+                    ]
+                }
+                stack={['ASP.NET', '.NET 9', 'Next.js', 'TypeScript', 'C#', 'SQL Server']}
+            />
+
+            <CVWorkComponent
+                titulo={isSpanish ? 'Ayudante de Cátedra — Geotecnia' : 'Teaching Assistant — Geotechnics'}
+                empresa={'Universidad Tecnológica Nacional'}
+                fecha={isSpanish ? 'Marzo 2025 – Actualidad' : 'March 2025 – Present'}
+                items={isSpanish
+                    ? [
+                        'Ayudante de 2° de Geotecnia (4° año, Ingeniería Civil). Planificación de clases prácticas, armado y corrección de parciales, apoyo a los estudiantes en ejercicios y resolución de consultas.'
+                    ]
+                    : [
+                        'Teaching Assistant for Geotechnics (4th year, Civil Engineering). Lesson planning, exam design and grading, student support in practical exercises and Q&A.'
+                    ]}
+                stack={[]}
             />
 
             <CVWorkComponent
@@ -91,6 +113,8 @@ const CVComponent = () => {
                     ]}
                 stack={['C#', 'ASP.NET', '.NET Framework 4', 'JavaScript', 'Entity Framework Core', 'SQL Server']}
             />
+
+            <div className="cvPageBreak" />
 
             <CVWorkComponent
                 titulo={'Trainee Full Stack Web Developer'}
@@ -118,16 +142,18 @@ const CVComponent = () => {
 
             <CVWorkComponent
                 titulo={isSpanish ? 'Ingeniería Civil' : 'Civil Engineering'}
-                empresa={'Universidad Tecnológica Nacional — FRBA'}
+                empresa={'Universidad Tecnológica Nacional'}
                 fecha={isSpanish ? 'Marzo 2019 – Actualidad' : 'March 2019 – Present'}
                 items={isSpanish
                     ? [
-                        '45 de 46 materias aprobadas; solo resta el Proyecto Final. Promedio general: 8.12/10.',
-                        'Perfil orientado a Vías de Comunicación. Manejo de herramientas CAD/BIM: AutoCAD, Civil 3D, Revit, SketchUp, RAM Elements, MS Project.'
+                        '45 de 46 materias aprobadas; solo resta el Proyecto Final. Promedio general: 8.12/10. Perfil orientado a Vías de Comunicación. Herramientas CAD/BIM: AutoCAD, Civil 3D, Revit, SketchUp, RAM Elements, MS Project.',
+                        'Secretaría de Eventos y Logística del CONEIC 2026 (Congreso Nacional de Estudiantes de Ingeniería Civil).',
+                        '1° Premio en el Concurso Nacional al Desarrollo de Aplicaciones de la AIE (Asociación de Ingenieros Estructurales): aplicación web para cálculo de fundaciones de hormigón armado, construida con TypeScript, Next.js y .NET 9.'
                     ]
                     : [
-                        '45 out of 46 subjects completed; only the Final Project remaining. Overall GPA: 8.12/10.',
-                        'Specialization track in Transportation Engineering. CAD/BIM tooling: AutoCAD, Civil 3D, Revit, SketchUp, RAM Elements, MS Project.'
+                        '45 out of 46 subjects completed; only the Final Project remaining. Overall GPA: 8.12/10. Specialization in Transportation Engineering. CAD/BIM tooling: AutoCAD, Civil 3D, Revit, SketchUp, RAM Elements, MS Project.',
+                        'Events & Logistics Secretary of CONEIC 2026 (National Congress of Civil Engineering Students).',
+                        '1st Prize at the AIE National Application Development Contest (Argentine Association of Structural Engineers): web application for reinforced concrete foundation design, built with TypeScript, Next.js and .NET 9.'
                     ]}
                 stack={[]}
                 isLastEntry={true}
@@ -138,6 +164,7 @@ const CVComponent = () => {
             {/* ── Courses & Certifications ── */}
             <h3 className="cvSectionTitle">{isSpanish ? 'CURSOS Y CERTIFICACIONES' : 'COURSES & CERTIFICATIONS'}</h3>
 
+            <CVCursoComponent titulo={'Data Analytics'} issuer={'Coderhouse'} fecha={isSpanish ? 'Abr 2025' : 'Apr 2025'} horas={null} stack={['Python', 'SQL', 'Power BI', 'Excel']} />
             <CVCursoComponent titulo={'Microsoft Certified: Azure Developer Associate (AZ-204)'} issuer={'Microsoft'} fecha={isSpanish ? 'Sep 2023' : 'Sep 2023'} horas={11} stack={['Microsoft Azure', '.NET 7', 'C#']} />
             <CVCursoComponent titulo={isSpanish ? 'SAFe® 6 Practitioner' : 'SAFe® 6 Practitioner'} issuer={'Scaled Agile'} fecha={'2024'} horas={16} stack={['SAFe', 'Agile', 'Scrum']} />
             <CVCursoComponent titulo={isSpanish ? 'Angular: de Cero a Experto' : 'Angular: from Zero to Expert'} issuer={'Udemy'} fecha={isSpanish ? 'Abr 2024' : 'Apr 2024'} horas={45} stack={['Angular 17', 'TypeScript', 'NestJS', 'Docker', 'Tailwind']} />
@@ -156,6 +183,12 @@ const CVComponent = () => {
                     &nbsp;&nbsp;·&nbsp;&nbsp;
                     {isSpanish ? 'Inglés' : 'English'}&nbsp;<em>{isSpanish ? '— C1 (Cambridge FCE, Distinción)' : '— C1 (Cambridge FCE, Distinction)'}</em>
                 </span>
+            </div>
+
+            <div className="cvPrintBtn no-print">
+                <button onClick={() => window.print()}>
+                    🖨️ {isSpanish ? 'Imprimir CV' : 'Print CV'}
+                </button>
             </div>
 
         </Container>

@@ -5,6 +5,7 @@ import { NavbarComponent } from '../components/NavbarComponent';
 import { PortfolioComponent } from '../components/PortfolioComponent';
 import { SobreMiComponent } from '../components/SobreMiComponent';
 import CVComponent from '../components/CVComponent';
+import JobBoardComponent from '../components/JobBoardComponent';
 import { DarkModeProvider } from '../components/darkModeContext';
 import { LanguageProvider } from '../components/languageContext';
 import { ContactoComponent } from '../components/ContactoComponent';
@@ -21,6 +22,7 @@ export const DashboardRoutes = () => {
           <Route path="/portfolio" element={<PortfolioComponent />} />
           <Route path="/cv" element={<CVComponent />} />
           <Route path='/contacto' element={<ContactoComponent />} />
+          <Route path='/jobs' element={<JobBoardComponent />} />
         </Routes>
       </BrowserRouter>
     </LanguageProvider>

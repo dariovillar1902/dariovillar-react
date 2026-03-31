@@ -13,7 +13,7 @@ const CVCursoComponent = ({ titulo, issuer, fecha, horas, stack }) => {
                     <h6 className="titulo workJobTitle">{titulo}</h6>
                     <span className="cvtext workEmpresa">, {issuer}</span>
                 </div>
-                <span className="cvtext workFecha">{fecha} · {horas}{isSpanish ? 'h' : 'h'}</span>
+                <span className="cvtext workFecha">{fecha}{horas ? ` · ${horas}h` : ''}</span>
             </div>
             {stack.length > 0 && (
                 <p className={"cvtext textoCurso " + (darkMode ? 'whiteText' : 'blackText')}>
