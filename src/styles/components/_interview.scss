@@ -1,0 +1,687 @@
+// ─── Interview Prep Module Styles ───
+
+.iv-container {
+  min-height: 100vh;
+  padding: 40px 5% 80px;
+  font-family: 'Montserrat', 'Segoe UI', sans-serif;
+}
+
+.iv-dark {
+  background: #0a0a0f;
+  color: #e8e8ec;
+}
+
+.iv-light {
+  background: #f4f5f7;
+  color: #1a1a2e;
+}
+
+// ─── Header ───
+
+.iv-header {
+  margin-bottom: 32px;
+}
+
+.iv-title {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #388697, #5948d5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 4px;
+}
+
+.iv-subtitle {
+  opacity: 0.6;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+// ─── Tabs ───
+
+.iv-tabs {
+  .nav-link {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: inherit;
+    opacity: 0.55;
+    border: none;
+    padding: 10px 20px;
+    transition: all 0.2s;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+
+  .nav-link.active {
+    opacity: 1;
+    border-bottom: 2px solid #5948d5 !important;
+    background: transparent;
+    color: #5948d5;
+  }
+}
+
+.iv-dark .iv-tabs .nav-link {
+  color: #e8e8ec;
+}
+
+.iv-dark .iv-tabs .nav-link.active {
+  color: #a89aff;
+  border-bottom-color: #a89aff !important;
+}
+
+// ─── Toolbar ───
+
+.iv-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  padding: 16px 20px;
+  border-radius: 14px;
+  margin-bottom: 24px;
+}
+
+.iv-dark .iv-toolbar {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.iv-light .iv-toolbar {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.iv-toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.iv-toolbar-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0.5;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+// ─── Mode & Filter Buttons ───
+
+.iv-btn {
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.iv-dark .iv-btn {
+  background: rgba(255, 255, 255, 0.06);
+  color: #c8c8d0;
+  border-color: rgba(255, 255, 255, 0.1);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(89, 72, 213, 0.4);
+  }
+
+  &.iv-btn-active {
+    background: rgba(89, 72, 213, 0.25);
+    color: #a89aff;
+    border-color: rgba(89, 72, 213, 0.5);
+  }
+}
+
+.iv-light .iv-btn {
+  background: #f0f0f5;
+  color: #444;
+  border-color: rgba(0, 0, 0, 0.08);
+
+  &:hover {
+    background: #e4e4f0;
+    border-color: rgba(89, 72, 213, 0.3);
+  }
+
+  &.iv-btn-active {
+    background: rgba(89, 72, 213, 0.1);
+    color: #5948d5;
+    border-color: rgba(89, 72, 213, 0.3);
+  }
+}
+
+// ─── Flashcard ───
+
+.iv-flashcard-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding-top: 24px;
+}
+
+.iv-flashcard-progress {
+  font-size: 0.85rem;
+  opacity: 0.5;
+  font-weight: 600;
+}
+
+.iv-flashcard-scene {
+  width: 100%;
+  max-width: 680px;
+  height: 260px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.iv-flashcard-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+
+  &.iv-flipped {
+    transform: rotateY(180deg);
+  }
+}
+
+.iv-flashcard-front,
+.iv-flashcard-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 36px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.iv-dark .iv-flashcard-front,
+.iv-dark .iv-flashcard-back {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.iv-light .iv-flashcard-front,
+.iv-light .iv-flashcard-back {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.iv-flashcard-back {
+  transform: rotateY(180deg);
+}
+
+.iv-flashcard-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.4;
+  margin-bottom: 12px;
+}
+
+.iv-flashcard-text {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.iv-flashcard-hint {
+  font-size: 0.75rem;
+  opacity: 0.35;
+  margin-top: 14px;
+}
+
+.iv-flashcard-answer-text {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  opacity: 0.85;
+}
+
+.iv-flashcard-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.iv-nav-btn {
+  padding: 8px 22px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+}
+
+.iv-dark .iv-nav-btn {
+  background: rgba(255, 255, 255, 0.08);
+  color: #e8e8ec;
+
+  &:hover:not(:disabled) {
+    background: rgba(89, 72, 213, 0.3);
+  }
+}
+
+.iv-light .iv-nav-btn {
+  background: #ebebf3;
+  color: #1a1a2e;
+
+  &:hover:not(:disabled) {
+    background: rgba(89, 72, 213, 0.12);
+    color: #5948d5;
+  }
+}
+
+.iv-flashcard-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.iv-btn-known {
+  background: rgba(52, 199, 89, 0.15) !important;
+  color: #34c759 !important;
+  border-color: rgba(52, 199, 89, 0.3) !important;
+
+  &:hover {
+    background: rgba(52, 199, 89, 0.25) !important;
+  }
+}
+
+.iv-btn-learning {
+  background: rgba(255, 69, 58, 0.12) !important;
+  color: #ff453a !important;
+  border-color: rgba(255, 69, 58, 0.25) !important;
+
+  &:hover {
+    background: rgba(255, 69, 58, 0.2) !important;
+  }
+}
+
+// ─── Difficulty Badge ───
+
+.iv-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.iv-badge-easy {
+  background: rgba(52, 199, 89, 0.15);
+  color: #34c759;
+  border: 1px solid rgba(52, 199, 89, 0.3);
+}
+
+.iv-badge-medium {
+  background: rgba(255, 204, 0, 0.15);
+  color: #c89800;
+  border: 1px solid rgba(255, 204, 0, 0.3);
+}
+
+.iv-badge-hard {
+  background: rgba(255, 69, 58, 0.12);
+  color: #ff453a;
+  border: 1px solid rgba(255, 69, 58, 0.25);
+}
+
+.iv-dark .iv-badge-medium {
+  color: #ffcc00;
+}
+
+// ─── List Mode ───
+
+.iv-list-group-header {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.45;
+  padding: 20px 0 8px;
+}
+
+.iv-accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+
+.iv-accordion-question {
+  font-size: 0.95rem;
+  font-weight: 600;
+  flex: 1;
+  text-align: left;
+}
+
+.iv-accordion-answer {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  opacity: 0.8;
+  padding: 4px 0;
+}
+
+.iv-dark .accordion-button {
+  background: rgba(255, 255, 255, 0.03) !important;
+  color: #e8e8ec !important;
+  box-shadow: none !important;
+
+  &:not(.collapsed) {
+    background: rgba(89, 72, 213, 0.1) !important;
+    color: #a89aff !important;
+  }
+}
+
+.iv-dark .accordion-body {
+  background: rgba(255, 255, 255, 0.02);
+  color: #c8c8d0;
+}
+
+.iv-dark .accordion-item {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.07);
+}
+
+// ─── Quiz Mode ───
+
+.iv-quiz-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding-top: 24px;
+}
+
+.iv-quiz-progress {
+  font-size: 0.82rem;
+  opacity: 0.45;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.iv-quiz-question {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.iv-quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.iv-quiz-option {
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s;
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+.iv-dark .iv-quiz-option {
+  background: rgba(255, 255, 255, 0.04);
+  color: #e8e8ec;
+  border-color: rgba(255, 255, 255, 0.08);
+
+  &:hover:not(:disabled) {
+    background: rgba(89, 72, 213, 0.15);
+    border-color: rgba(89, 72, 213, 0.4);
+  }
+}
+
+.iv-light .iv-quiz-option {
+  background: white;
+  color: #1a1a2e;
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+
+  &:hover:not(:disabled) {
+    background: rgba(89, 72, 213, 0.06);
+    border-color: rgba(89, 72, 213, 0.25);
+  }
+}
+
+.iv-quiz-option-correct {
+  background: rgba(52, 199, 89, 0.15) !important;
+  border-color: rgba(52, 199, 89, 0.4) !important;
+  color: #34c759 !important;
+}
+
+.iv-quiz-option-wrong {
+  background: rgba(255, 69, 58, 0.12) !important;
+  border-color: rgba(255, 69, 58, 0.3) !important;
+  color: #ff453a !important;
+}
+
+.iv-quiz-next-btn {
+  padding: 10px 28px;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #388697, #5948d5);
+  color: white;
+  transition: all 0.2s;
+  box-shadow: 0 3px 12px rgba(89, 72, 213, 0.3);
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 18px rgba(89, 72, 213, 0.45);
+  }
+}
+
+// ─── Quiz Score Screen ───
+
+.iv-score-screen {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.iv-score-number {
+  font-size: 4rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #388697, #5948d5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.iv-score-label {
+  font-size: 1.1rem;
+  opacity: 0.6;
+  margin-bottom: 32px;
+}
+
+// ─── Empty State ───
+
+.iv-empty-state {
+  text-align: center;
+  padding: 80px 20px;
+  opacity: 0.45;
+
+  i {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  p {
+    font-size: 0.95rem;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+}
+
+// ─── LeetCode Tab ───
+
+.iv-lc-filters {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.iv-lc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.iv-lc-card {
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: all 0.2s ease;
+}
+
+.iv-dark .iv-lc-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  &:hover {
+    border-color: rgba(89, 72, 213, 0.3);
+    background: rgba(255, 255, 255, 0.065);
+  }
+}
+
+.iv-light .iv-lc-card {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+
+  &:hover {
+    border-color: rgba(89, 72, 213, 0.2);
+    box-shadow: 0 4px 20px rgba(89, 72, 213, 0.1);
+  }
+}
+
+.iv-lc-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.iv-lc-title {
+  font-size: 0.97rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.iv-lc-meta {
+  font-size: 0.8rem;
+  opacity: 0.5;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.iv-lc-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.iv-lc-tag {
+  font-size: 0.72rem;
+  padding: 2px 8px;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.iv-dark .iv-lc-tag {
+  background: rgba(89, 72, 213, 0.15);
+  color: #a89aff;
+  border: 1px solid rgba(89, 72, 213, 0.2);
+}
+
+.iv-light .iv-lc-tag {
+  background: rgba(89, 72, 213, 0.08);
+  color: #5948d5;
+  border: 1px solid rgba(89, 72, 213, 0.15);
+}
+
+.iv-lc-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  background: linear-gradient(135deg, #388697, #5948d5);
+  color: white !important;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(89, 72, 213, 0.3);
+  align-self: flex-start;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(89, 72, 213, 0.45);
+  }
+}
+
+// ─── Responsive ───
+
+@media (max-width: 768px) {
+  .iv-container {
+    padding: 20px 4% 60px;
+  }
+
+  .iv-title {
+    font-size: 1.5rem;
+  }
+
+  .iv-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .iv-flashcard-scene {
+    height: 300px;
+  }
+
+  .iv-flashcard-front,
+  .iv-flashcard-back {
+    padding: 24px 20px;
+  }
+
+  .iv-lc-grid {
+    grid-template-columns: 1fr;
+  }
+}
