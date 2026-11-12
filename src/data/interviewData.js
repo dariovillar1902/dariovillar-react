@@ -323,6 +323,123 @@ export const qaQuestions = [
       es: 'Repository abstrae el acceso a datos — la lógica de negocio habla con una interfaz, no directamente con DbContext. Unit of Work agrupa múltiples operaciones de repositorio en una única transacción que se confirma o revierte atómicamente. En EF Core, DbContext ya implementa ambos patrones: rastrea cambios (Unit of Work) y expone DbSet<T> (Repository). Agregar una capa personalizada encima suele ser una indirección innecesaria a menos que necesites intercambiar fuentes de datos o lograr aislamiento de dominio completo.',
     },
   },
+  {
+    id: 25,
+    category: 'behavioral',
+    difficulty: 'medium',
+    question: {
+      en: 'Tell me about a time you had a technical disagreement with a senior manager or tech lead.',
+      es: 'Contame sobre una vez que tuviste un desacuerdo técnico con un manager senior o tech lead.',
+    },
+    answer: {
+      en: 'Answer with a real story in STAR format, never theory. Situation: the context and the decision on the table. Task: what you were accountable for (security, timeline, cost). Action: do not just argue — bring data, e.g. a trade-off matrix comparing build-in-house vs. an industry-standard solution, including maintenance overhead and compliance. Result: a concrete, measurable outcome (e.g. 6 weeks of engineering time saved, launched on schedule with zero critical vulnerabilities). Show you disagree with evidence and commit once a decision is made.',
+      es: 'Respondé con una historia real en formato STAR, nunca con teoría. Situation: el contexto y la decisión sobre la mesa. Task: de qué eras responsable (seguridad, plazos, costo). Action: no solo discutas — llevá datos, por ejemplo una matriz de trade-offs entre construir in-house vs. una solución estándar de la industria, con costo de mantenimiento y compliance. Result: un resultado concreto y medible (ej. 6 semanas de ingeniería ahorradas, lanzamiento en fecha con cero vulnerabilidades críticas). Mostrá que discrepás con evidencia y te alineás una vez tomada la decisión.',
+    },
+  },
+  {
+    id: 26,
+    category: 'behavioral',
+    difficulty: 'medium',
+    question: {
+      en: 'Tell me about a project where you delivered measurable business impact.',
+      es: 'Contame sobre un proyecto donde generaste un impacto de negocio medible.',
+    },
+    answer: {
+      en: 'Lead with the metric, then the story (STAR). Example: at Chevron I led development of QMS, a platform that digitises quality processes and supports ISO 9001 certification across Projects, Engineering, Wells, Supply Chain and O&M. Using AI-assisted in-house development it cost USD 0.3M over five years versus USD 1.7M for a vendor solution — about USD 1.4M in estimated savings. Close with what you learned or would repeat. Impact and scale matter more than the list of tasks.',
+      es: 'Empezá por la métrica y después contá la historia (STAR). Ejemplo: en Chevron lideré el desarrollo de QMS, una plataforma que digitaliza los procesos de calidad y apoya la certificación ISO 9001 en Projects, Engineering, Wells, Supply Chain y O&M. Con desarrollo interno asistido por IA costó USD 0,3M a cinco años frente a USD 1,7M de una solución de proveedor — unos USD 1,4M de ahorro estimado. Cerrá con qué aprendiste o repetirías. El impacto y la escala pesan más que la lista de tareas.',
+    },
+  },
+  {
+    id: 27,
+    category: 'behavioral',
+    difficulty: 'medium',
+    question: {
+      en: 'How do you lead a team spread across several countries and time zones?',
+      es: '¿Cómo liderás un equipo distribuido en varios países y husos horarios?',
+    },
+    answer: {
+      en: 'Anchor the answer in outcomes, not soft-skill adjectives. Example: I lead the ADAP team across Argentina, Poland and India, coordinating architecture, requirements and delivery with the Product Owner and Scrum Master. The team consistently delivered 100% of planned business value at roughly 50% above assigned capacity. Then describe 1–2 concrete practices you used (clear requirements, written decisions, review cadence) and how they produced that result.',
+      es: 'Anclá la respuesta en resultados, no en adjetivos de soft skills. Ejemplo: lidero el equipo de ADAP entre Argentina, Polonia e India, coordinando arquitectura, requerimientos y entregas con el Product Owner y el Scrum Master. El equipo cumplió de forma consistente el 100% del business value planificado con una capacidad ~50% superior a la asignada. Después describí 1–2 prácticas concretas que usaste (requerimientos claros, decisiones por escrito, cadencia de revisiones) y cómo llevaron a ese resultado.',
+    },
+  },
+  {
+    id: 28,
+    category: 'negotiation',
+    difficulty: 'medium',
+    question: {
+      en: 'What are your salary expectations (or your current salary)?',
+      es: '¿Cuáles son tus expectativas salariales (o tu salario actual)?',
+    },
+    answer: {
+      en: 'Mistake #1 is giving a number first: if you say $3,000 and the budget was $6,000 you just gave away $36,000 a year. Redirect politely: "I am focused on finding the right technical fit first. Once we confirm I am the right person for the team, I am confident we can agree on a competitive package aligned with market standards for this level." Share a figure only after they do, or once they have confirmed they want to hire you.',
+      es: 'El error #1 es dar un número primero: si decís USD 3.000 y el presupuesto era USD 6.000 regalaste USD 36.000 al año. Redirigí con educación: "Me enfoco primero en encontrar el fit técnico correcto. Una vez que confirmemos que soy la persona indicada para el equipo, estoy seguro de que podemos acordar un paquete competitivo alineado con el estándar de mercado para este nivel." Dá una cifra solo después de que ellos lo hagan, o cuando ya confirmaron que quieren contratarte.',
+    },
+  },
+  {
+    id: 29,
+    category: 'negotiation',
+    difficulty: 'hard',
+    question: {
+      en: 'How do you justify your rate to an international employer?',
+      es: '¿Cómo justificás tu tarifa ante una empresa internacional?',
+    },
+    answer: {
+      en: 'Never base it on your personal expenses or local cost of living — the employer cares about the value you bring. Anchor on market data for the global role (Levels.fyi, Carta, Payscale) and on your measurable impact. Keep 2–3 processes running in parallel: the strongest leverage is saying politely, "I have another offer, but I prefer your engineering culture. If we can adjust the base compensation to $X, I am ready to sign."',
+      es: 'Nunca la basés en tus gastos personales ni en el costo de vida local — a la empresa le importa el valor que aportás. Anclala en datos de mercado para el rol global (Levels.fyi, Carta, Payscale) y en tu impacto medible. Mantené 2–3 procesos en paralelo: la mayor palanca es decir con educación: "Tengo otra oferta, pero prefiero su cultura de ingeniería. Si podemos ajustar la compensación base a $X, estoy listo para firmar."',
+    },
+  },
+  {
+    id: 30,
+    category: 'systemdesign',
+    difficulty: 'hard',
+    question: {
+      en: 'How do you structure a system design interview?',
+      es: '¿Cómo estructurás una entrevista de system design?',
+    },
+    answer: {
+      en: 'Never start drawing before clarifying requirements and limits. 1) Clarify functional and non-functional requirements (~5 min): daily active users, read-heavy vs. write-heavy, required SLA/uptime. 2) Back-of-the-envelope estimates (~5 min): storage, requests per second, bandwidth. 3) High-level design (~15 min): client, load balancer, API gateway, services, cache, database (SQL vs. NoSQL), message queues. 4) Deep dive and trade-offs (~15 min). Lead the call and think out loud.',
+      es: 'Nunca empieces a dibujar sin clarificar requerimientos y límites. 1) Clarificá requerimientos funcionales y no funcionales (~5 min): usuarios activos diarios, read-heavy vs. write-heavy, SLA/uptime requerido. 2) Estimaciones de capacidad (~5 min): almacenamiento, requests por segundo, ancho de banda. 3) Diseño de alto nivel (~15 min): cliente, load balancer, API gateway, servicios, caché, base de datos (SQL vs. NoSQL), colas de mensajes. 4) Deep dive y trade-offs (~15 min). Liderá la llamada y pensá en voz alta.',
+    },
+  },
+  {
+    id: 31,
+    category: 'systemdesign',
+    difficulty: 'hard',
+    question: {
+      en: 'How do you explain trade-offs in a system design answer?',
+      es: '¿Cómo explicás los trade-offs en una respuesta de system design?',
+    },
+    answer: {
+      en: 'State the choice, the reason and the cost. Example: "I use PostgreSQL here to guarantee ACID compliance on financial transactions, but I add Redis as a cache layer for fast profile reads, accepting the extra complexity of cache invalidation." The numbers from your estimation step (DAU, QPS, read/write ratio) should justify each decision — 1M vs. 100M DAU changes the architecture completely.',
+      es: 'Decí la elección, la razón y el costo. Ejemplo: "Uso PostgreSQL acá para garantizar cumplimiento ACID en transacciones financieras, pero agrego Redis como capa de caché para lecturas rápidas de perfil, aceptando la complejidad extra de invalidar la caché." Los números de tu paso de estimación (DAU, QPS, ratio lectura/escritura) deben justificar cada decisión — 1M vs. 100M de DAU cambia por completo la arquitectura.',
+    },
+  },
+  {
+    id: 32,
+    category: 'systemdesign',
+    difficulty: 'hard',
+    question: {
+      en: 'When would you use synchronous vs asynchronous communication between microservices?',
+      es: '¿Cuándo usarías comunicación síncrona vs asíncrona entre microservicios?',
+    },
+    answer: {
+      en: 'Start from decision criteria, not from a technology: (1) does the caller need a response right now? (2) can this work happen in the background? (3) how many services need to react to the event? Trade-offs. Sync (REST, gRPC) gives low latency, immediate responses and simpler debugging, but costs tight coupling, cascading failures and fragile call chains. Async (RabbitMQ, Azure Service Bus, Kafka) gives resilience, decoupling and natural scaling, but costs eventual consistency, harder tracing and more infrastructure. Real systems use both: sync at the user-facing boundary for fast responses, async behind it for notifications, analytics and background processing. Show you think in systems, not just in code.',
+      es: 'Partí de criterios de decisión, no de una tecnología: (1) ¿quien llama necesita una respuesta ahora? (2) ¿este trabajo puede hacerse en segundo plano? (3) ¿cuántos servicios deben reaccionar al evento? Trade-offs. Sync (REST, gRPC) da baja latencia, respuestas inmediatas y debugging más simple, pero cuesta acoplamiento fuerte, fallas en cascada y cadenas de llamadas frágiles. Async (RabbitMQ, Azure Service Bus, Kafka) da resiliencia, desacople y escalado natural, pero cuesta consistencia eventual, trazabilidad más difícil y más infraestructura. Los sistemas reales usan ambos: sync en el borde que ve el usuario para respuestas rápidas, async detrás para notificaciones, analítica y procesamiento en segundo plano. Mostrá que pensás en sistemas, no solo en código.',
+    },
+  },
+  {
+    id: 33,
+    category: 'systemdesign',
+    difficulty: 'hard',
+    question: {
+      en: 'What failure scenarios and resilience patterns should you mention when designing service-to-service communication?',
+      es: '¿Qué escenarios de falla y patrones de resiliencia deberías mencionar al diseñar la comunicación entre servicios?',
+    },
+    answer: {
+      en: 'Never skip failures — interviewers notice it. For sync calls: timeouts, retries with exponential backoff and jitter, and a circuit breaker so one slow dependency does not cascade (in .NET, Polly or the built-in resilience handlers). For async messaging: idempotent consumers (messages can be delivered more than once), dead-letter queues for poison messages, and the outbox pattern so a database write and its event are published atomically. Also say how you would trace a request across services (correlation IDs, distributed tracing). Red flags: jumping to a technology without explaining why, naming no trade-offs, and treating sync vs async as either/or.',
+      es: 'Nunca te saltees las fallas — el entrevistador lo nota. Para llamadas sync: timeouts, reintentos con backoff exponencial y jitter, y un circuit breaker para que una dependencia lenta no genere una cascada (en .NET, Polly o los resilience handlers integrados). Para mensajería async: consumidores idempotentes (un mensaje puede entregarse más de una vez), dead-letter queues para mensajes que fallan siempre, y el patrón outbox para que la escritura en la base y la publicación del evento sean atómicas. Decí también cómo trazarías un request entre servicios (correlation IDs, tracing distribuido). Red flags: saltar a una tecnología sin explicar por qué, no nombrar trade-offs y tratar sync vs async como una u otra.',
+    },
+  },
 ];
 
 // ─── Quiz Questions ───
@@ -677,5 +794,86 @@ export const leetcodeProblems = [
     category: 'graphs',
     url: 'https://leetcode.com/problems/word-ladder/',
     tags: ['bfs', 'graphs', 'strings'],
+  },
+  // Fundamentals: string / array manipulation (live-coding warm-ups)
+  {
+    id: 19,
+    title: 'Valid Palindrome',
+    difficulty: 'easy',
+    category: 'strings',
+    url: 'https://leetcode.com/problems/valid-palindrome/',
+    tags: ['two-pointers', 'strings'],
+  },
+  {
+    id: 20,
+    title: 'Valid Anagram',
+    difficulty: 'easy',
+    category: 'strings',
+    url: 'https://leetcode.com/problems/valid-anagram/',
+    tags: ['hash-map', 'strings', 'sorting'],
+  },
+  {
+    id: 21,
+    title: 'First Unique Character in a String',
+    difficulty: 'easy',
+    category: 'strings',
+    url: 'https://leetcode.com/problems/first-unique-character-in-a-string/',
+    tags: ['hash-map', 'strings'],
+  },
+  {
+    id: 22,
+    title: 'Longest Common Prefix',
+    difficulty: 'easy',
+    category: 'strings',
+    url: 'https://leetcode.com/problems/longest-common-prefix/',
+    tags: ['strings'],
+  },
+  {
+    id: 23,
+    title: 'Contains Duplicate',
+    difficulty: 'easy',
+    category: 'arrays',
+    url: 'https://leetcode.com/problems/contains-duplicate/',
+    tags: ['hash-set', 'arrays'],
+  },
+  {
+    id: 24,
+    title: 'Move Zeroes',
+    difficulty: 'easy',
+    category: 'arrays',
+    url: 'https://leetcode.com/problems/move-zeroes/',
+    tags: ['two-pointers', 'arrays'],
+  },
+  {
+    id: 25,
+    title: 'Merge Sorted Array',
+    difficulty: 'easy',
+    category: 'arrays',
+    url: 'https://leetcode.com/problems/merge-sorted-array/',
+    tags: ['two-pointers', 'arrays'],
+  },
+  {
+    id: 26,
+    title: 'Reverse Words in a String',
+    difficulty: 'medium',
+    category: 'strings',
+    url: 'https://leetcode.com/problems/reverse-words-in-a-string/',
+    tags: ['two-pointers', 'strings'],
+  },
+  {
+    id: 27,
+    title: 'Group Anagrams',
+    difficulty: 'medium',
+    category: 'strings',
+    url: 'https://leetcode.com/problems/group-anagrams/',
+    tags: ['hash-map', 'strings', 'sorting'],
+  },
+  {
+    id: 28,
+    title: 'Merge Intervals',
+    difficulty: 'medium',
+    category: 'arrays',
+    url: 'https://leetcode.com/problems/merge-intervals/',
+    tags: ['sorting', 'arrays', 'intervals'],
   },
 ];

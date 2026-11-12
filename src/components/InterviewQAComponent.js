@@ -4,12 +4,15 @@ import InterviewFlashcardMode from './InterviewFlashcardMode';
 import InterviewListMode from './InterviewListMode';
 import InterviewQuizMode from './InterviewQuizMode';
 
-const CATEGORIES = ['react', 'typescript', 'angular', 'dotnet'];
+const CATEGORIES = ['react', 'typescript', 'angular', 'dotnet', 'behavioral', 'negotiation', 'systemdesign'];
 const CATEGORY_LABELS = {
   react: 'React',
   typescript: 'TypeScript',
   angular: 'Angular',
   dotnet: '.NET',
+  behavioral: 'Behavioral (STAR)',
+  negotiation: 'Salary',
+  systemdesign: 'System Design',
 };
 const MODES = ['flashcard', 'list', 'quiz'];
 const MODE_LABELS = {

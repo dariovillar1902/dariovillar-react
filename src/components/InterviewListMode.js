@@ -6,6 +6,9 @@ const CATEGORY_LABELS = {
   typescript: 'TypeScript',
   angular: 'Angular',
   dotnet: '.NET / C#',
+  behavioral: 'Behavioral (STAR)',
+  negotiation: 'Salary',
+  systemdesign: 'System Design',
 };
 
 const InterviewListMode = ({ questions, lang }) => {

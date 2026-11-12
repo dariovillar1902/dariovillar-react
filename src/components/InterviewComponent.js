@@ -5,6 +5,7 @@ import Tab from 'react-bootstrap/Tab';
 import { DarkModeContext } from './darkModeContext';
 import InterviewQAComponent from './InterviewQAComponent';
 import InterviewLeetCodeComponent from './InterviewLeetCodeComponent';
+import InterviewWarmupComponent from './InterviewWarmupComponent';
 
 const InterviewComponent = () => {
   const { darkMode } = useContext(DarkModeContext);
@@ -23,6 +24,9 @@ const InterviewComponent = () => {
       <Tabs defaultActiveKey='qa' className='iv-tabs mb-4'>
         <Tab eventKey='qa' title='Q & A'>
           <InterviewQAComponent darkMode={darkMode} />
+        </Tab>
+        <Tab eventKey='warmups' title='Warm-ups'>
+          <InterviewWarmupComponent />
         </Tab>
         <Tab eventKey='leetcode' title='LeetCode'>
           <InterviewLeetCodeComponent darkMode={darkMode} />
