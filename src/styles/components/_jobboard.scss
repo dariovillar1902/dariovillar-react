@@ -708,3 +708,199 @@
     justify-content: center;
   }
 }
+
+// ─── Relocate & Travel page ───
+
+.rj-target-banner {
+  background: linear-gradient(135deg, rgba(56, 134, 151, 0.15), rgba(89, 72, 213, 0.15));
+  border: 1px solid rgba(89, 72, 213, 0.3);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  font-weight: 600;
+
+  i {
+    color: #5948d5;
+  }
+}
+
+.rj-disclaimer {
+  opacity: 0.65;
+  font-size: 0.85rem;
+  margin-bottom: 24px;
+
+  i {
+    color: #e2a03f;
+  }
+}
+
+.rj-company-note {
+  opacity: 0.65;
+  font-size: 0.8rem;
+  margin: 4px 0 10px;
+}
+
+.rj-region-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  background: rgba(56, 134, 151, 0.15);
+  color: #388697;
+}
+
+.rj-region-toggles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.rj-auth-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.rj-auth-likely {
+  background: rgba(46, 204, 113, 0.15);
+  color: #2ecc71;
+}
+
+.rj-auth-unclear {
+  background: rgba(226, 160, 63, 0.15);
+  color: #e2a03f;
+}
+
+.rj-auth-unlikely {
+  background: rgba(231, 76, 60, 0.15);
+  color: #e74c3c;
+}
+
+.rj-salary-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.rj-salary-good {
+  color: #2ecc71;
+  opacity: 1;
+  font-weight: 700;
+}
+
+.rj-salary-low {
+  color: #e2a03f;
+  opacity: 1;
+}
+
+.rj-auth-guidance {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin: 10px 0;
+  padding: 10px 14px;
+  border-left: 3px solid #5948d5;
+  background: rgba(89, 72, 213, 0.06);
+  border-radius: 0 8px 8px 0;
+
+  i {
+    color: #5948d5;
+  }
+}
+
+.rj-requirements-list {
+  margin: 8px 0 0;
+  padding-left: 20px;
+  font-size: 0.85rem;
+  opacity: 0.8;
+
+  li {
+    margin-bottom: 4px;
+  }
+}
+
+
+// ─── Role chips, "new" badge, clear/show-more buttons ───
+
+.jb-filter-select {
+  width: auto;
+  min-width: 150px;
+}
+
+.jb-clear-btn,
+.jb-more-btn {
+  background: transparent;
+  border: 1px solid rgba(128, 128, 128, 0.35);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: inherit;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+
+  &:hover {
+    border-color: #5948d5;
+    color: #5948d5;
+  }
+}
+
+.jb-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: -8px 0 24px;
+}
+
+.jb-chip {
+  background: transparent;
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    border-color: #5948d5;
+  }
+}
+
+.jb-chip-active {
+  background: linear-gradient(135deg, #388697, #5948d5);
+  border-color: transparent;
+  color: #fff;
+}
+
+.jb-new-badge {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  vertical-align: middle;
+  background: rgba(46, 204, 113, 0.18);
+  color: #2ecc71;
+}
+
+.jb-more-wrap {
+  text-align: center;
+  padding: 16px 0 8px;
+}
+
+.jb-more-count {
+  opacity: 0.6;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}

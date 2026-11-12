@@ -1,4 +1,4 @@
-// Job Search Service — 11 API sources
+// Job Search Service — 12 API sources
 // ✅ Remotive API: remote tech jobs (free, no key)
 // ✅ Arbeitnow API: tech jobs global (free, no key)
 // ✅ RemoteOK API: remote jobs (free, no key)
@@ -10,9 +10,13 @@
 // ✅ Workday API (POST): Chevron, Halliburton, Baker Hughes, Weatherford
 // ✅ Lever API: Nubank, Rappi (free, no key)
 // ✅ Workable API: Belo (free, no key)
+// ✅ Recruitee API: Ready (free, no key)
 // 🔗 Direct links: LinkedIn, Indeed AR, Bumeran, Zonajobs, Computrabajo,
-//    WorkingNomads, WeWorkRemotely, Wellfound, Remote.co,
+//    WorkingNomads, WeWorkRemotely, Wellfound, Remote.co, Strider, Dev.Pro,
+//    WeRemoto, Torre, Workana, Hireline, La Pieza, Tecnoempleo, InfoJobs,
 //    Globant, Tiendanube, Ualá, OLX, MeLi
+// 🔗 LATAM remote staffing agencies: Athyna, The Flock, Howdy, Lupa Hire, Pearl Talent, ...
+// 🔗 Crypto / Web3: 24 companies (Alchemy, Anchorage, Phantom, Polymarket, Jito, ...)
 // 🔗 Fintech / Banks AR: Belo, Naranja X, Brubank, Lemon Cash, Ripio, Cocos Capital
 // 🔗 Fintech / Banks Global: Nubank, Rappi, Stripe, Revolut, Wise, Brex, Mercury, Plaid
 // 🔗 Banks: Santander AR, BBVA, Banco Galicia, HSBC, JPMorgan
@@ -20,6 +24,8 @@
 //    Hays, Adecco, Experis
 // 🔗 Oil & Gas / Engineering: ExxonMobil, Shell, SLB, TotalEnergies, BP,
 //    YPF, PAE, Pluspetrol, Tenaris, Ternium, Tecpetrol, Techint, Raizen
+
+import { getJobRole, getJobLevel, isNewJob } from './jobClassifier';
 
 const TECH_KEYWORDS = [
   'angular', 'react', 'typescript', 'javascript', '.net', 'dotnet',
@@ -421,6 +427,11 @@ const ASHBY_COMPANIES = [
   { slug: 'replit',  name: 'Replit' },
   { slug: 'pomelo',  name: 'Pomelo' },
   { slug: 'brex',    name: 'Brex' },
+  { slug: 'batoncorporation', name: 'Baton Corporation' },
+  { slug: 'Blockworks',       name: 'Blockworks' },
+  { slug: 'DoubleZero',       name: 'DoubleZero' },
+  { slug: 'phantom',          name: 'Phantom' },
+  { slug: 'polymarket',       name: 'Polymarket' },
 ];
 
 async function fetchAshbyJobs() {
@@ -475,6 +486,8 @@ async function fetchAshbyJobs() {
 const LEVER_COMPANIES = [
   { slug: 'nubank',  name: 'Nubank' },
   { slug: 'rappi',   name: 'Rappi' },
+  { slug: 'anchorage', name: 'Anchorage' },
+  { slug: 'jito',      name: 'Jito Foundation' },
 ];
 
 async function fetchLeverJobs() {
@@ -570,6 +583,59 @@ async function fetchWorkableFintechJobs() {
       })));
     } catch (e) {
       console.warn(`Workable ${company.slug} fetch error:`, e);
+    }
+  }
+
+  return allJobs;
+}
+
+// ─── 12. Recruitee — direct company career portals ───
+
+// Recruitee's public offers API requires no key and is CORS-friendly
+// (built for embeddable careers widgets).
+
+const RECRUITEE_COMPANIES = [
+  { slug: 'joinready', name: 'Ready' },
+];
+
+async function fetchRecruiteeJobs() {
+  const allJobs = [];
+
+  for (const company of RECRUITEE_COMPANIES) {
+    try {
+      const url = `https://${company.slug}.recruitee.com/api/offers/`;
+      let res;
+      try {
+        res = await fetch(url);
+      } catch {
+        res = await proxiedFetch(url);
+      }
+      if (!res || !res.ok) continue;
+      const data = await res.json();
+      const jobs = Array.isArray(data.offers) ? data.offers : [];
+
+      allJobs.push(...jobs.map(job => ({
+        id: `recruitee-${company.slug}-${job.id}`,
+        title: job.title || '',
+        company: job.company_name || company.name,
+        companyLogo: null,
+        city: job.city || (job.remote ? 'Remote' : (job.country || '')),
+        isRemote: !!job.remote,
+        applyUrl: job.careers_apply_url || job.careers_url || '',
+        description: stripHtml(job.description || ''),
+        salaryMin: (job.salary && job.salary.min) || null,
+        salaryMax: (job.salary && job.salary.max) || null,
+        salaryCurrency: (job.salary && job.salary.currency) || 'USD',
+        salaryPeriod: job.salary && job.salary.period === 'monthly' ? 'MONTH' : job.salary && job.salary.period === 'yearly' ? 'YEAR' : null,
+        employmentType: job.employment_type_code || 'FULLTIME',
+        postedTimestamp: job.published_at
+          ? Math.floor(new Date(job.published_at).getTime() / 1000)
+          : null,
+        publisher: company.name,
+        tags: job.tags || [],
+      })));
+    } catch (e) {
+      console.warn(`Recruitee ${company.slug} fetch error:`, e);
     }
   }
 
@@ -713,7 +779,7 @@ function parseSalary(salaryStr, type) {
   return null;
 }
 
-function extractTechTags(text) {
+export function extractTechTags(text) {
   if (!text) return [];
   const lower = text.toLowerCase();
   const found = new Set();
@@ -778,7 +844,7 @@ function deduplicateJobs(jobs) {
   return Array.from(seen.values());
 }
 
-function getRelativeDate(timestamp) {
+export function getRelativeDate(timestamp) {
   if (!timestamp) return null;
   const now = Date.now() / 1000;
   const diffDays = Math.floor((now - timestamp) / 86400);
@@ -1209,6 +1275,276 @@ export function getJobBoardSearchLinks() {
           { label: 'IT & Digital', url: 'https://www.adecco.com.ar/busca-empleo?sector=it-digital' },
         ],
       },
+      {
+        name: 'DeRecruiters',
+        icon: 'fas fa-user-tie',
+        urls: [
+          { label: 'Jobs', url: 'https://www.derecruiters.com/#jobs' },
+        ],
+      },
+    ],
+    agencies: [
+      {
+        name: 'Athyna',
+        icon: 'fas fa-handshake',
+        urls: [
+          { label: 'Ver sitio', url: 'https://www.athyna.com' },
+        ],
+      },
+      {
+        name: 'Activate Talent',
+        icon: 'fas fa-handshake',
+        urls: [
+          { label: 'Ver sitio', url: 'https://www.activatetalent.com' },
+        ],
+      },
+      {
+        name: 'The Flock',
+        icon: 'fas fa-handshake',
+        urls: [
+          { label: 'Ver sitio', url: 'https://www.theflock.com' },
+        ],
+      },
+      {
+        name: 'Sur LATAM',
+        icon: 'fas fa-handshake',
+        urls: [
+          { label: 'Ver sitio', url: 'https://hiresur.com' },
+        ],
+      },
+      {
+        name: 'WorldTeams',
+        icon: 'fas fa-handshake',
+        urls: [
+          { label: 'Ver sitio', url: 'https://worldteams.com' },
+        ],
+      },
+      {
+        name: 'Howdy',
+        icon: 'fas fa-handshake',
+        urls: [
+          { label: 'Ver sitio', url: 'https://howdy.com' },
+        ],
+      },
+      {
+        name: 'Lupa Hire',
+        icon: 'fas fa-handshake',
+        urls: [
+          { label: 'Ver sitio', url: 'https://www.lupahire.com' },
+        ],
+      },
+      {
+        name: 'Hire With Near',
+        icon: 'fas fa-handshake',
+        urls: [
+          { label: 'Ver sitio', url: 'https://www.hirewithnear.com' },
+        ],
+      },
+      {
+        name: 'Pearl Talent',
+        icon: 'fas fa-handshake',
+        urls: [
+          { label: 'Ver sitio', url: 'https://www.pearltalent.com' },
+        ],
+      },
+      {
+        name: 'Remote Talent LATAM',
+        icon: 'fas fa-handshake',
+        urls: [
+          { label: 'Ver sitio', url: 'https://remotetalentlatam.com' },
+        ],
+      },
+      {
+        name: 'Simera',
+        icon: 'fas fa-handshake',
+        urls: [
+          { label: 'Ver sitio', url: 'https://simera.io' },
+        ],
+      },
+      {
+        name: 'Talently',
+        icon: 'fas fa-handshake',
+        urls: [
+          { label: 'Ver sitio', url: 'https://talently.tech' },
+        ],
+      },
+      {
+        name: 'Webstarted',
+        icon: 'fas fa-handshake',
+        urls: [
+          { label: 'Ver sitio', url: 'https://webstarted.com' },
+        ],
+      },
+    ],
+    web3: [
+      {
+        name: 'Alchemy',
+        icon: 'fas fa-cubes',
+        urls: [
+          { label: 'Careers', url: 'https://www.alchemy.com/careers#open-roles' },
+        ],
+      },
+      {
+        name: 'Anchorage',
+        icon: 'fas fa-cubes',
+        urls: [
+          { label: 'Careers', url: 'https://jobs.lever.co/anchorage' },
+        ],
+      },
+      {
+        name: 'Arrakis Finance',
+        icon: 'fas fa-cubes',
+        urls: [
+          { label: 'Careers', url: 'https://arrakis.finance/careers' },
+        ],
+      },
+      {
+        name: 'Artemis',
+        icon: 'fas fa-cubes',
+        urls: [
+          { label: 'Careers', url: 'https://about.artemis.ai/careers' },
+        ],
+      },
+      {
+        name: 'Asymmetric Research',
+        icon: 'fas fa-cubes',
+        urls: [
+          { label: 'Careers', url: 'https://www.asymmetric.re/careers' },
+        ],
+      },
+      {
+        name: 'Aurory',
+        icon: 'fas fa-cubes',
+        urls: [
+          { label: 'Careers', url: 'https://www.aurory.io/careers' },
+        ],
+      },
+      {
+        name: 'Backpack',
+        icon: 'fas fa-cubes',
+        urls: [
+          { label: 'Careers', url: 'https://sugared-duckling-ec8.notion.site/7c1995182f4a491ba8a9501ee15cbd01?v=0604ca8976fa4e5e81c5494f7c95abc4' },
+        ],
+      },
+      {
+        name: 'Baton Corporation',
+        icon: 'fas fa-cubes',
+        urls: [
+          { label: 'Careers', url: 'https://jobs.ashbyhq.com/batoncorporation' },
+        ],
+      },
+      {
+        name: 'Blockworks',
+        icon: 'fas fa-cubes',
+        urls: [
+          { label: 'Careers', url: 'https://jobs.ashbyhq.com/Blockworks' },
+        ],
+      },
+      {
+        name: 'Crossmint',
+        icon: 'fas fa-cubes',
+        urls: [
+          { label: 'Careers', url: 'https://crossmint.na.teamtailor.com/jobs' },
+        ],
+      },
+      {
+        name: 'DoubleZero',
+        icon: 'fas fa-cubes',
+        urls: [
+          { label: 'Careers', url: 'https://jobs.ashbyhq.com/DoubleZero' },
+        ],
+      },
+      {
+        name: 'Everstake',
+        icon: 'fas fa-cubes',
+        urls: [
+          { label: 'Careers', url: 'https://everstake.com/company/careers' },
+        ],
+      },
+      {
+        name: 'FBYT',
+        icon: 'fas fa-cubes',
+        urls: [
+          { label: 'Careers', url: 'https://fbyt.io/careers' },
+        ],
+      },
+      {
+        name: 'Hologram',
+        icon: 'fas fa-cubes',
+        urls: [
+          { label: 'Careers', url: 'https://job-boards.greenhouse.io/hologram' },
+        ],
+      },
+      {
+        name: 'Jito Foundation',
+        icon: 'fas fa-cubes',
+        urls: [
+          { label: 'Careers', url: 'https://jobs.lever.co/jito' },
+        ],
+      },
+      {
+        name: 'Jito Labs',
+        icon: 'fas fa-cubes',
+        urls: [
+          { label: 'Careers', url: 'https://www.jito.wtf/careers/' },
+        ],
+      },
+      {
+        name: 'MetaWealth',
+        icon: 'fas fa-cubes',
+        urls: [
+          { label: 'Careers', url: 'https://metawealth.co/careers' },
+        ],
+      },
+      {
+        name: 'Nous Research',
+        icon: 'fas fa-cubes',
+        urls: [
+          { label: 'Careers', url: 'https://nousresearch.com/careers' },
+        ],
+      },
+      {
+        name: 'Phantom',
+        icon: 'fas fa-cubes',
+        urls: [
+          { label: 'Careers', url: 'https://jobs.ashbyhq.com/phantom' },
+        ],
+      },
+      {
+        name: 'R3',
+        icon: 'fas fa-cubes',
+        urls: [
+          { label: 'Careers', url: 'https://careers.r3.com/jobs' },
+        ],
+      },
+      {
+        name: 'RAAD',
+        icon: 'fas fa-cubes',
+        urls: [
+          { label: 'Careers', url: 'https://raad.com/en/careers' },
+        ],
+      },
+      {
+        name: 'Range',
+        icon: 'fas fa-cubes',
+        urls: [
+          { label: 'Careers', url: 'https://range.org/careers' },
+        ],
+      },
+      {
+        name: 'Solflare',
+        icon: 'fas fa-cubes',
+        urls: [
+          { label: 'Careers', url: 'https://www.solflare.com/careers/' },
+        ],
+      },
+      {
+        name: 'Polymarket',
+        icon: 'fas fa-cubes',
+        urls: [
+          { label: 'Careers', url: 'https://jobs.ashbyhq.com/polymarket' },
+        ],
+      },
     ],
     remote: [
       {
@@ -1244,6 +1580,69 @@ export function getJobBoardSearchLinks() {
           { label: 'Software', url: 'https://remote.co/remote-jobs/software/' },
         ],
       },
+      {
+        name: 'Strider',
+        icon: 'fas fa-globe',
+        urls: [
+          { label: 'All jobs', url: 'https://www.onstrider.com/jobs' },
+        ],
+      },
+      {
+        name: 'Dev.Pro',
+        icon: 'fas fa-globe',
+        urls: [
+          { label: 'Open positions', url: 'https://career.dev.pro/open-positions/' },
+        ],
+      },
+      {
+        name: 'WeRemoto',
+        icon: 'fas fa-globe',
+        urls: [
+          { label: 'Empleos remotos', url: 'https://www.weremoto.com' },
+        ],
+      },
+      {
+        name: 'Torre',
+        icon: 'fas fa-globe',
+        urls: [
+          { label: 'Oportunidades tech', url: 'https://torre.ai' },
+        ],
+      },
+      {
+        name: 'Workana',
+        icon: 'fas fa-globe',
+        urls: [
+          { label: 'Proyectos freelance IT', url: 'https://www.workana.com' },
+        ],
+      },
+      {
+        name: 'Hireline',
+        icon: 'fas fa-globe',
+        urls: [
+          { label: 'Empleos tech (México)', url: 'https://hireline.io' },
+        ],
+      },
+      {
+        name: 'La Pieza',
+        icon: 'fas fa-globe',
+        urls: [
+          { label: 'Empleos LATAM', url: 'https://www.lapieza.io' },
+        ],
+      },
+      {
+        name: 'Tecnoempleo',
+        icon: 'fas fa-globe',
+        urls: [
+          { label: 'Empleos IT (España)', url: 'https://www.tecnoempleo.com' },
+        ],
+      },
+      {
+        name: 'InfoJobs',
+        icon: 'fas fa-globe',
+        urls: [
+          { label: 'Vacantes IT y teletrabajo (España)', url: 'https://www.infojobs.net' },
+        ],
+      },
     ],
   };
 }
@@ -1262,14 +1661,16 @@ const SOURCES = [
   { name: 'Workable Fintech', fn: fetchWorkableFintechJobs },
   { name: 'GetOnBoard',       fn: fetchGetOnBoardJobs },
   { name: 'Mercado Libre',    fn: fetchMercadoLibreJobs },
+  { name: 'Recruitee',        fn: fetchRecruiteeJobs },
 ];
 
-export async function fetchAndRankJobs(onProgress) {
+// Fetches and deduplicates raw jobs from every source, with no scoring/filtering.
+// Shared by fetchAndRankJobs (local/Argentina board) and relocateJobsService (global board).
+export async function fetchRawJobs(onProgress) {
   const errors = [];
   const sourceResults = {};
   const total = SOURCES.length;
 
-  // Fetch from all APIs in parallel
   const promises = SOURCES.map(async (source, idx) => {
     if (onProgress) {
       onProgress({ current: idx + 1, total, query: source.name });
@@ -1289,6 +1690,12 @@ export async function fetchAndRankJobs(onProgress) {
   const allJobs = results.flat();
   const unique = deduplicateJobs(allJobs);
 
+  return { unique, errors, totalRaw: allJobs.length, sourceResults };
+}
+
+export async function fetchAndRankJobs(onProgress) {
+  const { unique, errors, totalRaw, sourceResults } = await fetchRawJobs(onProgress);
+
   // Enrich and filter
   const enriched = unique.map(job => {
     const techTags = extractTechTags(
@@ -1302,6 +1709,9 @@ export async function fetchAndRankJobs(onProgress) {
       techTags,
       matchScore,
       postedAt: relDate,
+      role: getJobRole(job.title),
+      level: getJobLevel(job.title),
+      isNew: isNewJob(job.postedTimestamp),
       glassdoorUrl: getGlassdoorUrl(job.company),
       openqubeUrl: getOpenqubeUrl(job.company),
     };
@@ -1313,5 +1723,5 @@ export async function fetchAndRankJobs(onProgress) {
     return (b.postedTimestamp || 0) - (a.postedTimestamp || 0);
   });
 
-  return { jobs: enriched, errors, totalRaw: allJobs.length, sourceResults };
+  return { jobs: enriched, errors, totalRaw, sourceResults };
 }
