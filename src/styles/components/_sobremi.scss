@@ -118,6 +118,14 @@ h5 {
   animation: load5 10s normal forwards;
 }
 
+#progressOnc {
+  animation: load6 10s normal forwards;
+}
+
+#progressAnyoneAI {
+  animation: load7 10s normal forwards;
+}
+
 @keyframes load1 {
   0% {
     width: 0;
@@ -160,6 +168,24 @@ h5 {
   }
   100% {
     width: $progressCivil;
+  }
+}
+
+@keyframes load6 {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: $progressOnc;
+  }
+}
+
+@keyframes load7 {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: $progressAnyoneAI;
   }
 }
 
