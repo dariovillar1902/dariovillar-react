@@ -6,6 +6,7 @@ import { DarkModeContext } from './darkModeContext';
 import InterviewQAComponent from './InterviewQAComponent';
 import InterviewLeetCodeComponent from './InterviewLeetCodeComponent';
 import InterviewWarmupComponent from './InterviewWarmupComponent';
+import InterviewLessonsComponent from './InterviewLessonsComponent';
 
 const InterviewComponent = () => {
   const { darkMode } = useContext(DarkModeContext);
@@ -27,6 +28,9 @@ const InterviewComponent = () => {
         </Tab>
         <Tab eventKey='warmups' title='Warm-ups'>
           <InterviewWarmupComponent />
+        </Tab>
+        <Tab eventKey='lessons' title='Lecciones'>
+          <InterviewLessonsComponent />
         </Tab>
         <Tab eventKey='leetcode' title='LeetCode'>
           <InterviewLeetCodeComponent darkMode={darkMode} />

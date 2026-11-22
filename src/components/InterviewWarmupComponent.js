@@ -70,6 +70,11 @@ const InterviewWarmupComponent = () => {
                 <h4 className='iv-lc-title'>{ex.title}</h4>
                 <span className={`iv-badge iv-badge-${ex.difficulty}`}>{ex.difficulty}</span>
               </div>
+              {ex.source && (
+                <span className={`iv-ex-source${ex.source === 'Fleetworthy interview' ? ' iv-ex-source-live' : ''}`}>
+                  <i className={`fas ${ex.source === 'Fleetworthy interview' ? 'fa-star' : 'fa-code'}`} /> {ex.source}
+                </span>
+              )}
 
               <p className='iv-ex-prompt'>{ex.prompt}</p>
 
@@ -117,6 +122,12 @@ const InterviewWarmupComponent = () => {
                       <li key={c}>{c}</li>
                     ))}
                   </ul>
+                  {ex.lesson && (
+                    <>
+                      <strong>Lesson from my attempt</strong>
+                      <p className='iv-ex-lesson'>{ex.lesson}</p>
+                    </>
+                  )}
                 </div>
               )}
 

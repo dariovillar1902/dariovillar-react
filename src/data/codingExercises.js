@@ -1,5 +1,6 @@
 // Warm-up coding exercises (C#). Statements are original; related LeetCode problems are linked by URL.
-// Solutions are tested C# (xUnit-free harness) before being pasted here.
+// Every solution is tested C# (standalone harness) before being pasted here.
+// `source` marks where an exercise came from; `lesson` is what went wrong in my first attempt.
 
 export const codingExercises = [
   {
@@ -36,7 +37,9 @@ export const codingExercises = [
     ],
     "complexity": "O(n) time over total characters, O(n) space",
     "solution": "static string Join(string[] list, string delimiter)\n{\n    if (list is null || list.Length == 0) return string.Empty;\n\n    var sb = new StringBuilder(list[0]);\n    for (int i = 1; i < list.Length; i++)\n        sb.Append(delimiter).Append(list[i]);\n\n    return sb.ToString();\n}",
-    "related": []
+    "related": [],
+    "source": "Fleetworthy interview",
+    "lesson": "Keywords (for, if) are lowercase; the for header order is init; condition; increment. Loop with i < Length, not <=, and compare with == (not =). Initialize the string and handle the empty array."
   },
   {
     "id": 2,
@@ -78,7 +81,9 @@ export const codingExercises = [
         "title": "Find the Index of the First Occurrence in a String",
         "url": "https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/"
       }
-    ]
+    ],
+    "source": "Fleetworthy interview",
+    "lesson": "Substring takes (start, LENGTH), not (start, end). The next segment starts at index + delimiter.Length. new List<string>() needs the type, and a multi-character delimiter means comparing strings (IndexOf), not chars."
   },
   {
     "id": 3,
@@ -320,6 +325,216 @@ export const codingExercises = [
       {
         "title": "Merge Intervals",
         "url": "https://leetcode.com/problems/merge-intervals/"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "slug": "two-sum",
+    "title": "Two Sum",
+    "difficulty": "easy",
+    "source": "LeetCode",
+    "tags": [
+      "arrays",
+      "hash-map"
+    ],
+    "prompt": "Given an array of integers nums and an integer target, return the indices of the two numbers that add up to target. Exactly one solution exists and you may not use the same element twice.",
+    "examples": [
+      {
+        "input": "nums = [2,7,11,15], target = 9",
+        "output": "[0,1]"
+      },
+      {
+        "input": "nums = [3,3], target = 6",
+        "output": "[0,1]"
+      }
+    ],
+    "hints": [
+      "Brute force is two nested loops, O(n²). Start by saying that out loud.",
+      "For each number, the number you need is target - nums[i]. Have you seen it already?",
+      "A Dictionary<int,int> (value -> index) answers that in O(1). Check BEFORE inserting so you never reuse the same element."
+    ],
+    "edgeCases": [
+      "Duplicate values ([3,3])",
+      "Negative numbers",
+      "The answer includes index 0"
+    ],
+    "complexity": "O(n) time, O(n) space",
+    "solution": "static int[] TwoSum(int[] nums, int target)\n{\n    var seen = new Dictionary<int, int>(); // value -> index\n\n    for (int i = 0; i < nums.Length; i++)\n    {\n        int complement = target - nums[i];\n\n        if (seen.TryGetValue(complement, out int j))\n            return new[] { j, i };\n\n        seen[nums[i]] = i;\n    }\n\n    return Array.Empty<int>(); // the problem guarantees a solution\n}",
+    "lesson": "C# arrays have a fixed size: int[] x = [] can never grow, and LINQ Append returns a NEW sequence instead of changing the array, so the result was discarded and the method returned []. Use a Dictionary (or a List) and do the lookup in O(1).",
+    "related": [
+      {
+        "title": "Two Sum",
+        "url": "https://leetcode.com/problems/two-sum/"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "slug": "valid-parens",
+    "title": "Valid Parentheses",
+    "difficulty": "easy",
+    "source": "LeetCode",
+    "tags": [
+      "stack",
+      "strings"
+    ],
+    "prompt": "Given a string containing only ()[]{}, determine whether it is valid: every bracket is closed by the same type, in the correct order.",
+    "examples": [
+      {
+        "input": "\"()[]{}\"",
+        "output": "true"
+      },
+      {
+        "input": "\"(]\"",
+        "output": "false"
+      },
+      {
+        "input": "\"([])\"",
+        "output": "true"
+      }
+    ],
+    "hints": [
+      "The last bracket opened must be the first one closed: that is a stack.",
+      "Map each closing bracket to its opening bracket in a Dictionary<char,char>. TryGetValue tells you in one lookup whether the char is a closer.",
+      "At the end the stack must be empty, otherwise something was never closed."
+    ],
+    "edgeCases": [
+      "\"((\"  unclosed",
+      "\"([)]\" interleaved",
+      "\")\" closer with an empty stack",
+      "Empty string is valid"
+    ],
+    "complexity": "O(n) time, O(n) space",
+    "solution": "static bool IsValid(string s)\n{\n    var stack = new Stack<char>();\n    var pairs = new Dictionary<char, char> { [')'] = '(', [']'] = '[', ['}'] = '{' };\n\n    foreach (char c in s)\n    {\n        if (pairs.TryGetValue(c, out char open))\n        {\n            if (stack.Count == 0 || stack.Pop() != open) return false;\n        }\n        else\n        {\n            stack.Push(c);\n        }\n    }\n\n    return stack.Count == 0;\n}",
+    "lesson": "One boolean per bracket type cannot represent nesting or counts: \"(())\", \"((\" and \"([)]\" all gave wrong answers, and bool[] x = [] crashes on the first write. Use a Stack and check that it is empty at the end.",
+    "related": [
+      {
+        "title": "Valid Parentheses",
+        "url": "https://leetcode.com/problems/valid-parentheses/"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "slug": "merge-lists",
+    "title": "Merge two sorted linked lists",
+    "difficulty": "easy",
+    "source": "LeetCode",
+    "tags": [
+      "linked-list",
+      "two-pointers"
+    ],
+    "prompt": "Given the heads of two sorted linked lists, merge them into one sorted list by splicing together the existing nodes, and return its head.",
+    "examples": [
+      {
+        "input": "list1 = [1,2,4], list2 = [1,3,4]",
+        "output": "[1,1,2,3,4,4]"
+      },
+      {
+        "input": "list1 = [], list2 = [0]",
+        "output": "[0]"
+      }
+    ],
+    "hints": [
+      "A linked list has no index and no Count. You can only follow .next from the head.",
+      "Compare the two CURRENT nodes, attach the smaller one, and advance only the list you took from.",
+      "Use a dummy head node so you do not special-case the first node, and attach whatever is left at the end (list1 ?? list2)."
+    ],
+    "edgeCases": [
+      "Both lists empty returns null",
+      "One list empty",
+      "Different lengths",
+      "Duplicates (use <= for a stable merge)"
+    ],
+    "complexity": "O(n + m) time, O(1) space",
+    "solution": "static ListNode? MergeTwoLists(ListNode? list1, ListNode? list2)\n{\n    var dummy = new ListNode();   // placeholder before the real head\n    var tail = dummy;\n\n    while (list1 != null && list2 != null)\n    {\n        if (list1.val <= list2.val)\n        {\n            tail.next = list1;\n            list1 = list1.next;\n        }\n        else\n        {\n            tail.next = list2;\n            list2 = list2.next;\n        }\n        tail = tail.next;\n    }\n\n    tail.next = list1 ?? list2;   // append whatever is left\n    return dummy.next;\n}",
+    "lesson": "Treating the lists like arrays (list1[i], .Count, +=) does not compile, and comparing by position is wrong. Keep one pointer per list, advance only the one you used, and re-link existing nodes through a dummy head.",
+    "related": [
+      {
+        "title": "Merge Two Sorted Lists",
+        "url": "https://leetcode.com/problems/merge-two-sorted-lists/"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "slug": "max-profit",
+    "title": "Best time to buy and sell stock",
+    "difficulty": "easy",
+    "source": "LeetCode",
+    "tags": [
+      "arrays",
+      "greedy"
+    ],
+    "prompt": "prices[i] is the price of a stock on day i. Choose one day to buy and a later day to sell to maximize profit. Return the maximum profit, or 0 if no profit is possible.",
+    "examples": [
+      {
+        "input": "[7,1,5,3,6,4]",
+        "output": "5"
+      },
+      {
+        "input": "[7,6,4,3,1]",
+        "output": "0"
+      }
+    ],
+    "hints": [
+      "Brute force tries every buy/sell pair, O(n²).",
+      "The best sale on day i is prices[i] minus the lowest price seen so far. Track that minimum in one pass."
+    ],
+    "edgeCases": [
+      "Strictly decreasing prices return 0",
+      "A single element returns 0",
+      "All prices equal"
+    ],
+    "complexity": "O(n) time, O(1) space",
+    "solution": "static int MaxProfit(int[] prices)\n{\n    int minPrice = prices[0];\n    int maxProfit = 0;\n\n    for (int i = 1; i < prices.Length; i++)\n    {\n        if (prices[i] < minPrice)\n            minPrice = prices[i];\n        else\n            maxProfit = Math.Max(maxProfit, prices[i] - minPrice);\n    }\n\n    return maxProfit;\n}",
+    "lesson": "Your solution was correct. Polish: start the loop at i = 1, use else-if (a new minimum cannot also be a best sale), use short names like minPrice/maxProfit, and watch for stray characters when pasting.",
+    "related": [
+      {
+        "title": "Best Time to Buy and Sell Stock",
+        "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "slug": "climb-stairs",
+    "title": "Climbing stairs",
+    "difficulty": "easy",
+    "source": "LeetCode",
+    "tags": [
+      "dynamic-programming",
+      "fibonacci"
+    ],
+    "prompt": "You climb a staircase of n steps, taking 1 or 2 steps at a time. In how many distinct ways can you reach the top?",
+    "examples": [
+      {
+        "input": "n = 2",
+        "output": "2"
+      },
+      {
+        "input": "n = 3",
+        "output": "3"
+      }
+    ],
+    "hints": [
+      "The last move was 1 step from n-1 or 2 steps from n-2, so ways(n) = ways(n-1) + ways(n-2): Fibonacci.",
+      "Plain recursion is O(2ⁿ) because of overlapping subproblems. Memoize, then notice you only need the last two values.",
+      "n <= 45 keeps the answer inside an int (ways(45) = 1,836,311,903)."
+    ],
+    "edgeCases": [
+      "n = 1 returns 1",
+      "n = 2 returns 2",
+      "Large n: overflow beyond int"
+    ],
+    "complexity": "O(n) time, O(1) space",
+    "solution": "static int ClimbStairs(int n)\n{\n    if (n <= 2) return n;\n\n    int prev = 1;   // ways to reach step i-2\n    int curr = 2;   // ways to reach step i-1\n\n    for (int i = 3; i <= n; i++)\n        (prev, curr) = (curr, prev + curr);\n\n    return curr;\n}",
+    "lesson": "Name the recurrence first. Then go brute force -> memoization -> two variables. The follow-up \"1, 2 or 3 steps\" just adds ways(n-3).",
+    "related": [
+      {
+        "title": "Climbing Stairs",
+        "url": "https://leetcode.com/problems/climbing-stairs/"
       }
     ]
   }
