@@ -82,3 +82,16 @@ export const EssenImages = [
     { id: 3, src: require('./essen3.png'), alt: 'WebNegocio Essen' },
     { id: 4, src: require('./essen4.png'), alt: 'WebNegocio Essen' }
 ];
+
+export const OncImages = [
+    { id: 1, src: require('./onc1.png'), alt: 'COMPR.AR / CONTRAT.AR' },
+    { id: 2, src: require('./onc2.png'), alt: 'COMPR.AR / CONTRAT.AR' },
+    { id: 3, src: require('./onc3.png'), alt: 'COMPR.AR / CONTRAT.AR' },
+];
+
+export const ConeicImages = [
+    { id: 1, src: require('./coneic1.png'), alt: 'CONEIC 2026' },
+    { id: 2, src: require('./coneic2.png'), alt: 'CONEIC 2026' },
+    { id: 3, src: require('./coneic3.png'), alt: 'CONEIC 2026' },
+    { id: 4, src: require('./coneic4.png'), alt: 'CONEIC 2026' },
+];

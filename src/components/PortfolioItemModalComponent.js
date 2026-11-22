@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Image, Modal, Carousel, Button, Form } from 'react-bootstrap'
-import { WordleImages, ViajesImages, FacultadImages, HelplabImages, CAHImages, QWQImages, ArgImages, DarioVillarImages, SyzygyImages, NextPlanImages, EssenImages } from '../assets/screenshots';
+import { WordleImages, ViajesImages, FacultadImages, HelplabImages, CAHImages, QWQImages, ArgImages, DarioVillarImages, SyzygyImages, NextPlanImages, EssenImages, OncImages, ConeicImages } from '../assets/screenshots';
 import { LanguageContext } from './languageContext';
 
 export const PortfolioItemModalComponent = ({ index, proyecto, showModal, handleClose }) => {
@@ -16,7 +16,9 @@ export const PortfolioItemModalComponent = ({ index, proyecto, showModal, handle
         DarioVillar: DarioVillarImages,
         Syzygy: SyzygyImages,
         NextPlan: NextPlanImages,
-        Essen: EssenImages
+        Essen: EssenImages,
+        Onc: OncImages,
+        Coneic: ConeicImages
     }
 
     return (

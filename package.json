@@ -9,12 +9,12 @@
     "@tsparticles/react": "^3.0.0",
     "@vercel/analytics": "^1.2.2",
     "jquery": "^3.6.0",
-    "sass": "^1.77.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.4.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "sass": "^1.77.0",
     "tsparticles": "^3.0.2",
     "web-vitals": "^2.1.4"
   },
@@ -22,7 +22,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "generate-pdfs": "node scripts/generate-pdfs.js"
+  },
+  "devDependencies": {
+    "ws": "^7.5.13"
   },
   "eslintConfig": {
     "extends": [

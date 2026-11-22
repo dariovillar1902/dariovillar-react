@@ -1,0 +1,40 @@
+{
+  "us": [
+    { "name": "GitLab", "careerUrl": "https://about.gitlab.com/jobs/all-jobs/", "hiringModel": "All-remote, hires globally as employee or contractor", "icon": "fab fa-gitlab" },
+    { "name": "Automattic", "careerUrl": "https://automattic.com/work-with-us/", "hiringModel": "Fully distributed, hires worldwide", "icon": "fab fa-wordpress" },
+    { "name": "Zapier", "careerUrl": "https://zapier.com/jobs", "hiringModel": "Fully remote, hires internationally as contractor", "icon": "fas fa-bolt" },
+    { "name": "Toptal", "careerUrl": "https://www.toptal.com/talent/apply", "hiringModel": "Freelance/contractor network, fully global", "icon": "fas fa-star" },
+    { "name": "X-Team", "careerUrl": "https://x-team.com/join", "hiringModel": "Remote contractor network, fully global", "icon": "fas fa-users" },
+    { "name": "Crossover", "careerUrl": "https://www.crossover.com/jobs", "hiringModel": "Remote contractor roles, hires globally", "icon": "fas fa-globe-americas" },
+    { "name": "Turing", "careerUrl": "https://www.turing.com/jobs", "hiringModel": "Remote contractor marketplace for US companies", "icon": "fas fa-laptop-code" },
+    { "name": "InVision", "careerUrl": "https://www.invisionapp.com/careers", "hiringModel": "All-remote company", "icon": "fas fa-pencil-ruler" },
+    { "name": "Buffer", "careerUrl": "https://buffer.com/journey", "hiringModel": "Fully distributed, hires worldwide", "icon": "fas fa-share-alt" },
+    { "name": "Doist (Todoist)", "careerUrl": "https://doist.com/careers", "hiringModel": "Fully remote, async-first, hires globally", "icon": "fas fa-check-double" }
+  ],
+  "europe": [
+    { "name": "Canonical", "careerUrl": "https://canonical.com/careers", "hiringModel": "All-remote (UK-based), hires worldwide", "icon": "fab fa-ubuntu" },
+    { "name": "Elastic", "careerUrl": "https://www.elastic.co/careers", "hiringModel": "Distributed company, hires in many countries — check per-role eligibility", "icon": "fas fa-search" },
+    { "name": "Mozilla", "careerUrl": "https://www.mozilla.org/en-US/careers/listings/", "hiringModel": "Remote-friendly, hires in select countries — verify per role", "icon": "fab fa-firefox" },
+    { "name": "TravelPerk", "careerUrl": "https://www.travelperk.com/careers/", "hiringModel": "Hybrid/remote, mostly EU-based hiring — check eligibility", "icon": "fas fa-plane" },
+    { "name": "Miro", "careerUrl": "https://miro.com/careers/", "hiringModel": "Distributed team, hires in multiple regions — verify per role", "icon": "fas fa-chalkboard" },
+    { "name": "Toggl", "careerUrl": "https://toggl.com/jobs/", "hiringModel": "Fully remote, hires globally as contractor", "icon": "fas fa-clock" }
+  ],
+  "latam": [
+    { "name": "Nubank", "careerUrl": "https://jobs.lever.co/nubank", "hiringModel": "LATAM-based, hires across the region including Argentina", "icon": "fas fa-university" },
+    { "name": "Rappi", "careerUrl": "https://jobs.lever.co/rappi", "hiringModel": "LATAM-based, hires across the region", "icon": "fas fa-motorcycle" },
+    { "name": "dLocal", "careerUrl": "https://dlocal.com/careers/", "hiringModel": "LATAM fintech, remote-friendly across the region", "icon": "fas fa-money-bill-wave" },
+    { "name": "QuintoAndar", "careerUrl": "https://careers.quintoandar.com.br/", "hiringModel": "Brazil-based, some remote roles open to LATAM", "icon": "fas fa-home" },
+    { "name": "VTEX", "careerUrl": "https://careers.vtex.com/", "hiringModel": "LATAM-based, remote roles across the region", "icon": "fas fa-shopping-cart" }
+  ],
+  "anz": [
+    { "name": "Canva", "careerUrl": "https://www.lifeatcanva.com/en/jobs/", "hiringModel": "Primarily hires within Australia/NZ time zones — verify international remote eligibility per role", "icon": "fas fa-palette" },
+    { "name": "Atlassian", "careerUrl": "https://www.atlassian.com/company/careers/all-jobs", "hiringModel": "Distributed hiring in several countries — verify Argentina eligibility per role", "icon": "fab fa-atlassian" },
+    { "name": "Culture Amp", "careerUrl": "https://www.cultureamp.com/careers", "hiringModel": "AU-based, remote roles mostly within supported countries — verify eligibility", "icon": "fas fa-seedling" }
+  ],
+  "worldwide": [
+    { "name": "Deel", "careerUrl": "https://www.deel.com/careers", "hiringModel": "Fully remote, hires anywhere (it's literally an EOR company)", "icon": "fas fa-globe" },
+    { "name": "Remote.com", "careerUrl": "https://remote.com/careers", "hiringModel": "Fully remote, hires anywhere (EOR company)", "icon": "fas fa-globe-americas" },
+    { "name": "Oyster HR", "careerUrl": "https://www.oysterhr.com/careers", "hiringModel": "Fully remote, hires anywhere (EOR company)", "icon": "fas fa-globe-europe" },
+    { "name": "Andela", "careerUrl": "https://andela.com/careers/", "hiringModel": "Global talent marketplace, contractor-friendly", "icon": "fas fa-network-wired" }
+  ]
+}

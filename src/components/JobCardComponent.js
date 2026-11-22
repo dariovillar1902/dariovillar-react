@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { LanguageContext } from './languageContext';
 import { DarkModeContext } from './darkModeContext';
+import { getRoleLabel, getLevelLabel } from '../services/jobClassifier';
 
 export const JobCardComponent = ({ job, defaultExpanded = false }) => {
   const { isSpanish } = useContext(LanguageContext);
@@ -57,8 +58,15 @@ export const JobCardComponent = ({ job, defaultExpanded = false }) => {
             />
           )}
           <div className='jb-card-titles'>
-            <h3 className='jb-job-title'>{job.title}</h3>
-            <p className='jb-company-name'>{job.company}</p>
+            <h3 className='jb-job-title'>
+              {job.title}
+              {job.isNew && <span className='jb-new-badge'>{isSpanish ? 'Nueva' : 'New'}</span>}
+            </h3>
+            <p className='jb-company-name'>
+              {job.company}
+              {job.role && ` · ${getRoleLabel(job.role, isSpanish)}`}
+              {job.level && ` · ${getLevelLabel(job.level, isSpanish)}`}
+            </p>
           </div>
         </div>
         <div className={`jb-score-badge ${scoreClass}`}>

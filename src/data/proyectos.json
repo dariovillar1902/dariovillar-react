@@ -1,5 +1,38 @@
 [
   {
+    "id": 13,
+    "imagenes": "Coneic",
+    "tituloEsp": "Página Web — CONEIC 2026",
+    "fechaRealizacionEsp": "2026",
+    "duracionEsp": "En curso",
+    "descripcionEsp": "Desarrollo de la página web oficial del XVIII CONEIC (Congreso Nacional de Estudiantes de Ingeniería Civil) Buenos Aires 2026, el encuentro nacional más importante de estudiantes de Ingeniería Civil de Argentina. La página incluye información del congreso, cronograma y sedes, sponsors y avales institucionales, inscripción de asistentes y un panel administrativo para el comité organizador y delegados de filiales, con verificación de acreditaciones y gestión de datos de inscripción.",
+    "mejorasEsp": "Sumar la galería de fotos del congreso una vez realizado, y seguir ampliando el panel administrativo con nuevas métricas.",
+    "tecnologiasUtilizadas": ["React", "TypeScript", ".NET", "SQL Server"],
+    "tituloEng": "Website — CONEIC 2026",
+    "fechaRealizacionEng": "2026",
+    "duracionEng": "Ongoing",
+    "descripcionEng": "Built the official website for the XVIII CONEIC (National Congress of Civil Engineering Students) Buenos Aires 2026, the most important national gathering of Civil Engineering students in Argentina. The site includes congress information, schedule and venues, sponsors and institutional endorsements, attendee registration, and an admin panel for the organizing committee and branch delegates, with credential verification and registration data management.",
+    "mejorasEng": "Add the congress photo gallery once the event takes place, and keep expanding the admin panel with new metrics.",
+    "pageLink": "https://coneic2026.com.ar",
+    "gitHubLink": "https://github.com/dariovillar1902/CONEIC-2026-FE"
+  },
+  {
+    "id": 12,
+    "imagenes": "Onc",
+    "tituloEsp": "COMPR.AR / CONTRAT.AR — Oficina Nacional de Compras",
+    "fechaRealizacionEsp": "Enero 2025 - Actualidad",
+    "duracionEsp": "8+ meses",
+    "descripcionEsp": "Desarrollo y soporte de COMPR.AR y CONTRAT.AR, las plataformas centrales de contrataciones públicas del Estado Nacional Argentino, utilizadas por organismos públicos y proveedores para gestionar procesos de compra, licitaciones y contratos. Resolución de tickets de soporte, desarrollo de nuevos módulos, automatización de procesos mediante stored procedures y jobs programados, y participación en la migración del sistema legacy hacia una arquitectura moderna con API en .NET y frontend en Next.js.",
+    "mejorasEsp": "Continuar la migración hacia la nueva arquitectura, mejorar la performance de las búsquedas de procesos y ampliar la automatización de tareas administrativas.",
+    "tecnologiasUtilizadas": ["ASP.NET", ".NET 9", "Next.js", "TypeScript", "C#", "SQL Server"],
+    "tituloEng": "COMPR.AR / CONTRAT.AR — National Procurement Office",
+    "fechaRealizacionEng": "January 2025 - Present",
+    "duracionEng": "8+ months",
+    "descripcionEng": "Development and support for COMPR.AR and CONTRAT.AR, Argentina's central national public procurement platforms, used by government agencies and vendors to manage purchasing processes, tenders and contracts. Resolved support tickets, built new modules, automated workflows via stored procedures and scheduled jobs, and contributed to migrating the legacy system toward a modern .NET API and Next.js frontend.",
+    "mejorasEng": "Continue the migration to the new architecture, improve process search performance, and expand automation of administrative tasks.",
+    "pageLink": "https://comprar.gob.ar"
+  },
+  {
     "id": 1,
     "imagenes": "Essen",
     "tituloEsp": "WebNegocio Essen",
@@ -62,6 +95,30 @@
     "gitHubLink": "https://github.com/dariovillar1902/geotecniautnfrba"
   },
   {
+    "id": 6,
+    "imagenes": "DarioVillar",
+    "tituloEsp": "Página Personal - Darío Villar",
+    "fechaRealizacionEsp": "Noviembre 2021 - Diciembre 2022",
+    "duracionEsp": "5 días",
+    "descripcionEsp": "Esta misma página fue creada desde cero debido a la necesidad de tener un lugar donde mostrar mis proyectos de desarrollo web. Hice uso de múltiples recursos visuales y herramientas de diseño para hacer una página agradable, con un maquetado simple que permita ver mi información personal de forma clara, ordenada y divertida. Aprendí a usar componentes de muchas fuentes distintas, tales como tsParticles, elementos para barras de progreso, gradientes de texto con CSS, contadores automáticos con JS y varios componentes de Bootstrap como Modals, Carruseles y Tooltips. Además, esta página es 100% responsive, por lo que puede ser visualizada desde dispositivos de cualquier tamaño sin ningún problema. La página tiene 4 secciones: un Inicio atractivo visualmente que invita a quien entre a la página a continuar navegando, una sección Sobre Mi con información personal y estadísticas sobre mi desempeño, una sección de Portfolio en donde muestro mis proyectos y una sección de Contacto en donde se puede descargar mi CV y carta de presentación, así como enviarme comentarios o sugerencias. ",
+    "mejorasEsp": "Implementar modo claro, páginas en español e inglés, seguir mejorando la página para que sea más atractiva visualmente y ampliar mi portfolio.",
+    "tecnologiasUtilizadas": [
+      "React",
+      "HTML5",
+      "CSS3",
+      "Bootstrap",
+      "JavaScript",
+      "jQuery"
+    ],
+    "tituloEng": "Personal Page - Dario Villar",
+    "fechaRealizacionEng": "November 2021 - December 2022",
+    "duracionEng": "5 days",
+    "descripcionEng": "This website was created from scratch due to my requirement of having a place to show my web development projects. I used multiple visual tools and resources to create a nice page, with a simple design which shows my personal information in a clear, orderly and fun way. I learned how to use components from many different sources, such as tsParticles, progress bar elements, text gradients with CSS, automatic counters with JS and many Bootstrap components including Modals, Carrousels and Tooltips. This website is also 100% responsive, so it can be visited from different devices without any issues. The page has 4 sections: a visually attractive Home, which invites visitors to continue browsing, an About Me section with personal information and stats about my performance, a Portfolio section where I showcase my projects and a Contact section where my Resume and Cover Letter can be downloaded, and comments and suggestions can be sent to me.",
+    "mejorasEng": "Add light mode, English and Spanish sections, keep improving the page to make it more visually attractive and expand my portfolio.",
+    "pageLink": "https://dariovillar.vercel.app/",
+    "gitHubLink": "https://github.com/dariovillar1902/dariovillar"
+  },
+  {
     "id": 4,
     "imagenes": "Helplab",
     "tituloEsp": "Helplab Tienda",
@@ -91,30 +148,6 @@
     "tecnologiasUtilizadas": ["React", "JavaScript", "HTML", "CSS"],
     "pageLink": "https://wordlees.vercel.app/",
     "gitHubLink": "https://github.com/dariovillar1902/wordlees"
-  },
-  {
-    "id": 6,
-    "imagenes": "DarioVillar",
-    "tituloEsp": "Página Personal - Darío Villar",
-    "fechaRealizacionEsp": "Noviembre 2021 - Diciembre 2022",
-    "duracionEsp": "5 días",
-    "descripcionEsp": "Esta misma página fue creada desde cero debido a la necesidad de tener un lugar donde mostrar mis proyectos de desarrollo web. Hice uso de múltiples recursos visuales y herramientas de diseño para hacer una página agradable, con un maquetado simple que permita ver mi información personal de forma clara, ordenada y divertida. Aprendí a usar componentes de muchas fuentes distintas, tales como tsParticles, elementos para barras de progreso, gradientes de texto con CSS, contadores automáticos con JS y varios componentes de Bootstrap como Modals, Carruseles y Tooltips. Además, esta página es 100% responsive, por lo que puede ser visualizada desde dispositivos de cualquier tamaño sin ningún problema. La página tiene 4 secciones: un Inicio atractivo visualmente que invita a quien entre a la página a continuar navegando, una sección Sobre Mi con información personal y estadísticas sobre mi desempeño, una sección de Portfolio en donde muestro mis proyectos y una sección de Contacto en donde se puede descargar mi CV y carta de presentación, así como enviarme comentarios o sugerencias. ",
-    "mejorasEsp": "Implementar modo claro, páginas en español e inglés, seguir mejorando la página para que sea más atractiva visualmente y ampliar mi portfolio.",
-    "tecnologiasUtilizadas": [
-      "React",
-      "HTML5",
-      "CSS3",
-      "Bootstrap",
-      "JavaScript",
-      "jQuery"
-    ],
-    "tituloEng": "Personal Page - Dario Villar",
-    "fechaRealizacionEng": "November 2021 - December 2022",
-    "duracionEng": "5 days",
-    "descripcionEng": "This website was created from scratch due to my requirement of having a place to show my web development projects. I used multiple visual tools and resources to create a nice page, with a simple design which shows my personal information in a clear, orderly and fun way. I learned how to use components from many different sources, such as tsParticles, progress bar elements, text gradients with CSS, automatic counters with JS and many Bootstrap components including Modals, Carrousels and Tooltips. This website is also 100% responsive, so it can be visited from different devices without any issues. The page has 4 sections: a visually attractive Home, which invites visitors to continue browsing, an About Me section with personal information and stats about my performance, a Portfolio section where I showcase my projects and a Contact section where my Resume and Cover Letter can be downloaded, and comments and suggestions can be sent to me.",
-    "mejorasEng": "Add light mode, English and Spanish sections, keep improving the page to make it more visually attractive and expand my portfolio.",
-    "pageLink": "https://dariovillar.vercel.app/",
-    "gitHubLink": "https://github.com/dariovillar1902/dariovillar"
   },
   {
     "id": 7,

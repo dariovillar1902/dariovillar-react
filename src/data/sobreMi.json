@@ -3,31 +3,31 @@
     "id": 1,
     "imagen": "fotochevron",
     "imagenAlt": "Chevron",
-    "tituloEsp": "Software Engineer en Chevron",
-    "tituloEng": "Software Engineer at Chevron",
-    "descripcionEsp": "En Marzo de 2024 comencé en una posición full-time como Software Engineer en Chevron. La empresa es una de las mayores compañías de energía del mundo, con operaciones en más de 180 países. El equipo en el que estoy es responsable del soporte y desarrollo de una aplicación denominada ADAP (Automated Design Assurance Process). ADAP es una solución automatizada de garantía de diseño que permite coordinar la iniciación de proyectos y los procesos de reseñas, eliminando ineficiencias en el flujo de trabajo manual existente (actualmente se comparte la información a través de planillas Excel y tableros de control en PowerBI) y acelerando la confirmación de la calidad del diseño del proyecto para reducir la ocurrencia de deficiencias técnicas de diseño y mejorar el rendimiento del negocio en proyectos de la compañía. La aplicación se compone de una API hecha con C#/.NET 6 y un frontend con Angular y TypeScript. La base de datos es SQL Server y se utiliza Entity Framework para las conexiones de la API. La aplicación está integrada a Azure DevOps para automatización de deployments y CI/CD.",
-    "descripcionEng": "In March 2024 I started a full-time position as a Software Engineer at Chevron. The company is one of the largest energy companies in the world, with operations in more than 180 countries. The team I am in is responsible for the support and development of an application called ADAP (Automated Design Assurance Process). ADAP is an automated design assurance solution that allows to coordinate project initiation and review processes, eliminating inefficiencies in the existing manual workflow (currently information is shared through Excel spreadsheets and PowerBI dashboards) and accelerating the confirmation of project design quality to reduce the occurrence of technical design deficiencies and improve business performance in company projects. The application consists of an API made with C#/.NET 6 and a frontend with Angular and TypeScript. The database is SQL Server and Entity Framework is used for the API connections. The application is integrated with Azure DevOps for deployment automation and CI/CD.",
+    "tituloEsp": "Líder Técnico en Chevron",
+    "tituloEng": "Technical Lead at Chevron",
+    "descripcionEsp": "En Marzo de 2024 comencé como Software Engineer en Chevron, una de las mayores compañías de energía del mundo, con operaciones en más de 180 países. Hoy me desempeño como Líder Técnico de ADAP (Automated Design Assurance Process), gestionando un equipo global de desarrollo en Argentina, Polonia e India y coordinando arquitectura, requerimientos y entregas junto al Product Owner, Scrum Master y stakeholders, con el 100% del business value planificado cumplido de forma consistente y una capacidad de entrega ~50% superior a la asignada. También lidero el desarrollo de QMS (Quality Management System), una plataforma empresarial que digitaliza los procesos de calidad e integra Quality Excellence en el OEMS para apoyar la certificación ISO 9001 de Chevron en Projects, Engineering, Wells, Supply Chain y O&M — con un valor estimado de ~USD 1.000 millones y un ahorro de ~USD 1,4 millones frente a una solución de proveedor externo. Diseñé además un agente de IA en Microsoft Copilot Studio para automatizar análisis financieros, que obtuvo el 1° puesto en una competencia evaluada por el CIO, con una reducción estimada del 90% del esfuerzo manual. Coordiné más de 10 entrevistas técnicas (3 contrataciones) y represento a Chevron como embajador de marca empleadora en Nerdearla y la Feria Laboral UTN. Soy también TechShare Connect & Partnership Lead, liderando alianzas e iniciativas de adopción digital como AI Challenges y el Citizen Developer Program, y PRIDE Argentina Learning Specialist, habiendo creado \"Fun Corner\" (plataforma en Power Apps) que incorporó a más de 90 miembros a la comunidad.",
+    "descripcionEng": "In March 2024 I started as a Software Engineer at Chevron, one of the largest energy companies in the world, with operations in more than 180 countries. Today I work as Technical Lead for ADAP (Automated Design Assurance Process), managing a global development team across Argentina, Poland and India and coordinating architecture, requirements and delivery alongside the Product Owner, Scrum Master and stakeholders, consistently delivering 100% of planned business value with delivery capacity ~50% above assigned target. I also lead the development of QMS (Quality Management System), an enterprise platform that digitizes quality processes and integrates Quality Excellence into the OEMS to support Chevron's ISO 9001 certification across Projects, Engineering, Wells, Supply Chain and O&M — estimated at ~USD 1 billion in value, with ~USD 1.4 million in savings versus a vendor solution. I also designed a Microsoft Copilot Studio AI agent for financial analysis automation, which won 1st place in a CIO-judged competition, with an estimated 90% reduction in manual effort. I coordinated 10+ technical hiring interviews (3 new hires) and represent Chevron as an employer brand ambassador at Nerdearla and the UTN job fair. I'm also TechShare Connect & Partnership Lead, driving partnerships and digital adoption initiatives like AI Challenges and the Citizen Developer Program, and PRIDE Argentina Learning Specialist, having created \"Fun Corner\" (a Power Apps platform) that onboarded 90+ members to the community.",
     "counters": [
       {
-        "countTo": 2,
-        "cuentaDe": "/30",
-        "textoEsp": "sprints completados",
-        "textoEng": "sprints completed"
+        "countTo": 100,
+        "cuentaDe": "%",
+        "textoEsp": "business value planificado cumplido",
+        "textoEng": "of planned business value delivered"
       },
       {
-        "countTo": 2,
-        "cuentaDe": "",
-        "textoEsp": "tareas realizadas",
-        "textoEng": "tasks completed"
+        "countTo": 1,
+        "cuentaDe": ",4M USD",
+        "textoEsp": "de ahorro estimado con QMS",
+        "textoEng": "in estimated savings via QMS"
       },
       {
-        "countTo": 32,
-        "cuentaDe": "",
-        "textoEsp": "horas dedicadas a aprendizaje",
-        "textoEng": "hours dedicated to learning"
+        "countTo": 90,
+        "cuentaDe": "%",
+        "textoEsp": "reducción de esfuerzo manual (agente IA)",
+        "textoEng": "manual effort reduction (AI agent)"
       }
     ],
-    "progreso": "2/30 (6.67%)",
+    "progreso": "100% Business Value",
     "idProgreso": "progressChevron",
     "botones": [
       {
@@ -44,6 +44,130 @@
   },
   {
     "id": 2,
+    "imagen": "fotoconst",
+    "imagenAlt": "Ingeniería Civil/Civil Engineering",
+    "tituloEsp": "Ingeniero Civil — UTN FRBA",
+    "tituloEng": "Civil Engineer — UTN FRBA",
+    "descripcionEsp": "Me recibí de Ingeniero Civil, con un promedio final de 7.51/10. En el futuro, planeo seguir la orientación de Vías de Comunicación y dedicarme a la Ingeniería en Transporte. Estudié en la Universidad Tecnológica Nacional, Facultad Regional Buenos Aires, donde ingresé en 2019. Aprendí mucho sobre los distintos ámbitos de la Ingeniería, incluyendo ciencias básicas, cálculo y análisis de estructuras, tecnologías y técnicas relacionadas con materiales y construcción, cálculo y distribución de instalaciones domiciliarias, diseño y estudio de proyectos. Además, la facultad me preparó mucho para el trabajo en grupo, así como para la confección de documentación de obra a través de AutoCAD, planillas Excel, Mathcad, RAM Elements, entre otros programas. Como Secretario de Eventos y Logística del CONEIC 2026, también estoy desarrollando la página web oficial del congreso. Actualmente combino esto con la Tecnicatura en Data Analytics en Coderhouse.",
+    "descripcionEng": "I graduated as a Civil Engineer, with a final GPA of 7.51/10. In the future, I plan to follow the Means of Transport profile and work in Transport Engineering. I attended the National Technological University in Buenos Aires, starting in 2019. I learned greatly about different aspects of Engineering, including basic Math and Physics, structural analysis and technologies related to materials and construction. Moreover, my university prepared me to work in a team, as well as to make blueprints and other documents needed for building, through AutoCAD, Excel spreadsheets, Mathcad, RAM Elements, among other programs and applications. As Events & Logistics Secretary for CONEIC 2026, I'm also building the congress' official website. I'm currently combining this with a Data Analytics degree at Coderhouse.",
+    "counters": [
+      {
+        "countTo": 46,
+        "cuentaDe": "/46",
+        "textoEsp": "materias aprobadas",
+        "textoEng": "completed subjects"
+      },
+      {
+        "countTo": 7,
+        "cuentaDe": ".51/10",
+        "textoEsp": "promedio final",
+        "textoEng": "final GPA"
+      },
+      {
+        "countTo": 2026,
+        "cuentaDe": "",
+        "textoEsp": "año de egreso",
+        "textoEng": "graduation year"
+      }
+    ],
+    "progreso": "46/46 (100%)",
+    "idProgreso": "progressCivil",
+    "botones": [
+      {
+        "textoEsp": "Ver materias aprobadas",
+        "textoEng": "See completed subjects",
+        "link": "comprobante.pdf"
+      },
+      {
+        "textoEsp": "Ver trabajos realizados",
+        "textoEng": "See my projects",
+        "link": "trabajos.pdf"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "imagen": "fotooncjgm",
+    "imagenAlt": "Oficina Nacional de Compras (ONC)",
+    "tituloEsp": "Analista Programador en la ONC",
+    "tituloEng": "Software Analyst Developer at ONC",
+    "descripcionEsp": "En Enero de 2025 comencé como Analista Programador en la Oficina Nacional de Compras (ONC), dependiente de la Jefatura de Gabinete de Ministros. Soy responsable del desarrollo y soporte de COMPR.AR y CONTRAT.AR, las plataformas centrales de contrataciones públicas del Estado Nacional Argentino, utilizadas por organismos públicos y proveedores de todo el país para gestionar licitaciones y contratos. Resolví 248 tickets de soporte en 8 meses con un tiempo de respuesta promedio de 2 días, automatizando procesos mediante stored procedures y jobs programados en SQL Server. Desarrollo módulos nuevos siguiendo buenas prácticas, obteniendo requerimientos directamente con organismos públicos, y participo activamente en la migración del sistema legacy de ASP.NET Framework 4 hacia una API moderna con .NET 9 y frontend en Next.js con TypeScript, mejorando la escalabilidad y mantenibilidad de la plataforma.",
+    "descripcionEng": "In January 2025 I started as a Software Analyst Developer at the National Procurement Office (ONC), part of the Chief of Cabinet of Ministers. I'm responsible for the development and support of COMPR.AR and CONTRAT.AR, Argentina's central national public procurement platforms, used by government agencies and vendors across the country to manage tenders and contracts. I resolved 248 support tickets in 8 months, maintaining a 2-day average response time, automating workflows via stored procedures and scheduled jobs in SQL Server. I develop new modules following best practices, gathering requirements directly from public agencies, and actively participate in migrating the legacy ASP.NET Framework 4 system to a modern .NET 9 API with a Next.js/TypeScript frontend, improving the platform's scalability and maintainability.",
+    "counters": [
+      {
+        "countTo": 248,
+        "cuentaDe": "",
+        "textoEsp": "tickets de soporte resueltos",
+        "textoEng": "support tickets resolved"
+      },
+      {
+        "countTo": 2,
+        "cuentaDe": " días",
+        "textoEsp": "tiempo de respuesta promedio",
+        "textoEng": "average response time"
+      },
+      {
+        "countTo": 2,
+        "cuentaDe": "",
+        "textoEsp": "plataformas nacionales de contrataciones",
+        "textoEng": "national procurement platforms"
+      }
+    ],
+    "progreso": "248 tickets / 8 meses",
+    "idProgreso": "progressOnc",
+    "botones": [
+      {
+        "textoEsp": "Ir a COMPR.AR",
+        "textoEng": "Go to COMPR.AR",
+        "link": "https://comprar.gob.ar"
+      },
+      {
+        "textoEsp": "Ver mis contribuciones",
+        "textoEng": "See my contributions",
+        "link": "portfolio"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "imagen": "fotodev",
+    "imagenAlt": "Anyone AI",
+    "tituloEsp": "Machine Learning Engineer Fellowship — Anyone AI",
+    "tituloEng": "Machine Learning Engineer Fellowship at Anyone AI",
+    "descripcionEsp": "En Septiembre de 2026 comencé el fellowship de Machine Learning Engineer en Anyone AI, un programa altamente selectivo (menos del 3% de aceptación) donde el mejor talento se reúne para acelerar sus carreras en Machine Learning, rodeado de una comunidad de profesionales y expertos en IA. Es part-time y 100% remoto, con 20 horas semanales de dedicación durante cuatro meses y medio. Estoy trabajando con Python, Pandas y Scikit-Learn para análisis y modelado de datos, Keras para redes neuronales, Langchain y Hugging Face para modelos de lenguaje, FastAPI y StreamLit para el despliegue de aplicaciones, y Docker y AWS para infraestructura y despliegue en la nube.",
+    "descripcionEng": "In September 2026 I started the Machine Learning Engineer fellowship at Anyone AI, a highly selective program (less than 3% acceptance rate) where top talent comes together to accelerate their Machine Learning careers, surrounded by a community of AI professionals and experts. It's part-time and fully remote, requiring 20 hours per week over four and a half months. I'm working with Python, Pandas and Scikit-Learn for data analysis and modeling, Keras for neural networks, Langchain and Hugging Face for language models, FastAPI and StreamLit for application deployment, and Docker and AWS for infrastructure and cloud deployment.",
+    "counters": [
+      {
+        "countTo": 3,
+        "cuentaDe": "%",
+        "textoEsp": "tasa de aceptación del fellowship",
+        "textoEng": "fellowship acceptance rate"
+      },
+      {
+        "countTo": 20,
+        "cuentaDe": "hs/semana",
+        "textoEsp": "dedicación part-time remota",
+        "textoEng": "part-time remote commitment"
+      },
+      {
+        "countTo": 4,
+        "cuentaDe": ".5 meses",
+        "textoEsp": "duración del programa",
+        "textoEng": "program duration"
+      }
+    ],
+    "progreso": "Sep 2026 – Ene 2027",
+    "idProgreso": "progressAnyoneAI",
+    "botones": [
+      {
+        "textoEsp": "Ir a Anyone AI",
+        "textoEng": "Go to Anyone AI",
+        "link": "https://www.anyoneai.com/"
+      }
+    ]
+  },
+  {
+    "id": 5,
     "imagen": "fotoessen",
     "imagenAlt": "Essen Aluminio",
     "tituloEsp": "Programador SSr en Essen Aluminio",
@@ -86,7 +210,7 @@
     ]
   },
   {
-    "id": 3,
+    "id": 6,
     "imagen": "fotoexxon",
     "imagenAlt": "ExxonMobil",
     "tituloEsp": "Pasantía IT en ExxonMobil",
@@ -129,7 +253,7 @@
     ]
   },
   {
-    "id": 4,
+    "id": 7,
     "imagen": "fotodev",
     "imagenAlt": "Full-Stack Web Development",
     "tituloEsp": "Cursos y certificaciones de Desarrollo Web Full-Stack",
@@ -168,49 +292,6 @@
         "textoEsp": "Ver mis proyectos",
         "textoEng": "See my projects",
         "link": "portfolio"
-      }
-    ]
-  },
-  {
-    "id": 5,
-    "imagen": "fotoconst",
-    "imagenAlt": "Ingeniería Civil/Civil Engineering",
-    "tituloEsp": "Ingeniería Civil en UTN FRBA",
-    "tituloEng": "Civil Engineering at UTN FRBA",
-    "descripcionEsp": "Completé 45 de las 46 materias del plan de estudios, y me resta únicamente el Proyecto Final para obtener el título. En el futuro, planeo seguir la orientación de Vías de Comunicación y dedicarme a la Ingeniería en Transporte. Estudié en la Universidad Tecnológica Nacional, Facultad Regional Buenos Aires, donde ingresé en 2019. Aprendí mucho sobre los distintos ámbitos de la Ingeniería, incluyendo ciencias básicas, cálculo y análisis de estructuras, tecnologías y técnicas relacionadas con materiales y construcción, cálculo y distribución de instalaciones domiciliarias, diseño y estudio de proyectos. Además, la facultad me preparó mucho para el trabajo en grupo, así como para la confección de documentación de obra a través de AutoCAD, planillas Excel, Mathcad, RAM Elements, entre otros programas.",
-    "descripcionEng": "I have completed 45 out of 46 subjects in the degree plan, and only need to complete my Final Project to graduate. In the future, I plan to follow the Means of Transport profile and work in Transport Engineering. I attended the National Technological University in Buenos Aires, starting in 2019. I learned greatly about different aspects of Engineering, including basic Math and Physics, structural analysis and technologies related to materials and construction. Moreover, my university prepared me to work in a team, as well as to make blueprints and other documents needed for building, through AutoCAD, Excel spreadsheets, Mathcad, RAM Elements, among other programs and applications.",
-    "counters": [
-      {
-        "countTo": 45,
-        "cuentaDe": "/46",
-        "textoEsp": "materias aprobadas",
-        "textoEng": "completed subjects"
-      },
-      {
-        "countTo": 1,
-        "cuentaDe": "",
-        "textoEsp": "materia restante (Proyecto Final)",
-        "textoEng": "remaining subject (Final Project)"
-      },
-      {
-        "countTo": 8,
-        "cuentaDe": ".12/10",
-        "textoEsp": "promedio general",
-        "textoEng": "average score"
-      }
-    ],
-    "progreso": "45/46 (97,83%)",
-    "idProgreso": "progressCivil",
-    "botones": [
-      {
-        "textoEsp": "Ver materias aprobadas",
-        "textoEng": "See completed subjects",
-        "link": "comprobante.pdf"
-      },
-      {
-        "textoEsp": "Ver trabajos realizados",
-        "textoEng": "See my projects",
-        "link": "trabajos.pdf"
       }
     ]
   }
