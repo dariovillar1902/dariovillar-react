@@ -39,6 +39,11 @@ export const patterns = [
     examples: 'Two Sum, Contains Duplicate, Valid Anagram, First Unique Character',
   },
   {
+    signal: 'Solo preguntar "¿ya lo vi?" (sin necesitar un valor asociado)',
+    technique: 'HashSet: Add devuelve false si ya estaba',
+    examples: 'Contains Duplicate, Happy Number, Intersection of Two Arrays',
+  },
+  {
     signal: 'Anidamiento, "el último abierto es el primero en cerrarse"',
     technique: 'Stack',
     examples: 'Valid Parentheses, evaluar expresiones',
@@ -78,6 +83,21 @@ export const patterns = [
     technique: 'StringBuilder (no +=)',
     examples: 'Join, Reverse Words',
   },
+  {
+    signal: 'Contar letras minúsculas o comparar frecuencias',
+    technique: "int[26] con c - 'a' (o Dictionary si hay otros caracteres)",
+    examples: 'Valid Anagram, First Unique Character, Ransom Note',
+  },
+  {
+    signal: 'Comparar muchos strings entre sí (prefijo común)',
+    technique: 'Escaneo vertical contra el primer string',
+    examples: 'Longest Common Prefix',
+  },
+  {
+    signal: 'Modificar el arreglo "in-place" manteniendo el orden',
+    technique: 'Puntero de lectura + puntero de escritura que avanzan juntos',
+    examples: 'Move Zeroes, Remove Element, Remove Duplicates from Sorted Array',
+  },
 ];
 
 export const mistakes = [
@@ -111,6 +131,36 @@ export const mistakes = [
     wrong: 'Estaba bien. Detalles: empezar en i = 1, usar else-if, nombres cortos (minPrice, maxProfit) y cuidado con caracteres sueltos al pegar.',
     right: 'Mínimo hasta ahora + mejor ganancia en una sola pasada. O(n) tiempo, O(1) espacio.',
   },
+  {
+    exercise: 'First Unique Character in a String',
+    wrong: 'Funcionaba, pero era O(n²): LastIndexOf y Dictionary.ContainsValue recorren todo en cada vuelta, y el Dictionary<int,int> (índice → carácter) no aportaba nada.',
+    right: "Contar con int[26] (c - 'a') en una pasada y devolver el primer índice con conteo 1. O(n) tiempo, O(1) espacio.",
+  },
+  {
+    exercise: 'Valid Palindrome',
+    wrong: 'La regex [^a-z] borraba las mayúsculas y los dígitos en vez de pasarlas a minúscula y conservarlos: fallaba "A man, a plan, a canal: Panama" y "0P". Además Math.Floor((double)(n / 2)) era ruido.',
+    right: 'ToLowerInvariant ANTES de filtrar y [^a-z0-9], o mejor dos punteros con char.IsLetterOrDigit (O(1) de espacio). n / 2 ya es división entera.',
+  },
+  {
+    exercise: 'Valid Anagram',
+    wrong: 'Faltaba comparar longitudes: con "ab" y "a" quedaba un contador en 1 y devolvía true. Los ejemplos del enunciado pasaban igual.',
+    right: 'if (s.Length != t.Length) return false; y después contar las letras de s y descontar las de t.',
+  },
+  {
+    exercise: 'Longest Common Prefix',
+    wrong: 'Comparaba pares consecutivos y guardaba longestMatch, que se pisaba en vez de tomar el mínimo. Substring(0, i) lanzaba excepción si i superaba el largo, y con i < Length nunca se probaba el string completo ("abc","abc" daba "ab"). Parchear con Math.Min arregló los ejemplos, pero siguieron fallando 5 de 10 casos.',
+    right: 'Una sola referencia (el primer string): comparar cada posición contra todos los demás y cortar en el primer desacuerdo. Si un parche no alcanza, cambiá el diseño.',
+  },
+  {
+    exercise: 'Contains Duplicate',
+    wrong: 'Era correcto pero O(n²): Dictionary.ContainsValue recorre todas las entradas en cada vuelta, y el Dictionary (índice → valor) no aportaba nada porque solo se buscaba por valor.',
+    right: 'HashSet<int> y if (!seen.Add(n)) return true;. Add chequea e inserta en una sola llamada, O(1). Alternativas: fuerza bruta O(n²), ordenar O(n log n), HashSet O(n).',
+  },
+  {
+    exercise: 'Move Zeroes',
+    wrong: 'Movía cada cero una sola posición a la derecha en una pasada, pero un cero puede tener que cruzar varios elementos: [0,1,0,3,12] daba [1,0,3,12,0] y [0,0,1] daba [0,1,0].',
+    right: 'Mover los NO ceros al frente con un puntero de escritura y rellenar con ceros al final. "In-place" prohíbe una copia del arreglo, no las variables extra. O(n) tiempo, O(1) espacio.',
+  },
 ];
 
 export const csharpChecklist = [
@@ -124,6 +174,21 @@ export const csharpChecklist = [
   'Para strings en bucle usá StringBuilder; += es O(n²).',
   'TryGetValue hace la búsqueda y te da el valor en una sola llamada, sin KeyNotFoundException.',
   'Ya existe un built-in (string.Join, Split, Reverse, Contains)? En la entrevista implementá a mano si te lo piden, y aclará que en producción usarías el built-in.',
+  'Substring(0, i) lanza ArgumentOutOfRangeException si i supera el largo del string: cuidá los límites antes de cortar.',
+  'Regex: [^a-z] elimina todo lo que no sea minúscula, incluidos mayúsculas y dígitos. Para alfanuméricos: pasá a minúsculas y usá [^a-z0-9].',
+  'int / int ya es una división entera: no hace falta Math.Floor((double)(n / 2)).',
+  'IndexOf, LastIndexOf y Contains recorren el string: dentro de un bucle vuelven el algoritmo O(n²). ContainsValue de un Dictionary también es O(n); solo la búsqueda por clave es O(1).',
+];
+
+export const verifyChecklist = [
+  'Que pasen los ejemplos del enunciado no alcanza: probá casos que los ejemplos no cubren.',
+  'Un solo elemento, elementos idénticos y entrada vacía (["a"], ["abc","abc"], "").',
+  'Entradas de distinto largo ("ab" y "a" en un anagrama; ["ab","a"] en un prefijo).',
+  'Un caso donde la respuesta sea la entrada completa: detecta los errores por uno (< vs <=).',
+  'Un caso sin solución o con resultado vacío.',
+  'Si el enunciado dice "alfanumérico", incluí dígitos y mayúsculas en tus pruebas.',
+  'Recorré el código a mano con un caso borde, no solo con el ejemplo feliz.',
+  'Si arreglar un error hace aparecer otro, el problema es el diseño: replanteá en vez de seguir parchando.',
 ];
 
 export const sayAloud = [

@@ -4,6 +4,7 @@ import {
   patterns,
   mistakes,
   csharpChecklist,
+  verifyChecklist,
   sayAloud,
   universalEdgeCases,
 } from '../data/lessonsLearned';
@@ -69,6 +70,14 @@ const InterviewLessonsComponent = () => (
         <h3 className='iv-ls-heading'>Checklist de C#</h3>
         <ul className='iv-ls-list'>
           {csharpChecklist.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      </div>
+      <div className='iv-lc-card'>
+        <h3 className='iv-ls-heading'>Antes de dar por buena una solución</h3>
+        <ul className='iv-ls-list'>
+          {verifyChecklist.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
