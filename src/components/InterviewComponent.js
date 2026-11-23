@@ -26,7 +26,7 @@ const InterviewComponent = () => {
         <Tab eventKey='qa' title='Q & A'>
           <InterviewQAComponent darkMode={darkMode} />
         </Tab>
-        <Tab eventKey='warmups' title='Warm-ups'>
+        <Tab eventKey='warmups' title='Calentamiento'>
           <InterviewWarmupComponent />
         </Tab>
         <Tab eventKey='lessons' title='Lecciones'>

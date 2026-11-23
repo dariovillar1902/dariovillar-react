@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { codingExercises } from '../data/codingExercises';
 
-// Warm-up content is always in English (matches the interview language)
+// Contenido del calentamiento en español
 const STORAGE_KEY = 'iv-warmup-solved';
+const LIVE_SOURCE = 'Entrevista Fleetworthy';
+
+const DIFFICULTY_LABEL = { easy: 'fácil', medium: 'media', hard: 'difícil' };
 
 const STEPS = [
-  'Restate the problem and ask clarifying questions',
-  'Walk through an example by hand',
-  'List edge cases before coding',
-  'Code the simple version, then say what you would use in production',
-  'Test with your examples and state the complexity',
+  'Repetí el problema y hacé preguntas aclaratorias',
+  'Resolvé un ejemplo a mano',
+  'Listá los casos borde antes de codear',
+  'Codeá la versión simple y decí qué usarías en producción',
+  'Probá con tus ejemplos y decí la complejidad',
 ];
 
 const loadSolved = () => {
@@ -41,18 +44,18 @@ const InterviewWarmupComponent = () => {
 
   const toggle = (id, section) => {
     const key = `${id}-${section}`;
-    setOpen({ ...open, [key]: !open[key] });
+    setOpen((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
   return (
     <div>
       <div className='iv-ex-intro'>
         <p className='iv-ex-progress'>
-          <i className='fas fa-check-circle' /> {solved.length} / {codingExercises.length} solved
+          <i className='fas fa-check-circle' /> {solved.length} / {codingExercises.length} resueltos
         </p>
         <p className='iv-ex-lead'>
-          Typical live-coding warm-ups. Write the solution in a plain editor first, without built-ins,
-          then open the hints and the reference solution.
+          Ejercicios típicos de código en vivo. Escribí primero la solución en un editor simple, sin
+          usar métodos built-in, y después abrí las pistas y la solución de referencia.
         </p>
         <ol className='iv-ex-steps'>
           {STEPS.map((s) => (
@@ -68,11 +71,13 @@ const InterviewWarmupComponent = () => {
             <div key={ex.id} className={`iv-lc-card iv-ex-card${isSolved ? ' iv-ex-solved' : ''}`}>
               <div className='iv-lc-card-header'>
                 <h4 className='iv-lc-title'>{ex.title}</h4>
-                <span className={`iv-badge iv-badge-${ex.difficulty}`}>{ex.difficulty}</span>
+                <span className={`iv-badge iv-badge-${ex.difficulty}`}>
+                  {DIFFICULTY_LABEL[ex.difficulty] || ex.difficulty}
+                </span>
               </div>
               {ex.source && (
-                <span className={`iv-ex-source${ex.source === 'Fleetworthy interview' ? ' iv-ex-source-live' : ''}`}>
-                  <i className={`fas ${ex.source === 'Fleetworthy interview' ? 'fa-star' : 'fa-code'}`} /> {ex.source}
+                <span className={`iv-ex-source${ex.source === LIVE_SOURCE ? ' iv-ex-source-live' : ''}`}>
+                  <i className={`fas ${ex.source === LIVE_SOURCE ? 'fa-star' : 'fa-code'}`} /> {ex.source}
                 </span>
               )}
 
@@ -94,29 +99,29 @@ const InterviewWarmupComponent = () => {
 
               <div className='iv-ex-actions'>
                 <button className='iv-btn' onClick={() => toggle(ex.id, 'hints')}>
-                  {open[`${ex.id}-hints`] ? 'Hide hints' : 'Hints & edge cases'}
+                  {open[`${ex.id}-hints`] ? 'Ocultar pistas' : 'Pistas y casos borde'}
                 </button>
                 <button className='iv-btn' onClick={() => toggle(ex.id, 'solution')}>
-                  {open[`${ex.id}-solution`] ? 'Hide solution' : 'Show solution'}
+                  {open[`${ex.id}-solution`] ? 'Ocultar solución' : 'Ver solución'}
                 </button>
                 <button
                   className={`iv-btn iv-ex-check${isSolved ? ' iv-btn-active' : ''}`}
                   onClick={() => toggleSolved(ex.id)}
                   aria-pressed={isSolved}
                 >
-                  <i className={`fas ${isSolved ? 'fa-check-circle' : 'fa-circle'}`} /> {isSolved ? 'Solved' : 'Mark solved'}
+                  <i className={`fas ${isSolved ? 'fa-check-circle' : 'fa-circle'}`} /> {isSolved ? 'Resuelto' : 'Marcar resuelto'}
                 </button>
               </div>
 
               {open[`${ex.id}-hints`] && (
                 <div className='iv-ex-panel'>
-                  <strong>Hints</strong>
+                  <strong>Pistas</strong>
                   <ul>
                     {ex.hints.map((h) => (
                       <li key={h}>{h}</li>
                     ))}
                   </ul>
-                  <strong>Edge cases</strong>
+                  <strong>Casos borde</strong>
                   <ul>
                     {ex.edgeCases.map((c) => (
                       <li key={c}>{c}</li>
@@ -124,7 +129,7 @@ const InterviewWarmupComponent = () => {
                   </ul>
                   {ex.lesson && (
                     <>
-                      <strong>Lesson from my attempt</strong>
+                      <strong>Lección de mi intento</strong>
                       <p className='iv-ex-lesson'>{ex.lesson}</p>
                     </>
                   )}
@@ -135,14 +140,14 @@ const InterviewWarmupComponent = () => {
                 <div className='iv-ex-panel'>
                   <pre className='iv-ex-code'><code>{ex.solution}</code></pre>
                   <p className='iv-ex-complexity'>
-                    <strong>Complexity:</strong> {ex.complexity}
+                    <strong>Complejidad:</strong> {ex.complexity}
                   </p>
                 </div>
               )}
 
               {ex.related.length > 0 && (
                 <div className='iv-ex-related'>
-                  <span>Related on LeetCode:</span>
+                  <span>Relacionados en LeetCode:</span>
                   {ex.related.map((r) => (
                     <a key={r.url} href={r.url} target='_blank' rel='noopener noreferrer'>
                       {r.title}
